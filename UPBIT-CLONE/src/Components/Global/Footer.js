@@ -10,8 +10,7 @@ const St = {
     display: block;
     width: 100%;
     height: 100%;
-    /* height: 120px; */
-    background-color: white;
+    background-color:rgb(255, 215, 0);
     padding: 20px 0;
     @media ${({ theme }) => theme.tablet} {
       display: none;
@@ -45,10 +44,9 @@ const St = {
   Description: styled.p`
     font-weight: 600;
     font-size: 0.9rem;
-    color: gray;
+    color: white;
     height: 85px;
     margin-top: 10px;
-    /* margin-left: 250px; */
   `,
   DescSpan: styled.span`
     display: block;
@@ -57,19 +55,18 @@ const St = {
   ContactContainer: styled.address`
     display: flex;
     flex-direction: column;
-    /* margin-left: 250px; */
   `,
   LinkTitle: styled.span`
     height: 25px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: gray;
+    color: white;
   `,
   LinkTag: styled.a`
     display: flex;
     align-items: center;
     height: 30px;
-    color: black;
+    color: white;
     text-decoration: none;
   `,
   LinkSpan: styled.span`
@@ -78,8 +75,7 @@ const St = {
     font-weight: 600;
     font-size: 0.9rem;
     height: 20px;
-    /* line-height: 1.5rem; */
-    color: gray;
+    color: white;
   `,
 };
 
@@ -93,10 +89,10 @@ const Footer = () => {
           logo={process.env.PUBLIC_URL + "/blueLogo.png"}
         />
         <St.Description>
-          <St.DescSpan>Upbit Clone Project - Downbit</St.DescSpan>
-          <St.DescSpan>Created by Seongkyun Yu</St.DescSpan>
+          <St.DescSpan>Team Name : Kuos</St.DescSpan>
+          <St.DescSpan>Member : 서기영 김민욱 이혜진 박태현 이시은</St.DescSpan>
           <St.DescSpan>
-            Copyright © 2020 DOWNBIT INC. ALL RIGHTS RESERVED.
+            2022/02/24 START ~ 2022/03/31 END
           </St.DescSpan>
         </St.Description>
         <St.ContactContainer>
@@ -109,7 +105,7 @@ const Footer = () => {
                   size="lg"
                   title={"Github 아이콘"}
                 />
-                <St.LinkSpan>github.com/Seongkyun-Yu/upbit-clone</St.LinkSpan>
+                <St.LinkSpan>github.com/kuocoin</St.LinkSpan>
               </St.LinkTag>
             </li>
             <li>
@@ -119,7 +115,7 @@ const Footer = () => {
                   size="lg"
                   title={"이메일 아이콘"}
                 />
-                <St.LinkSpan>ysungkyun@gmail.com</St.LinkSpan>
+                <St.LinkSpan>leesieun@gmail.com</St.LinkSpan>
               </St.LinkTag>
             </li>
           </ul>
