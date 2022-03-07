@@ -4,8 +4,6 @@ import Header from "../Components/Global/Header";
 import Footer from "../Components/Global/Footer";
 import HomeBackimg from "../Components/Home/HomeBackimg";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
 const Home = ({ match, widthSize, heightSize }) => {
   const isHomeURL = match.path === "/home";
 
@@ -14,6 +12,7 @@ const Home = ({ match, widthSize, heightSize }) => {
     <Header/>
     <HomeBackimg/>
     <Footer/>
+
     </>
   );
 };
