@@ -7,19 +7,19 @@ import Header from "../Components/Global/Header";
 import Footer from "../Components/Global/Footer";
 import BlockInfoHeader from "../Components/Explorer/BlockInfoHeader"
 import BlockHeadAd from "../Components/Explorer/BlockHeadAd";
-import BlockNumberDiv from "../Components/Explorer/BlockNumber";
+import BlockNumber from "../Components/Explorer/BlockNumber";
+import BlockHash from "../Components/Explorer/BlockHash";
+import BlockGenralInfo from "../Components/Explorer/BlockGenralInfo";
+import ToastsPop from "../Container/Explorer/ToastsPop";
 
 const St = {
   ExplorerContentContainer: styled.div`
     /* display: flex; */
     /* justify-content: center; */
-    max-width: 1500px;
+    max-width: 1400px;
     margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 50px;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
 
     @media ${({ theme }) => theme.tablet} {
       margin-top: 0;
@@ -31,20 +31,17 @@ const St = {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px;
-    border-bottom: 1px solid ${({ theme }) => theme.lightGray2};
-    border: 1px solid black;
+    margin: 2% 0 1% 0;
+    /* padding: 20px; */
+    /* border-bottom: 1px solid ${({ theme }) => theme.lightGray2}; */
   `,
   BlockContainer: styled.div`
     display: flex;
     justify-content: space-between;
-    max-width: 1500px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 50px;
+    /* max-width: 1500px; */
+    margin: 0 auto 50px auto;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
 
     @media ${({ theme }) => theme.tablet} {
       /* margin-top: 0; */
@@ -56,10 +53,9 @@ const St = {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    width: 75%;
     max-width: 1500px;
-    margin: 10px;
-    border: 1px solid black;
+    margin: 10px 0;
 
     @media ${(props) => (props.isRootURL ? props.theme.tablet : true)} {
       display: none;
@@ -70,10 +66,9 @@ const St = {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px;
-    margin: 10px;
-    border-bottom: 1px solid ${({ theme }) => theme.lightGray2};
-    border: 1px solid black;
+    /* padding: 10px; */
+    margin: 10px 0;
+    /* border-bottom: 1px solid ${({ theme }) => theme.lightGray2}; */
   `,
   BlockHashContainer: styled.div`
     display: flex;
@@ -81,10 +76,11 @@ const St = {
     align-items: center;
     width: 100%;
     background-color: white;
-    padding: 10px;
-    margin: 10px;
-    border-bottom: 1px solid ${({ theme }) => theme.lightGray2};
-    border: 1px solid black;
+    padding: 4%;
+    margin: 4% 0;
+    /* border-bottom: 1px solid ${({ theme }) => theme.lightGray2}; */
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
   `,
   BlockGeneralInfoContainer: styled.div`
     display: flex;
@@ -92,10 +88,11 @@ const St = {
     align-items: center;
     width: 100%;
     background-color: white;
-    padding: 10px;
+    padding: 4%;
     margin: 10px;
-    border-bottom: 1px solid ${({ theme }) => theme.lightGray2};
-    border: 1px solid black;
+    /* border-bottom: 1px solid ${({ theme }) => theme.lightGray2}; */
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
   `,
   BlockMarketPriceContainer: styled.article`
     /* display: none; */
@@ -103,10 +100,11 @@ const St = {
     /* position: sticky; */
     /* top: 70px; */
     height: 40%;
-    width: 25%;
+    width: 22%;
     background-color: white;
     margin: 10px;
     border: 1px solid black;
+    
     /* overflow: hidden; */
 
     /* @media ${({ theme }) => theme.desktop} {
@@ -144,10 +142,15 @@ const Explorer = ({ match, widthSize, heightSize }) => {
         <St.BlockContainer>
           <St.BlockInfoContainer>
             <St.BlockNumberContainer>
-              <BlockNumberDiv />
+              <BlockNumber />
             </St.BlockNumberContainer>
-            <St.BlockHashContainer />
-            <St.BlockGeneralInfoContainer />
+            <St.BlockHashContainer>
+              <BlockHash />
+              <ToastsPop />
+            </St.BlockHashContainer>
+            <St.BlockGeneralInfoContainer>
+              <BlockGenralInfo />
+            </St.BlockGeneralInfoContainer>
           </St.BlockInfoContainer>
           <St.BlockMarketPriceContainer>
             block market price container

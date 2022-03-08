@@ -1,21 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { BsBox } from 'react-icons/bs';
+import { SiHackthebox } from 'react-icons/si';
 
 const St = {
-  BlockNumberDiv: styled.div`
+  BlockNumberContainer: styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 18%;
-  padding: 5px;
-  border-bottom: 1px solid ${({ theme }) => theme.lightGray2};
   cursor: pointer;
   `,
-
-  BlockNumIcon: styled.div`
+  BlockCurIcon: styled.div`
   border-radius: 50%;
-  padding: 10px;
+  padding: 16px;
+  margin-right: 10px;
+  background-color: blue;
+  color: white;
+  `,
+  BlockIcons: styled.div`
+  border-radius: 50%;
+  padding: 12px;
+  margin-right: 10px;
   background-color: white;
   color: blue;
   &:hover {
@@ -25,15 +29,17 @@ const St = {
   .BlockBox:hover {
     color: white;
   }
-  .BlockBox {
-    size: 24px;
-  }
-  border: 1px solid black;
   `,
-
+  BlockNumInfoDiv: styled.div`
+    display: block;
+  `,
   BlockNumInfo: styled.div`
-  padding: 10px;
-  /* border: 1px solid black; */
+    color: gray;
+  `,
+  BlockCurNum: styled.div`
+  font-size: larger;
+  font-weight: 400;
+  padding: 2px 0;
   `
 };
 
@@ -41,23 +47,29 @@ const clickBlock = () => {
   document.location.href='/'
 };
 
-const BlockNumberDiv = () => {
+const BlockNumber = () => {
   return(
     <>
-    <St.BlockNumberDiv onClick={clickBlock}>
-      <St.BlockNumIcon><BsBox className="BlockBox" size="24"/></St.BlockNumIcon>
-      <St.BlockNumInfo>Previos<br/>numbder</St.BlockNumInfo>
-    </St.BlockNumberDiv>
-    <St.BlockNumberDiv onClick={clickBlock}>
-      <St.BlockNumIcon><BsBox className="BlockBox" size="24"/></St.BlockNumIcon>
-      <St.BlockNumInfo>Current<br/>numbder</St.BlockNumInfo>
-    </St.BlockNumberDiv>
-    <St.BlockNumberDiv onClick={clickBlock}>
-      <St.BlockNumIcon><BsBox className="BlockBox" size="24"/></St.BlockNumIcon>
-      <St.BlockNumInfo>Next<br/>numbder</St.BlockNumInfo>
-    </St.BlockNumberDiv>
+    <St.BlockNumberContainer onClick={clickBlock}>
+      <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
+      <St.BlockNumInfoDiv>
+        <St.BlockNumInfo>Previos</St.BlockNumInfo>
+        <>numbder</>
+      </St.BlockNumInfoDiv>
+    </St.BlockNumberContainer>
+    <St.BlockNumberContainer onClick={clickBlock}>
+      <St.BlockCurIcon><SiHackthebox className="BlockBox" size="34"/></St.BlockCurIcon>
+      <St.BlockCurNum>Current<br/>numbder</St.BlockCurNum>
+    </St.BlockNumberContainer>
+    <St.BlockNumberContainer onClick={clickBlock}>
+      <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
+      <St.BlockNumInfoDiv>
+      <St.BlockNumInfo>next</St.BlockNumInfo>
+        <>numbder</>
+      </St.BlockNumInfoDiv>
+    </St.BlockNumberContainer>
     </>
   )
 };
 
-export default BlockNumberDiv;
+export default BlockNumber;
