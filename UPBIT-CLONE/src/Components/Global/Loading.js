@@ -23,7 +23,7 @@ const Loading = ({ center = true }) => {
     <St.Container isCenter={center}>
       <ReactLoading
         type={"spokes"}
-        color={"rgb(18, 97, 196)"}
+        color={"rgb(255, 215, 0)"}
         height={"100px"}
         width={"100px"}
       />

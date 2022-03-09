@@ -233,7 +233,7 @@ const OrderInfoAskBid = ({
           width={"30%"}
           minWidth={"70px"}
           marginRight={"5px"}
-          bgColor={theme.deepBlue}
+          bgColor={theme.test}
           fontSize={"0.9rem"}
           fontColor={"white"}
         >
@@ -241,7 +241,7 @@ const OrderInfoAskBid = ({
         </St.Button>
         <St.Button
           width={"65%"}
-          bgColor={theme.priceDown}
+          bgColor={theme.test}
           fontSize={"0.9rem"}
           fontColor={"white"}
         >
