@@ -3,6 +3,7 @@ import React from "react";
 import "./Mypage.css";
 
 
+
 export default function Profile() {
 const [state, setState] = useState({
     id: 1,
