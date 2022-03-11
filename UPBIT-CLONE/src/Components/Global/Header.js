@@ -4,16 +4,16 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 
 function Header() {
   return(
-<Navbar style={{backgroundColor:'rgb(255, 215, 0)'}}  expand="lg">
+<Navbar style={{backgroundColor:'rgb(255, 255, 255)'}}  expand="lg">
 <Container>
 <Navbar.Brand href="/home">
         <img
-          src="/3.jpeg"
+          src="/kuoslogo.png"
           width="50"
           height="50"
           className="d-inline-block align-top"
         />{' '}
-      KuoCoin
+      KuosCoin
       </Navbar.Brand>
     <Nav className="ml-auto">
       <Nav.Link href='/'>거래소</Nav.Link>
