@@ -19,3 +19,5 @@ const upload = multer({
 
 router.get('/mypage', controllers.mypage_ProfileGet_Controllers);
 router.put('/mypage', controllers.mypage_ProfilePut_Controllers);
+
+module.exports = router;

@@ -3,8 +3,9 @@ const app = express();
 const port = 3001; 
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const router = require("./routes/routes");
 // const pool = require("./mysqlcon"); 
-const multer = require("multer");
+// const multer = require("multer");
 const path = require('path');
 // const http = require("http").createServer(app);
 // var io = require('socket.io')(http, {cors : {origin: "*"}});
@@ -31,13 +32,14 @@ const path = require('path');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use("/", router);
 // app.use(cors(corsOptions));
 
 // app.get('/', (req, res) =>{
 //     res.send('test...')
 // })
 
-app.use('/', express.static(path.join(__dirname, '/')));
+// app.use('/', express.static(path.join(__dirname, '/')));
 
 // app.get("/mypage", (req, res) => {
 //     pool.getConnection((err, connection) => {
@@ -72,4 +74,4 @@ app.use('/', express.static(path.join(__dirname, '/')));
 //     })
 // });
 
-app.listen(port, () => {console.log(`Server running at port ${port}...`)})
+app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
