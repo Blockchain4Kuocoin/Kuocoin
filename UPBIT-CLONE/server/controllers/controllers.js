@@ -14,5 +14,5 @@ exports.mypage_ProfilePut_Controllers = (req, res) => {
     exports.id = req.body.id;
     models.mypage.mypage_ProfilePut_Models().then((result) => {
         res.send(result);
-    })
+    });
 }
