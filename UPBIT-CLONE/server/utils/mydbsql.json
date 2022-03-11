@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "5962",
+    "database": "kuo",
+    "connectionLimit": 10
+}
