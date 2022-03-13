@@ -1,44 +1,56 @@
 import React from "react";
 import styled from "styled-components";
-import ClipboardCopy from "../../Container/Explorer/ClipCopy1";
-import ToastsPop from "../../Container/Explorer/ToastsPop"
+import copyTextUrl from "../../Container/Explorer/ClipCopy";
+import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
+// import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
+// const ToastsPop = () => {
+//   ToastsStore.success("Copied!");
 
+//   return (
+//     <div>
+//       {/* <button type="button"
+//               id="popup"
+//               onClick={ToastsPop}>
+//           Toast
+//       </button> */}
+//       <ToastsContainer position={ToastsContainerPosition.TOP_CENTER}
+//               store={ToastsStore} 
+//                       lightBackground/>
+//     </div>
+//   );
+// };
 const St = {
-  BlockInfoHeaderContainer: styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 15%;
-  background-color: white;
-  padding: 10px;
-  border-bottom: 1px solid ${({ theme }) => theme.lightGray2};
-  border: 1px solid black;
+  BlockHashInfoContainer: styled.div`
+    display: block;
   `,
-  BlockInfoHeaderLogo: styled.div`
-  border: 1px solid black;
-  border-radius: 50%;
-  `,
-  BlockInfoHeader: styled.div`
-  border: 1px solid black;
+  BlockHashDiv: styled.div`
+    color: #000;
+    margin-top: 10px;
+    font-size: x-large;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
   `
 };
+
+// const CopyHash = () => {
+//   const url = window.location.href; // url 복사
+
+//   navigator.clipboard.writeText(url).then(() => {
+//     alert("링크를 복사했습니다.");
+//   });
+// };
 
 const BlockHash = () => {
   return(
     <>
-    <div>
-    hash<br/>
-    blahbalh
-    </div>
-    <div>
-    <ClipboardCopy onClick={ToastsPop}/>
-    </div>
-    
+    <St.BlockHashInfoContainer>
+      <>Hash</>
+      <St.BlockHashDiv>asdfß</St.BlockHashDiv>
+    </St.BlockHashInfoContainer>
+    <RiCheckboxMultipleBlankLine onClick={copyTextUrl}  size="20"/>
     </>
   )
-
-
 };
 
 export default BlockHash;

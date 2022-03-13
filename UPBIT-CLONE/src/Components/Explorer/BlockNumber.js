@@ -37,9 +37,9 @@ const St = {
     color: gray;
   `,
   BlockCurNum: styled.div`
-  font-size: larger;
-  font-weight: 400;
-  padding: 2px 0;
+  font-size: x-large;
+  font-weight: 700;
+  margin: 8px 0;
   `
 };
 
@@ -59,7 +59,10 @@ const BlockNumber = () => {
     </St.BlockNumberContainer>
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockCurIcon><SiHackthebox className="BlockBox" size="34"/></St.BlockCurIcon>
-      <St.BlockCurNum>Current<br/>numbder</St.BlockCurNum>
+      <St.BlockNumInfoDiv>
+        <St.BlockNumInfo>Current</St.BlockNumInfo>
+        <St.BlockCurNum>numbder</St.BlockCurNum>
+      </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
