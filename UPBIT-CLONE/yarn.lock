@@ -3425,13 +3425,6 @@
 "copy-descriptor@^0.1.0":
   "version" "0.1.1"
 
-"copy-to-clipboard@^3":
-  "integrity" "sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw=="
-  "resolved" "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz"
-  "version" "3.3.1"
-  dependencies:
-    "toggle-selection" "^1.0.6"
-
 "core-js-compat@^3.6.2", "core-js-compat@^3.8.0":
   "version" "3.8.3"
   dependencies:
@@ -8426,7 +8419,6 @@
   dependencies:
     "read" "1"
 
-<<<<<<< HEAD
 "prop-types-extra@^1.1.0":
   "version" "1.1.1"
   dependencies:
@@ -8434,11 +8426,6 @@
     "warning" "^4.0.0"
 
 "prop-types@^15.0.0", "prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.7.2":
-=======
-"prop-types@^15.0.0", "prop-types@^15.5.8", "prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.7.2":
-  "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
-  "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
->>>>>>> a3578f502ff4200d10e8e25281e2e8a9065860d3
   "version" "15.8.1"
   dependencies:
     "loose-envify" "^1.4.0"
@@ -8604,7 +8591,6 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
-<<<<<<< HEAD
 "react-bootstrap@^2.1.2":
   "version" "2.1.2"
   dependencies:
@@ -8624,15 +8610,6 @@
     "react-transition-group" "^4.4.1"
     "uncontrollable" "^7.2.1"
     "warning" "^4.0.3"
-=======
-"react-copy-to-clipboard@^5.0.4":
-  "integrity" "sha512-IeVAiNVKjSPeGax/Gmkqfa/+PuMTBhutEvFUaMQLwE2tS0EXrAdgOpWDX26bWTXF3HrioorR7lr08NqeYUWQCQ=="
-  "resolved" "https://registry.npmjs.org/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.4.tgz"
-  "version" "5.0.4"
-  dependencies:
-    "copy-to-clipboard" "^3"
-    "prop-types" "^15.5.8"
->>>>>>> a3578f502ff4200d10e8e25281e2e8a9065860d3
 
 "react-dev-utils@^9.1.0":
   "version" "9.1.0"
@@ -8834,13 +8811,7 @@
 "react-virtualized-auto-sizer@^1.0.2":
   "version" "1.0.2"
 
-<<<<<<< HEAD
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.3.0 || ^16.0.0-alpha", "react@^16.0.0", "react@^16.13.1", "react@^16.14.0", "react@^16.8.0 || ^17.0.0-rc.1", "react@^16.8.3", "react@>= 16.8.0", "react@>=0.14.0", "react@>=15", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x":
-=======
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^15.3.0 || ^16.0.0-alpha", "react@^16.0.0", "react@^16.13.1", "react@^16.14.0", "react@^16.8.3", "react@>= 16.8.0", "react@>=0.14.0", "react@>=15", "react@>=16.x":
-  "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
-  "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
->>>>>>> a3578f502ff4200d10e8e25281e2e8a9065860d3
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.3.0 || ^16.0.0-alpha", "react@^16.0.0", "react@^16.14.0", "react@^16.8.0 || ^17.0.0-rc.1", "react@^16.8.3", "react@>= 16.8.0", "react@>=0.14.0", "react@>=15", "react@>=15.0.0", "react@>=16.14.0", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.x":
   "version" "16.14.0"
   dependencies:
     "loose-envify" "^1.1.0"
@@ -10103,11 +10074,6 @@
     "extend-shallow" "^3.0.2"
     "regex-not" "^1.0.2"
     "safe-regex" "^1.1.0"
-
-"toggle-selection@^1.0.6":
-  "integrity" "sha1-bkWxJj8gF/oKzH2J14sVuL932jI="
-  "resolved" "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
-  "version" "1.0.6"
 
 "toidentifier@1.0.0":
   "version" "1.0.0"
