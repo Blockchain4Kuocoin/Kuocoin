@@ -10,7 +10,6 @@ import BlockHeadAd from "../Components/Explorer/BlockHeadAd";
 import BlockNumber from "../Components/Explorer/BlockNumber";
 import BlockHash from "../Components/Explorer/BlockHash";
 import BlockGenralInfo from "../Components/Explorer/BlockGenralInfo";
-import ToastsPop from "../Container/Explorer/ToastsPop";
 
 const St = {
   ExplorerContentContainer: styled.div`
@@ -78,6 +77,7 @@ const St = {
     background-color: white;
     padding: 4%;
     margin: 4% 0;
+    color: gray;
     /* border-bottom: 1px solid ${({ theme }) => theme.lightGray2}; */
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
@@ -146,7 +146,6 @@ const Explorer = ({ match, widthSize, heightSize }) => {
             </St.BlockNumberContainer>
             <St.BlockHashContainer>
               <BlockHash />
-              <ToastsPop />
             </St.BlockHashContainer>
             <St.BlockGeneralInfoContainer>
               <BlockGenralInfo />

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
 const ToastsPop = () => {
@@ -6,11 +6,11 @@ const ToastsPop = () => {
 
   return (
     <div>
-      <button type="button"
+      {/* <button type="button"
               id="popup"
               onClick={ToastsPop}>
           Toast
-      </button>
+      </button> */}
       <ToastsContainer position={ToastsContainerPosition.TOP_CENTER}
               store={ToastsStore} 
                       lightBackground/>

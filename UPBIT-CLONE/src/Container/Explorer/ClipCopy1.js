@@ -1,4 +1,5 @@
 import React from "react";
+import ToastsPop from "./ToastsPop";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
 
 export default function ClipboardCopy() {
@@ -37,12 +38,12 @@ export default function ClipboardCopy() {
       document.execCommand("copy");
       // 흐름 6.복사 완료했다면 body에 추가한 textarea를 삭제
       document.body.removeChild(textarea);
-      alert("클립보드에 복사되었습니다.");
+      // alert("클립보드에 복사되었습니다.");
     }
   };
 
   return (
-    <RiCheckboxMultipleBlankLine onClick={() => doCopy("복사 성공!")} />
-    // <button onClick={() => doCopy("복사할텍스트입니다!")}>복사하기</button>
+  //   <RiCheckboxMultipleBlankLine onClick={() => doCopy("복사 성공!")} />
+    <button onClick={() => doCopy("복사할텍스트입니다!")}>복사하기</button>
   );
 }
