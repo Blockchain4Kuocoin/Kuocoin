@@ -16,7 +16,7 @@ function Header() {
       KuoCoin
       </Navbar.Brand>
     <Nav className="ml-auto">
-      <Nav.Link href='/'>거래소</Nav.Link>
+      <Nav.Link href='/trade'>거래소</Nav.Link>
       <Nav.Link href='/explorer'>Kuo Explorer</Nav.Link>
       <Nav.Link href='https://www.blockmedia.co.kr/'>Topic</Nav.Link>
       <Nav.Link href='login'>Login</Nav.Link>
