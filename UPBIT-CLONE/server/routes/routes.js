@@ -17,7 +17,13 @@ const upload = multer({
     })
 });
 
+
+//Mypage
 router.get('/mypage', controllers.mypage_ProfileGet_Controllers);
 router.put('/mypage', controllers.mypage_ProfilePut_Controllers);
 
+
+//Kuos api
+router.get('/test', controllers.api_TestGet_Controllers);
+router.get('/api/getnetworkinfo', controllers.api_Getnetworkinfo_Controllers);
 module.exports = router;

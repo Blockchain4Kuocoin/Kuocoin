@@ -15,4 +15,19 @@ exports.mypage_ProfilePut_Controllers = (req, res) => {
     models.mypage.mypage_ProfilePut_Models().then((result) => {
         res.send(result);
     });
+};
+
+//Kuos Api
+
+exports.api_TestGet_Controllers = (req, res) => {
+    models.api.api_TestGet_Models().then((result) => {
+        // res.send(result);
+        console.log(result);
+    });
+};
+
+exports.api_Getnetworkinfo_Controllers = (req, res) => {
+    models.api.api_Getnetworkinfo_Models().then((result) => {
+        res.send(result);
+    })
 }

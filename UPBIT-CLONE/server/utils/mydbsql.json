@@ -1,7 +1,7 @@
 {
-    "host": "localhost",
-    "user": "root",
-    "password": "Tjrldud@1995",
-    "database": "kuocoin",
+    "host": "3.36.137.185",
+    "user": "kuos",
+    "password": "kuos1995",
+    "database": "kuos",
     "connectionLimit": 10
 }
