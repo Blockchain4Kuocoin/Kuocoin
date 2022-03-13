@@ -22,7 +22,13 @@ modelExports.api_TestGet_Models = () => {
 
 modelExports.api_Getnetworkinfo_Models = () => {
     return new Promise((resolve, reject) => {
-        var dataString = `{"jsonrpc":"1.0","id":"${ID_STRING}","method":"getnetworkinfo","params":[]}`;
+        var dataString = `{
+            "jsonrpc":"1.0",
+            "id":"${ID_STRING}",
+            "method":"getnetworkinfo",
+            "params":[]
+        }`;
+
         var options = {
             url: `http://${USER}:${PASS}@127.0.0.1:${PORT}/`,
             method: "POST",
@@ -37,6 +43,85 @@ modelExports.api_Getnetworkinfo_Models = () => {
             }
         };
         request(options, callback);
-    })
+    });
+};
 
-}
+modelExports.api_Getblockcount_Models = () => {
+    return new Promise((resolve, reject) => {
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"getblockcount",
+            "params":[]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                resolve(data);
+            }
+        }
+        request(options, callback);
+    });
+};
+
+modelExports.api_Getnewaddress_Models = () => {
+    const account = controllers.account;
+
+    return new Promise((resolve, reject) => {
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"getnewaddress",
+            "params":["${account}"]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                resolve(data);
+            }
+        }
+        request(options, callback);
+    });
+};
+
+modelExports.api_Listaccounts_Models = () => {
+    return new Promise((resolve, reject) => {
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"listaccounts",
+            "params":[]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                resolve(data);
+            }
+        }
+        request(options, callback);
+    });
+};

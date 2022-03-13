@@ -1,18 +1,18 @@
 import React from "react";
 import axios from "axios";
 
-export default function Getnetworkinfo() {
+export default function Listaccounts() {
 
     const onClick = () => {
-        axios.get("http://localhost:3001/api/getnetworkinfo")
+        axios.get("http://localhost:3001/api/listaccounts")
         .then((response) => console.log(response.data));
     }
 
     return (
         <>
-        <p>|NETWORKINFO :</p>
+        <p>|List of Accounts :</p>
         <br />
-        <button onClick={onClick}>Getnetworkinfo</button>
+        <button onClick={onClick}>Listaccounts</button>
         </>
     );
 }
