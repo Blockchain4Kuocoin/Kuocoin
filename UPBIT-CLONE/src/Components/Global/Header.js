@@ -6,7 +6,7 @@ function Header() {
   return(
 <Navbar style={{backgroundColor:'rgb(255, 215, 0)'}}  expand="lg">
 <Container>
-<Navbar.Brand href="/home">
+<Navbar.Brand href="/">
         <img
           src="/3.jpeg"
           width="50"
@@ -16,10 +16,14 @@ function Header() {
       KuoCoin
       </Navbar.Brand>
     <Nav className="ml-auto">
-      <Nav.Link href='/'>거래소</Nav.Link>
+      <Nav.Link href='home/'>거래소</Nav.Link>
       <Nav.Link href='/explorer'>Kuo Explorer</Nav.Link>
       <Nav.Link href='https://www.blockmedia.co.kr/'>Topic</Nav.Link>
-      <Nav.Link href='/userlogin'>login</Nav.Link>
+      <Nav.Link href='/userlogin'>로그인</Nav.Link>
+      <Nav.Link href='/usersignup'>회원가입</Nav.Link>
+     
+
+      
     </Nav>
 </Container>
 </Navbar>

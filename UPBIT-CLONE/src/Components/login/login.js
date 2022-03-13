@@ -1,8 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import React from "react"
 import axios from "axios"   //server와 통신하는 모듈
-// import { Link } from "react-router-dom"
-// import Signup from "./signup"
+import "./LoginRegister.css"
 
 export default function Login() {
     const [ info, setInfo ] = useState({id: "", pw: ""})
@@ -18,40 +17,47 @@ export default function Login() {
         
         console.log(`id : ${info.id}`)
         console.log(`pw : ${info.pw}`)
-        axios.get("http://localhost:3000/login", {
+        axios.get("http://localhost:3001/login", {
             params: {
                 id: info.id,
                 pw: info.pw
             }
         })
-        .then(res=> {console.log(res.data)})
+        .then(res => {
+            console.log(res)
+            // console.log('res.data.userId :: ', res.data.id)/
+            console.log('res.data.msg :: ', res.data.messages);
+            let msg = res.data.messages;
+            if(msg === "no data"){
+                // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
+                console.log('======================',res.data.msg)
+                alert('입력하신 정보가 일치하지 않습니다.')
+            } 
+            // else if(res.data.userId === null){
+            //     // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
+            //     console.log('======================','입력하신 비밀번호 가 일치하지 않습니다.')
+            //     alert('입력하신 비밀번호 가 일치하지 않습니다.')
+            // } 
+            else {
+                // id, pw 모두 일치 userId = userId1, msg = undefined
+                console.log('======================','로그인 성공')
+                sessionStorage.setItem('user_id', info.id)
+            }
+            // // 작업 완료 되면 페이지 이동(새로고침)
+            document.location.href = '/'
+        })
+
+
     }
 
 
     return (
-
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh'
-        }}>
-
-            <form style={{display: 'flex', flexDirection: 'column'}}>
-
-                <label>아이디: </label>
-                <input name="id" onChange={ onChange } value={ info.id || "" } /><br />
-                <label>비밀번호: </label>
-                <input name="pw" onChange={ onChange } value={ info.pw || "" } /><br />
-
-                <br />
-                <button onClick={onSubmit}>
-                    로그인
-                </button>
-                <br />
-                <button>
-                    회원가입
-                </button>
+        <div className="loginregister">
+            <form>
+                <input name="id" type="id" placeholder="아이디" value={ info.id || "" } className="loginregister__input" onChange={ onChange }/><br/>
+                <input name="pw" type="password" placeholder="비밀번호" value={ info.pw || "" } className="loginregister__input"onChange={ onChange } /><br/>
+                <button type="button" onClick={onSubmit} className="loginregister__button">로그인</button>
             </form>
-
         </div>
     )
 }
