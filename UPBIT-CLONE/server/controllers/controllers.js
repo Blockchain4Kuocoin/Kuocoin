@@ -17,6 +17,26 @@ exports.mypage_ProfilePut_Controllers = (req, res) => {
     });
 };
 
+//Signup & login
+exports.signup_Controllers = (req, res) => {
+    console.log("signup!");
+    exports.sid = req.body.id;
+    exports.spw = req.body.pw;
+    exports.sname = req.body.name;
+    models.auth.signup_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.login_Controllers = (req, res) => {
+    exports.lid = req.query.id;
+    exports.lpw = req.query.pw;
+    models.auth.login_Models().then((result) => {
+        res.send(result);
+    })
+}
+
+
 //Kuos Api
 
 exports.api_TestGet_Controllers = (req, res) => {
