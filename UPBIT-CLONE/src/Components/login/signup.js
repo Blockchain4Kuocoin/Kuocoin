@@ -23,7 +23,17 @@ export default function Signup() {
                 pw : info.pw,
                 name : info.name,
         })
-        .then(res => {console.log(res.data)})
+        .then(res => {
+            let msg = res.data.msg
+            console.log(msg);
+            if (msg == "user already exists!") {
+                alert("중복된 ID입니다.");
+            }
+            else {
+                alert("회원가입 성공!")
+                document.location.href = '/userlogin';    
+            }
+        });
     }
 
 

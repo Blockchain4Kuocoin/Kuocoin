@@ -2,16 +2,17 @@ const models = require("../models/models");
 
 //Mypage
 exports.mypage_ProfileGet_Controllers = (req, res) => {
+    exports.mid = req.query.id;
     models.mypage.mypage_ProfileGet_Models().then((result) => {
         res.send(result);
     });
 };
 
 exports.mypage_ProfilePut_Controllers = (req, res) => {
-    exports.kuoname = req.body.kuoname;
-    exports.kuopwd = req.body.kuopwd;
-    exports.kuoadr = req.body.kuoadr;
-    exports.id = req.body.id;
+    console.log(req.body);
+    exports.pname = req.body.name;
+    exports.ppw = req.body.pw;
+    exports.pid = req.body.id;
     models.mypage.mypage_ProfilePut_Models().then((result) => {
         res.send(result);
     });
