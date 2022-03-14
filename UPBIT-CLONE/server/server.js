@@ -3,8 +3,7 @@ const app = express();
 const port = 3001; 
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const pool = require("./mysqlcon"); 
-const multer = require("multer");
+const router = require("./routes/routes");
 const path = require('path');
 const http = require("http").createServer(app);
 const mysql = require("mysql");
@@ -182,3 +181,11 @@ app.post("/signup",( req , res ) => {
 // });
 
 app.listen(port, () => {console.log('server running')})
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
+app.use("/", router);
+
+app.listen(port, () => {console.log(`Server is running at port ${port}...`)})

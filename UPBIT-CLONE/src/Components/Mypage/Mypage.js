@@ -1,5 +1,6 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import React from "react";
+import "./Mypage.css";
 
 
 export default function Profile() {
@@ -93,46 +94,36 @@ const btnClick = () => {
 }
 if(check) {
 return (
-    <>
-        <div>
-            
-            <h2>프로필</h2><br/>
-            <p>이름 {state.name}</p>
-            <p>아이디 {state.id}</p>
-            <p>비밀번호 {state.psw}</p>
-            <p>주소 {state.adr}</p>
-            <div>
-            <button type = "button" onClick = {onClick} >수정하기</button>
-            
-        </div>
+    <div className="mydiv">
+        <h2 className="mytitle">PROFILE</h2><br/>
+        <p className="mytext">NAME : {state.name}</p>
+        <p className="mytext">ID : {state.id}</p>
+        <p className="mytext">PASSWORD : {state.psw}</p>
+        <p className="mytext">ADDRESS : {state.adr}</p>
+        <button className="mybtn" type = "button" onClick = {onClick} >수정하기</button>
     </div>
-    </>
     );
 }
 else{
     return (
-        <>
-            <div>
-                
-                <h2>프로필</h2><br/>
-                <p>이름 
-                    <input name = "name" value = {name} type = "text" placeholder = {state.name} onChange = {handler} />
-                </p>
-                <p>아이디 
-                    <input name = "id" value = {id} type = "text" placeholder = {state.id} onChange = {handler} />
-                </p>
-                <p>비밀번호 
-                    <input name = "psw" value = {psw} type = "text" placeholder = {state.psw} onChange = {handler} />
-                </p>
-                <p>주소 
-                    <input name = "adr" value = {adr} type = "text" placeholder = {state.adr} onChange = {handler} />
-                </p>
-                <div>
-                <button type = "button" onClick = {btnClick}>저장하기</button>
-                
-            </div>
-        </div>
-        </>
+<>
+    <div className="mydiv">
+        <h2 className="mytitle">PROFILE</h2><br/>
+        <p className="mytext">NAME 
+            <input className="myinput" name = "name" value = {name} type = "text" placeholder = {state.name} onChange = {handler}/>
+        </p>
+        <p className="mytext">ID 
+            <input className="myinput" name = "id" value = {id} type = "text" placeholder = {state.id} onChange = {handler}/>
+        </p>
+        <p className="mytext">PASSWORD 
+            <input className="myinput" name = "psw" value = {psw} type = "text" placeholder = {state.psw} onChange = {handler}/>
+        </p>
+        <p className="mytext">ADDRESS 
+            <input className="myinput" name = "adr" value = {adr} type = "text" placeholder = {state.adr} onChange = {handler}/>
+        </p>
+        <button className="mybtn" type = "button" onClick = {btnClick}>저장하기</button>
+    </div>
+</>
         );
     }
 }

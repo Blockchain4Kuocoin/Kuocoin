@@ -6,6 +6,11 @@ import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
 
 import Mypage from "../Pages/Mypage";
+import Api from "../Pages/Api";
+import Getnetworkinfo from "../Components/API/getnetworkinfo";
+import Getblockcount from "../Components/API/getblockcount";
+import Getnewaddress from "../Components/API/getnewaddress";
+import Listaccounts from "../Components/API/listaccounts";
 
 const MainRouter = () => {
   return (
@@ -16,6 +21,11 @@ const MainRouter = () => {
       <Route exact path="/userlogin" component={Userlogin} />
       <Route exact path="/usersignup" component={UserSignup} />
       <Route exact path="/mypage" component={Mypage} />
+      <Route exact path="/api" component={Api} />
+      <Route exact path="/getnetworkinfo" component={Getnetworkinfo} />
+      <Route exact path="/getblockcount" component={Getblockcount} />
+      <Route exact path="/getnewaddress" component={Getnewaddress} />
+      <Route exact path="/listaccounts" component={Listaccounts} />
     </Switch>
   );
 };

@@ -17,11 +17,11 @@ function Header() {
       </Navbar.Brand>
     <Nav className="ml-auto">
       <Nav.Link href='home/'>거래소</Nav.Link>
+      <Nav.Link href='/trade'>거래소</Nav.Link>
       <Nav.Link href='/explorer'>Kuo Explorer</Nav.Link>
       <Nav.Link href='https://www.blockmedia.co.kr/'>Topic</Nav.Link>
       <Nav.Link href='/userlogin'>로그인</Nav.Link>
       <Nav.Link href='/usersignup'>회원가입</Nav.Link>
-     
 
       
     </Nav>
