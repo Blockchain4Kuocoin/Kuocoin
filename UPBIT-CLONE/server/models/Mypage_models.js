@@ -3,9 +3,11 @@ const modelExports = (module.exports = {});
 const controllers = require("../controllers/controllers");
 
 modelExports.mypage_ProfileGet_Models = () => {
+    
+    const id = controllers.mid;
     return new Promise((resolve, reject) => {
 
-        const sql = "SELECT * FROM kuoinfo;";
+        const sql = `SELECT * FROM userinfo WHERE userid = "${id}"`;
 
         con.getConnection((err, connection) => {
             try {
@@ -15,8 +17,8 @@ modelExports.mypage_ProfileGet_Models = () => {
                     if(err) {
                         throw err;
                     } else {
-                        resolve(result);
-                        console.log(result);
+                        resolve(result[0]);
+                        console.log(result[0]);
                     }    
                 });
                 connection.release();
@@ -31,14 +33,13 @@ modelExports.mypage_ProfileGet_Models = () => {
 };
 
 modelExports.mypage_ProfilePut_Models = () => {
-    const kuoname = controllers.kuoname;
-    const kuopwd = controllers.kuopwd;
-    const kuoadr = controllers.kuoadr;
-    const id = controllers.id;
+    const name = controllers.pname;
+    const pw = controllers.ppw;
+    const id = controllers.pid;
 
     return new Promise((resolve, reject) => {
 
-        const sql = `UPDATE kuoinfo SET kuoname = '${kuoname}',  kuopwd = '${kuopwd}', kuoadr = '${kuoadr}' WHERE id = '${id}'`;
+        const sql = `UPDATE userinfo SET username = '${name}',  userpw = '${pw}' WHERE userid = '${id}'`;
 
         con.getConnection((err, connection) => {
             try {

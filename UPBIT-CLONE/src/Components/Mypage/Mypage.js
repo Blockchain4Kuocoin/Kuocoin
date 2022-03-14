@@ -1,26 +1,24 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import React from "react";
+import axios from "axios";
 import "./Mypage.css";
-
 
 export default function Profile() {
 const [state, setState] = useState({
-    id: 1,
+    id: sessionStorage.user_id,
     name: "",
-    psw: "",
-    adr: "",
-})
+    pw: "",
+});
 
 const [check, setCheck] = useState(true);
 
 const [inputs, setInputs] = useState({
-    id: 1,
+    id: sessionStorage.user_id,
     name: "",
-    psw: "",
-    adr:"",
-})
+    pw: "",
+});
 
-const {name, id, psw, adr} = inputs
+const {name, id, pw} = inputs
 
 const handler = e => {
     const {value, name} = e.target
@@ -30,32 +28,20 @@ const handler = e => {
     })
 }
 
-useLayoutEffect(
-    () => {
-        fetch("http://localhost:3001/mypage", 
-        {
-        method: "get",
-        headers: {
-            "content-type": "application/json",
-        },  
+useEffect(() => {
+    axios.get("http://localhost:3001/mypage", {
+        'params': {id: state.id},
     })
-    .then((res) => res.json())
-    .then((json) => {
-        console.log(json)
-        for (let val of json) {
-            if (val.id==inputs.id) {
-                setState({
-                    name: val.kuoname,
-                    id: val.id,
-                    psw: val.kuopwd,
-                    adr: val.kuoadr,
-                })
-            }
-        }
+    .then((res) => {
+        const tmp = res.data;
+        console.log(tmp);
+        setState({
+            id: sessionStorage.user_id,
+            name: tmp.username,
+            pw: tmp.userpw,
+        });
     })
-
-    }, []
-) 
+}, []); 
 
 const onClick = () => {
     setCheck(false)
@@ -65,29 +51,17 @@ const btnClick = () => {
 
     if (name==="") inputs.name=state.name;
     if (id==="") inputs.id=state.id;
-    if (psw==="") inputs.psw=state.psw;
-    if (adr==="") inputs.adr=state.adr;
+    if (pw==="") inputs.pw=state.pw;
     console.log(inputs);
 
-    fetch("http://localhost:3001/mypage", 
-        {
-        method: "put",
-        headers: {
-            "content-type": "application/json",
-        },
-        body: JSON.stringify(inputs)
-    })
-
+    axios.put("http://localhost:3001/mypage", inputs,
+    )
+    .then(()=> {setState(inputs)})
     .then(()=> {
-        console.log('1')
-        setState(inputs);
-    }).then(()=> {
-        console.log('2')
         setInputs({
-            name: "",
+            name: "",   
             id: "",
-            psw: "",
-            adr:"",
+            pw: "",
         })
         setCheck(true)
     })
@@ -98,8 +72,7 @@ return (
         <h2 className="mytitle">PROFILE</h2><br/>
         <p className="mytext">NAME : {state.name}</p>
         <p className="mytext">ID : {state.id}</p>
-        <p className="mytext">PASSWORD : {state.psw}</p>
-        <p className="mytext">ADDRESS : {state.adr}</p>
+        <p className="mytext">PASSWORD : {state.pw}</p>
         <button className="mybtn" type = "button" onClick = {onClick} >수정하기</button>
     </div>
     );
@@ -116,10 +89,7 @@ else{
             <input className="myinput" name = "id" value = {id} type = "text" placeholder = {state.id} onChange = {handler}/>
         </p>
         <p className="mytext">PASSWORD 
-            <input className="myinput" name = "psw" value = {psw} type = "text" placeholder = {state.psw} onChange = {handler}/>
-        </p>
-        <p className="mytext">ADDRESS 
-            <input className="myinput" name = "adr" value = {adr} type = "text" placeholder = {state.adr} onChange = {handler}/>
+            <input className="myinput" name = "pw" value = {pw} type = "text" placeholder = {state.pw} onChange = {handler}/>
         </p>
         <button className="mybtn" type = "button" onClick = {btnClick}>저장하기</button>
     </div>
