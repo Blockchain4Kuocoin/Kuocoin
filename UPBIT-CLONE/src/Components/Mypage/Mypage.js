@@ -50,7 +50,6 @@ const onClick = () => {
 const btnClick = () => {
 
     if (name==="") inputs.name=state.name;
-    if (id==="") inputs.id=state.id;
     if (pw==="") inputs.pw=state.pw;
     console.log(inputs);
 
@@ -82,11 +81,11 @@ else{
 <>
     <div className="mydiv">
         <h2 className="mytitle">PROFILE</h2><br/>
+        <p className="mytext">ID 
+            <input className="myinput" name = "id" value = {id} type = "text" placeholder = {state.id} readOnly/>
+        </p>
         <p className="mytext">NAME 
             <input className="myinput" name = "name" value = {name} type = "text" placeholder = {state.name} onChange = {handler}/>
-        </p>
-        <p className="mytext">ID 
-            <input className="myinput" name = "id" value = {id} type = "text" placeholder = {state.id} onChange = {handler}/>
         </p>
         <p className="mytext">PASSWORD 
             <input className="myinput" name = "pw" value = {pw} type = "text" placeholder = {state.pw} onChange = {handler}/>
