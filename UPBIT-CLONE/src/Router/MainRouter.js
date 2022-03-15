@@ -11,6 +11,8 @@ import Getnetworkinfo from "../Components/API/getnetworkinfo";
 import Getblockcount from "../Components/API/getblockcount";
 import Getnewaddress from "../Components/API/getnewaddress";
 import Listaccounts from "../Components/API/listaccounts";
+import Getblockhash from "../Components/API/getblockhash";
+import Getblock from "../Components/API/getblock";
 
 const MainRouter = () => {
   return (
@@ -26,6 +28,8 @@ const MainRouter = () => {
       <Route exact path="/getblockcount" component={Getblockcount} />
       <Route exact path="/getnewaddress" component={Getnewaddress} />
       <Route exact path="/listaccounts" component={Listaccounts} />
+      <Route exact path="/getblockhash" component={Getblockhash} />
+      <Route exact path="/getblock" component={Getblock} />
     </Switch>
   );
 };

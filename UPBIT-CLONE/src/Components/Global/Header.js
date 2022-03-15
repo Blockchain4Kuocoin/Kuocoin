@@ -9,7 +9,7 @@ function Header() {
     <Container>
     <Navbar.Brand href="/">
             <img
-              src="/3.jpeg"
+              src="/kuoslogo.png"
               width="50"
               height="50"
               className="d-inline-block align-top"

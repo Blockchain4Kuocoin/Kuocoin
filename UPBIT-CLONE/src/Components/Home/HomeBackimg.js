@@ -4,7 +4,7 @@ import './HomeCss.css'
 const HomeBackimg = () => {
     return(
         <>
-        <img className='Backimg' src='./3.jpeg'></img>
+        {/* <img className='Backimg' src='./3.jpeg'></img> */}
         </>
     )
 }
