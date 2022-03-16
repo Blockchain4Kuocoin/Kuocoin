@@ -52,3 +52,21 @@ exports.api_Listaccounts_Controllers = (req, res) => {
         res.send(result);
     });
 };
+
+//Explorer
+
+exports.explorer_ProfileGet_Controllers = (req, res) => {
+    models.explorer.explorer_ProfileGet_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.explorer_ProfilePut_Controllers = (req, res) => {
+    exports.kuoname = req.body.kuoname;
+    exports.kuopwd = req.body.kuopwd;
+    exports.kuoadr = req.body.kuoadr;
+    exports.id = req.body.id;
+    models.explorer.explorer_ProfilePut_Models().then((result) => {
+        res.send(result);
+    });
+};

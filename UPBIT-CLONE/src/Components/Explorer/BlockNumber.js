@@ -54,21 +54,21 @@ const BlockNumber = () => {
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
       <St.BlockNumInfoDiv>
         <St.BlockNumInfo>Previos</St.BlockNumInfo>
-        <>numbder</>
+        <>DB</>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockCurIcon><SiHackthebox className="BlockBox" size="34"/></St.BlockCurIcon>
       <St.BlockNumInfoDiv>
         <St.BlockNumInfo>Current</St.BlockNumInfo>
-        <St.BlockCurNum>numbder</St.BlockCurNum>
+        <St.BlockCurNum>DB</St.BlockCurNum>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
       <St.BlockNumInfoDiv>
       <St.BlockNumInfo>next</St.BlockNumInfo>
-        <>numbder</>
+        <>DB</>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     </>
