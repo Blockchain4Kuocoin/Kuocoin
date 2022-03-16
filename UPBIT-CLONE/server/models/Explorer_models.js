@@ -2,7 +2,7 @@ const con = require("../utils/mysqlcon");
 const modelExports = (module.exports = {});
 const controllers = require("../controllers/controllers");
 
-modelExports.mypage_ProfileGet_Models = () => {
+modelExports.explorer_Models = () => {
   // return new Promise((resolve, reject) => {
 
   //     const sql = "SELECT * FROM testexplorer;";
