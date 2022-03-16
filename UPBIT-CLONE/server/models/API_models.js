@@ -128,14 +128,14 @@ modelExports.api_Listaccounts_Models = () => {
 
 modelExports.api_Getblockhash_Models = () => {
 
-    const blockhash = controllers.blockhash;
+    const blocknum = controllers.blocknum;
 
     return new Promise((resolve, reject) => {
         var dataString = `{
             "jsonrpc":"1.0", 
             "id":"${ID_STRING}", 
             "method":"getblockhash",
-            "params":[${blockhash}]
+            "params":[${blocknum}]
         }`;
     
         var options = {
@@ -165,7 +165,7 @@ modelExports.api_Getblock_Models = () => {
             "jsonrpc":"1.0", 
             "id":"${ID_STRING}", 
             "method":"getblock",
-            "params":[${block}]
+            "params":["${block}"]
         }`;
     
         var options = {
