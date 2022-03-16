@@ -11,9 +11,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/", router);
 
-<<<<<<< HEAD
-app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
-=======
 app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
 
 // const { spawn } = require('child_process');
@@ -35,4 +32,3 @@ app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
 //     if (signal) console.log(`Process killed with signal: ${signal}`);
 //     console.log(`Done!`)
 // });
->>>>>>> 866a0be64233036563444c7b2a9a93112097e0ce
