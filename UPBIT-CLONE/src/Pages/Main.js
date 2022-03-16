@@ -78,7 +78,7 @@ const St = {
 };
 
 const Main = ({ match, widthSize, heightSize }) => {
-  const isRootURL = match.path === "/";
+  const isRootURL = match.path === "/trade";
 
   return (
     <>
@@ -109,7 +109,7 @@ const Main = ({ match, widthSize, heightSize }) => {
               widthSize={widthSize}
               heightSize={heightSize}
               isRootURL={isRootURL}
-            />
+            />           
           )
         }
       </St.MainContentContainer>

@@ -3577,6 +3577,11 @@
   "resolved" "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   "version" "0.7.0"
 
+"child_process@^1.0.2":
+  "integrity" "sha1-sffn/HPSXn/R1FWtyU4UODAYK1o="
+  "resolved" "https://registry.npmjs.org/child_process/-/child_process-1.0.2.tgz"
+  "version" "1.0.2"
+
 "chokidar@^2.0.0", "chokidar@^2.0.4", "chokidar@^2.1.8":
   "integrity" "sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg=="
   "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-2.1.8.tgz"
@@ -9660,8 +9665,11 @@
   "version" "0.9.0"
 
 "object-assign@^4", "object-assign@^4.0.1", "object-assign@^4.1.0", "object-assign@^4.1.1":
+<<<<<<< HEAD
   "integrity" "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM="
   "resolved" "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
+=======
+>>>>>>> 866a0be64233036563444c7b2a9a93112097e0ce
   "version" "4.1.1"
 
 "object-copy@^0.1.0":
@@ -13905,8 +13913,11 @@
   "version" "1.0.1"
 
 "vary@^1", "vary@~1.1.2":
+<<<<<<< HEAD
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
+=======
+>>>>>>> 866a0be64233036563444c7b2a9a93112097e0ce
   "version" "1.1.2"
 
 "vendors@^1.0.0":

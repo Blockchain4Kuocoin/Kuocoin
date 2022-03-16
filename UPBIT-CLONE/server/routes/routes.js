@@ -22,6 +22,12 @@ const upload = multer({
 router.get('/mypage', controllers.mypage_ProfileGet_Controllers);
 router.put('/mypage', controllers.mypage_ProfilePut_Controllers);
 
+//Singup
+router.post('/signup', controllers.signup_Controllers);
+
+//Login
+router.get('/login', controllers.login_Controllers);
+
 
 //Kuos api
 router.get('/test', controllers.api_TestGet_Controllers);
@@ -29,6 +35,9 @@ router.get('/api/getnetworkinfo', controllers.api_Getnetworkinfo_Controllers);
 router.get('/api/getblockcount', controllers.api_Getblockcount_Controllers);
 router.get('/api/getnewaddress', controllers.api_Getnewaddress_Controllers);
 router.get('/api/listaccounts', controllers.api_Listaccounts_Controllers);
+router.get('/api/getblockhash', controllers.api_Getblockhash_Controllers);
+router.get('/api/getblock', controllers.api_Getblock_Controllers);
+
 module.exports = router;
 
 
