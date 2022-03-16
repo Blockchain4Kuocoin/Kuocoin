@@ -113,3 +113,17 @@ exports.api_Getblock_Controllers = (req, res) => {
         res.send(result);
     });
 };
+
+//Explorer
+
+exports.explorer_Controllers = (req, res) => {
+    models.explorer.explorer_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.blockname_Controllers = (req, res) => {
+    models.explorer.blockname_Models().then((result) => {
+        res.send(result);
+    });
+};

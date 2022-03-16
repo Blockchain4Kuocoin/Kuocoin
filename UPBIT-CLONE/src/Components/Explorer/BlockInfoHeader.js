@@ -8,7 +8,7 @@ const St = {
   align-items: center;
   width: 30%;
   /* padding: 10px; */
-  /* border-bottom: 1px solid ${({ theme }) => theme.lightGray2}; */
+  cursor: pointer;
   `,
   BlockInfoHeaderLogo: styled.div`
   width: 80px;
@@ -21,8 +21,6 @@ const St = {
   BlockNameContainer: styled.div`
   height: 70px;
   margin-right: 10px;
-  /* display: table-cell; */
-  /* vertical-align: middle; */
   `,
   BlcokInfoHeaderCate: styled.div`
   line-height: 35px; //이 방법 대신 다른 방법 찾기
@@ -34,14 +32,17 @@ const St = {
   `,
   BlockInfoHeaderApiContainer: styled.div`
   background-color: rgba(999,999,999,0.8);
-  border: 1px solid ${({ theme }) => theme.lightGray2};
   `
+};
+
+const clickBlock = () => {
+  document.location.href='/blockname'
 };
 
 const BlockInfoHeader = () => {
   return(
     <>
-    <St.BlockInfoHeaderContainer>
+    <St.BlockInfoHeaderContainer onClick={clickBlock}>
       <St.BlockInfoHeaderLogo />
       <St.BlockNameContainer>
         <St.BlcokInfoHeaderCate>kuocoin &#183; blocks</St.BlcokInfoHeaderCate>
