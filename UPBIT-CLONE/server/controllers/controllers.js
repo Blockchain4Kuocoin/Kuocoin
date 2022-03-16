@@ -101,7 +101,7 @@ exports.api_Listaccounts_Controllers = (req, res) => {
 };
 
 exports.api_Getblockhash_Controllers = (req, res) => {
-    exports.blockhash = Number(req.query.blockhash);
+    exports.blocknum = Number(req.query.blocknum);
     models.api.api_Getblockhash_Models().then((result) => {
         res.send(result);
     });
