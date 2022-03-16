@@ -100,31 +100,30 @@ exports.api_Listaccounts_Controllers = (req, res) => {
     });
 };
 
-<<<<<<< HEAD
-//Explorer
-
-exports.explorer_Controllers = (req, res) => {
-    models.explorer.explorer_Models().then((result) => {
-=======
 exports.api_Getblockhash_Controllers = (req, res) => {
     exports.blocknum = Number(req.query.blocknum);
     models.api.api_Getblockhash_Models().then((result) => {
->>>>>>> 866a0be64233036563444c7b2a9a93112097e0ce
         res.send(result);
     });
 };
 
-<<<<<<< HEAD
-exports.blockname_Controllers = (req, res) => {
-    models.explorer.blockname_Models().then((result) => {
-        res.send(result);
-    });
-};
-=======
 exports.api_Getblock_Controllers = (req, res) => {
     exports.block = req.query.block;
     models.api.api_Getblock_Models().then((result) => {
         res.send(result);
     });
 };
->>>>>>> 866a0be64233036563444c7b2a9a93112097e0ce
+
+//Explorer
+
+exports.explorer_Controllers = (req, res) => {
+    models.explorer.explorer_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.blockname_Controllers = (req, res) => {
+    models.explorer.blockname_Models().then((result) => {
+        res.send(result);
+    });
+};
