@@ -1,6 +1,7 @@
 const request = require("request");
 const modelExports = (module.exports = {});
 const controllers = require("../controllers/controllers");
+const con = require("../utils/mysqlcon");
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -129,11 +130,10 @@ modelExports.api_Listaccounts_Models = () => {
 modelExports.api_Getblockhash_Models = () => {
 
     const blocknum = controllers.blocknum;
-
+    
     return new Promise((resolve, reject) => {
         var dataString = `{
-            "jsonrpc":"1.0", 
-            "id":"${ID_STRING}", 
+            "jsonrpc":"1.0",  
             "method":"getblockhash",
             "params":[${blocknum}]
         }`;
