@@ -1,0 +1,12 @@
+.backimg {
+    width: 100%;
+    height: 650px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    filter:blur(4px)
+}
+
+.foot {
+    background-color: red;
+}
+
