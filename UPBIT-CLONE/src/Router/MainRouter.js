@@ -13,6 +13,9 @@ import Getblock from "../Components/API/getblock";
 import Explorer from "../Pages/Explorer";
 import ExplorerMain from "../Pages/ExplorerMain";
 import BlocksInfo from "../Pages/BlocksInfo";
+import Userlogin from "../Pages/userlogin";
+import UserSignup from "../Pages/usersignup";
+
 
 const MainRouter = () => {
   return (
@@ -21,6 +24,8 @@ const MainRouter = () => {
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/mypage" component={Mypage} />
+      <Route exact path="/login" component={Userlogin} />
+      <Route exact path="/signup" component={UserSignup} />
       <Route exact path="/api" component={Api} />
       <Route exact path="/getnetworkinfo" component={Getnetworkinfo} />
       <Route exact path="/getblockcount" component={Getblockcount} />
