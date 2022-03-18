@@ -97,6 +97,10 @@
     margin-top: 50px;
 }
 
+.modal > section > main > .walmake >.walmakebtn:hover {
+    background-position: right;
+}
+
 @keyframes modal-show {
     from {
         opacity: 0;
