@@ -24,7 +24,7 @@ const ThisBlockTransactionsInfo = () => {
   return(
     <>
     <St.ThisBlockTransactions>Transactions included in this block</St.ThisBlockTransactions>
-    <ExplorerContainer marginTop="10px">
+    <ExplorerContainer marginTop="10px" width="100%">
       <St.TransactionCate><div style={{marginRight:"8vw"}}>Hash</div><div>Output total (LTC)</div><div>Output total (USD)</div><div>Transaction fee (LTC)</div><div>Transaction fee (USD)</div><div>Fee per kB (LTC)</div><div>Size</div><div>Input count</div><div>Output count</div><div>Coindays destroyed</div></St.TransactionCate>
       <BlockWhiteDiv><div style={{marginRight:"8vw"}}>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div></BlockWhiteDiv>
     </ExplorerContainer>

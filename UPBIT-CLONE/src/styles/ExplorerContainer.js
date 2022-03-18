@@ -6,7 +6,7 @@ const ExplorerContainer = styled.div`
   /* ${normalize} */
   /* ${reset} */
   box-sizing: border-box;
-  width: 100%;
+  width: ${(props) => props.width};
   padding: 4%;
   margin-top: ${(props) => props.marginTop};
   border: 1px solid white;

@@ -50,7 +50,7 @@ const St = {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75%;
+    width: 100%;
     max-width: 1500px;
     margin: 10px 0;
     @media ${(props) => (props.isRootURL ? props.theme.tablet : true)} {
@@ -150,9 +150,9 @@ const Explorer = ({ match, widthSize, heightSize }) => {
               <BlockGenralInfo />
             </St.BlockGeneralInfoContainer>
           </St.BlockInfoContainer>
-          <St.BlockMarketPriceContainer>
+          {/* <St.BlockMarketPriceContainer>
             block market price container
-          </St.BlockMarketPriceContainer>
+          </St.BlockMarketPriceContainer> */}
         </St.BlockContainer>
         <ThisBlockTransactionsInfo />
       </St.ExplorerContentContainer>
