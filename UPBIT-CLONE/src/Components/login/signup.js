@@ -19,14 +19,21 @@ export default function Signup() {
         console.log(`name : ${info.name}`)
 
         axios.post("http://localhost:3001/signup", {
-
                 id : info.id,
                 pw : info.pw,
-                name : info.name
-
-
+                name : info.name,
         })
-        .then(res=> {console.log(res.data)})
+        .then(res => {
+            let msg = res.data.msg
+            console.log(msg);
+            if (msg == "user already exists!") {
+                alert("중복된 ID입니다.");
+            }
+            else {
+                alert("회원가입 성공!")
+                document.location.href = '/userlogin';    
+            }
+        });
     }
 
 
@@ -37,7 +44,7 @@ export default function Signup() {
                 <input name="id" type="id" placeholder="아이디" value={ info.id || "" }  className="loginregister__input" onChange={ onChange } /><br/>
                 <input name="pw" type="password" placeholder="비밀번호" value={ info.pw || "" }  className="loginregister__input" onChange={ onChange } /><br/>
                 {/* <input name="confirmPassword" type="password" placeholder="비밀번호 확인" className="loginregister__input"/><br/> */}
-                <button type="submit" onClick={onSubmit} className="loginregister__button">계정 생성하기</button>
+                <button type="button" onClick={onSubmit} className="loginregister__button">계정 생성하기</button>
             </form>
         </div>
         

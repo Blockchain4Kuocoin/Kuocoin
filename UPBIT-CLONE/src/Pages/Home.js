@@ -19,9 +19,6 @@ const Home = ({ match, widthSize, heightSize }) => {
   return (
     <>
     <Header/>
-    <div>
-    <button type='button' onClick={onLogout}>Logout</button>
-    </div>
     <HomeBackimg/>
     <Footer/>
 

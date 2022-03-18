@@ -1,7 +1,0 @@
-{
-    "host": "localhost",
-    "user": "root",
-    "password": "00567900",
-    "database": "CRUDDataBase",
-    "connectionLimit": 10
-}
