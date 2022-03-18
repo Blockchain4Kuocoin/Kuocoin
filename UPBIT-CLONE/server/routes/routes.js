@@ -35,4 +35,14 @@ router.get('/api/getnetworkinfo', controllers.api_Getnetworkinfo_Controllers);
 router.get('/api/getblockcount', controllers.api_Getblockcount_Controllers);
 router.get('/api/getnewaddress', controllers.api_Getnewaddress_Controllers);
 router.get('/api/listaccounts', controllers.api_Listaccounts_Controllers);
+router.get('/api/getblockhash', controllers.api_Getblockhash_Controllers);
+router.get('/api/getblock', controllers.api_Getblock_Controllers);
+
 module.exports = router;
+
+
+//Explorer
+router.get('/explorer/blockname/blocknumber', controllers.explorer_Controllers);
+// router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
+router.get('/blockname', controllers.blockname_Controllers);
+// router.put('/explorer', controllers.explorer_ProfilePut_Controllers);

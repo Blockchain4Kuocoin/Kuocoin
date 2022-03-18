@@ -28,7 +28,7 @@ export default function Login() {
             // console.log('res.data.userId :: ', res.data.id)/
             console.log('res.data.msg :: ', res.data.msg);
             let msg = res.data.msg;
-            if(msg === "no data"){
+            if(msg === "no data found"){
                 // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
                 console.log('======================',res.data.msg)
                 alert('입력하신 정보가 일치하지 않습니다.')
@@ -42,10 +42,10 @@ export default function Login() {
                 // id, pw 모두 일치 userId = userId1, msg = undefined
                 console.log('======================','로그인 성공')
                 sessionStorage.setItem('user_id', info.id)
+                // // 작업 완료 되면 페이지 이동(새로고침)
+                alert("로그인 성공!");
+                document.location.href = '/';
             }
-            // // 작업 완료 되면 페이지 이동(새로고침)
-            alert("로그인 성공!");
-            document.location.href = '/'
         })
 
 

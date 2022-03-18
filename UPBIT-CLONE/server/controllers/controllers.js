@@ -34,7 +34,33 @@ exports.login_Controllers = (req, res) => {
     exports.lpw = req.query.pw;
     models.auth.login_Models().then((result) => {
         res.send(result);
-    })
+        console.log(result.msg);
+        // if (result.msg ==="success!") {
+        //     const { spawn } = require('child_process');
+
+        //     const makedir = spawn("cmd", ['/c', `cd /home/data & mkdir ${req.query.id}`]);
+        //     const fs = require('fs');
+        //     fs.writeFileSync(`/home/daemon/${req.query.id}.bat`, `.\\kigacoind.exe -conf=C:\\home\\kigacoin.conf -datadir=C:\\home\\data\\${req.query.id} -printtoconsole`);
+        //     // '.\kigacoind.exe -conf=C:\workspace\kigacoin_win_bin\kigacoin.conf -datadir=C:\workspace\kigacoin_win_bin\data -printtoconsole'
+        //     const child = spawn("cmd", ['/c', `cd /home/daemon & ${req.query.id}`]);
+
+        //     child.stdout.on('data', (data) => {
+        //         console.log(`stdout: ${data}`);
+        //     });
+
+        //     child.stderr.on('data', (data) => {
+        //         console.log(`stderr: ${data}`);
+        //     });
+
+        //     child.on('error', (error) => console.log(`error: ${error.message}`));
+
+        //     child.on('exit', (code, signal) => {
+        //         if (code) console.log(`Process exit with code: ${code}`);
+        //         if (signal) console.log(`Process killed with signal: ${signal}`);
+        //         console.log(`Done!`)
+        //     });
+        // }
+    });
 }
 
 
@@ -70,6 +96,34 @@ exports.api_Getnewaddress_Controllers = (req, res) => {
 
 exports.api_Listaccounts_Controllers = (req, res) => {
     models.api.api_Listaccounts_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.api_Getblockhash_Controllers = (req, res) => {
+    exports.blocknum = Number(req.query.blocknum);
+    models.api.api_Getblockhash_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.api_Getblock_Controllers = (req, res) => {
+    exports.block = req.query.block;
+    models.api.api_Getblock_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+//Explorer
+
+exports.explorer_Controllers = (req, res) => {
+    models.explorer.explorer_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.blockname_Controllers = (req, res) => {
+    models.explorer.blockname_Models().then((result) => {
         res.send(result);
     });
 };

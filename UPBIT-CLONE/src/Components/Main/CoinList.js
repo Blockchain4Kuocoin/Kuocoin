@@ -157,6 +157,25 @@ const CoinList = ({
         </St.CoinSortList>
       </St.CoinSortContainer>
       <St.CoinUl heightSize={heightSize - 140}>
+      {isMarketNamesLoading || isInitCandleLoading ? (
+          <Loading center={false} />
+        ) : (
+          <li className="sc-gGCDDS bMXpf">
+            <button className="sc-clIzBv hpymPy">
+              <i title="쿠오코인 로고" class="sc-faUpoM drGdGg"></i>
+              <div className="sc-Galmp kgsplp">
+                <strong className="sc-fWCJzd cjycOF">쿠오코인</strong>
+                <span className="sc-dvQaRk bFyisN">KUOSCOIN</span>
+              </div>
+              <strong className="sc-TBWPX ghExOU">99,999</strong>
+              <div className="sc-jIkXHa gVrLxc">
+                <span className="sc-ZOtfp fghBGh">4.35%</span>
+                <span className="sc-jOxtWs cESbST">1,222,332</span>
+              </div>
+              <span className="sc-hmjpVf ejGRaP">111,111 백만</span>
+            </button>
+          </li>
+      )}
         {isMarketNamesLoading || isInitCandleLoading ? (
           <Loading center={false} />
         ) : (
@@ -194,6 +213,7 @@ const CoinList = ({
                 key={`coinList-${marketName}`}
               />
             );
+          
           })
         )}
       </St.CoinUl>

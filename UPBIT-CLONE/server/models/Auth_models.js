@@ -18,7 +18,9 @@ modelExports.login_Models = () => {
                     if(err) {
                         throw err;
                     } 
-                    if (result.length === 1) resolve({msg: "success!"});
+                    if (result.length === 1) {
+                        resolve({msg: "success!"});
+                    }
                     else {
                         resolve({msg: "no data found"});
                     }    
