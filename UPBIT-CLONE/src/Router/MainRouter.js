@@ -8,6 +8,8 @@ import Getnetworkinfo from "../Components/API/getnetworkinfo";
 import Getblockcount from "../Components/API/getblockcount";
 import Getnewaddress from "../Components/API/getnewaddress";
 import Listaccounts from "../Components/API/listaccounts";
+import Getblockhash from "../Components/API/getblockhash";
+import Getblock from "../Components/API/getblock";
 import Explorer from "../Pages/Explorer";
 import ExplorerMain from "../Pages/ExplorerMain";
 import BlocksInfo from "../Pages/BlocksInfo";
@@ -24,6 +26,8 @@ const MainRouter = () => {
       <Route exact path="/getblockcount" component={Getblockcount} />
       <Route exact path="/getnewaddress" component={Getnewaddress} />
       <Route exact path="/listaccounts" component={Listaccounts} />
+      <Route exact path="/getblockhash" component={Getblockhash} />
+      <Route exact path="/getblock" component={Getblock} />
       <Route exact path="/blockname" component={BlocksInfo} />
       {/* 블록 세부페이지(blcokheight등등) :blockname 혹은 db에 저장되는 컬럼명으로 바꿔야함*/}
       <Route exact path="/explorer/blockname/blocknumberer" component={Explorer} />
