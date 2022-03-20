@@ -11,6 +11,7 @@ const St = {
     width: 100%;
     height: 100%;
     /* background-color:rgb(255, 215, 0); */
+    background-color: #2c2d87;
     padding: 20px 0;
     @media ${({ theme }) => theme.tablet} {
       display: none;

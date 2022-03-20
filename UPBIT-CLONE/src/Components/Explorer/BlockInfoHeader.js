@@ -3,36 +3,47 @@ import styled from "styled-components";
 
 const St = {
   BlockInfoHeaderContainer: styled.header`
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
-  width: 30%;
-  /* padding: 10px; */
-  cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    /* padding: 10px; */
+    /* cursor: pointer; */
   `,
-  BlockInfoHeaderLogo: styled.div`
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-  border: 1px solid black;
-  border-radius: 50px;
-  object-fit: cover;
+  BlockInfoLogoDiv: styled.div`
+    display: flex;
+    align-items: center;
   `,
-  BlockNameContainer: styled.div`
-  height: 70px;
-  margin-right: 10px;
+  BlockLogo: styled.div`
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius: 50px;
+    object-fit: cover;
+    /* background-image: url("../../../public/kuoslogo.png"); */
   `,
-  BlcokInfoHeaderCate: styled.div`
-  line-height: 35px; //이 방법 대신 다른 방법 찾기
-  color: gray;
+  BlockLogoInfo: styled.div`
+    height: 70px;
+    margin-right: 10px;
+    line-height: 35px; //이 방법 대신 다른 방법 찾기
+    color: gray;
   `,
-  BlcokInfoHeaderBlockName: styled.div`
-  font-size: 24px;
-  font-weight: 700;
+  BlcokLogoName: styled.div`
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
   `,
-  BlockInfoHeaderApiContainer: styled.div`
-  background-color: rgba(999,999,999,0.8);
-  `
+  BlockLogoApi: styled.div`
+    background-color: rgba(999,999,999,0.5);
+    border: 1px solid gray;
+  `,
+  BlcokInfoPriceDiv: styled.div`
+    display: block;
+    line-height: 25px;
+    font-size: 16px;
+  `,
+  
 };
 
 const clickBlock = () => {
@@ -43,12 +54,24 @@ const BlockInfoHeader = () => {
   return(
     <>
     <St.BlockInfoHeaderContainer onClick={clickBlock}>
-      <St.BlockInfoHeaderLogo />
-      <St.BlockNameContainer>
-        <St.BlcokInfoHeaderCate>kuocoin &#183; blocks</St.BlcokInfoHeaderCate>
-        <St.BlcokInfoHeaderBlockName>kuocoin Block</St.BlcokInfoHeaderBlockName>
-      </St.BlockNameContainer>
-      <St.BlockInfoHeaderApiContainer>API</St.BlockInfoHeaderApiContainer>
+      <St.BlockInfoLogoDiv>
+        <St.BlockLogo />
+        <St.BlockLogoInfo>
+          <>Explorer</>
+          <St.BlcokLogoName>Kuoscoin</St.BlcokLogoName>
+        </St.BlockLogoInfo>
+        <St.BlockLogoApi>API</St.BlockLogoApi>
+      </St.BlockInfoLogoDiv>
+      <St.BlcokInfoPriceDiv>
+        <div style={{fontSize: "24px", fontWeight: "700"}}>DB USD</div>
+        <div>1 satoshi per byte</div>
+        <div style={{color: "gray"}}>recommmended transaction fee</div>
+      </St.BlcokInfoPriceDiv>
+      <St.BlcokInfoPriceDiv>
+        <div>Circulation (database</div>
+        <div>Market cap (database</div>
+        <div>Dominance (database</div>
+      </St.BlcokInfoPriceDiv>
     </St.BlockInfoHeaderContainer>
     </>
   )

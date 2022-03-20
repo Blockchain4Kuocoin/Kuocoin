@@ -4,21 +4,19 @@ import styled from "styled-components";
 const St = {
   GeneralInfoContainer: styled.div`
     display: flex;
+    margin-top: 20px;
+    line-height: 5vh;
   `,
   GeneralInformationCate: styled.div`
     width: 25%;
-    margin-top: 20px;
     color: darkgray;
     font-size: initial;
-    line-height: 5vh;
   `,
   GeneralInformation: styled.div`
     width: 25%;
-    margin-top: 20px;
-    color: ${(props) => props.color};
+    /* color: ${(props) => props.color}; */
     font-weight: 400;
     font-size: initial;
-    line-height: 5vh;
   `
 };
 
