@@ -72,85 +72,88 @@ for (let i = 0 ; i < 1000; i++) {
     console.log(i);
 }
 
-// arr.map((val) => {
-//     var fdataString = `{
-//         "jsonrpc":"1.0", 
-//         "id":"${ID_STRING}", 
-//         "method":"getblockhash",
-//         "params":[${val}]
-//     }`;
+//
 
-//     var foptions = {
-//         url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
-//         method: "POST",
-//         headers: headers,
-//         body: fdataString,
-//     };
+//arr = [1~3000]
+arr.map((val) => {
+    var fdataString = `{
+        "jsonrpc":"1.0", 
+        "id":"${ID_STRING}", 
+        "method":"getblockhash",
+        "params":[${val}]
+    }`;
 
-//     request(foptions, (error, response, body) => {
-//         console.log(val);
-//     })
+    var foptions = {
+        url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+        method: "POST",
+        headers: headers,
+        body: fdataString,
+    };
 
-//     // fcallback = async (error, response, body) => {
-//     //     if (!error && response.statusCode == 200) {
-//     //         const data = await JSON.parse(body);
+    request(foptions, (error, response, body) => {
+        console.log(val);
+    })
 
-//     //         var dataString = `{
-//     //             "jsonrpc":"1.0", 
-//     //             "id":"${ID_STRING}", 
-//     //             "method":"getblock",
-//     //             "params":["${data.result}"]
-//     //             }`;
+    fcallback = async (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            const data = await JSON.parse(body);
+
+            var dataString = `{
+                "jsonrpc":"1.0", 
+                "id":"${ID_STRING}", 
+                "method":"getblock",
+                "params":["${data.result}"]
+                }`;
             
-//     //         var options = {
-//     //             url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
-//     //             method: "POST",
-//     //             headers: headers,
-//     //             body: dataString,
-//     //         };
+            var options = {
+                url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+                method: "POST",
+                headers: headers,
+                body: dataString,
+            };
 
-    //         callback = async (error, response, body) => {
-    //             if (!error && response.statusCode == 200) {
-    //                 const data = await JSON.parse(body).result;
-    //                 console.log(val);
-    //                 // // console.log(data);
-    //                 // const blockdata = [data.bits, data.chainwork, data.confirmations, String(data.difficulty), data.hash, data.height, data.mediantime, data.merkleroot, data.nextblockhash, data.nonce, data.previousblockhash || "", data.size, data.strippedsize, data.time, data.tx.join('/') || "", data.version, data.versionHex, data.weight];
-    //                 // return new Promise((resolve, reject) => {
+            callback = async (error, response, body) => {
+                if (!error && response.statusCode == 200) {
+                    const data = await JSON.parse(body).result;
+                    console.log(val);
+                    // console.log(data);
+                    const blockdata = [data.bits, data.chainwork, data.confirmations, String(data.difficulty), data.hash, data.height, data.mediantime, data.merkleroot, data.nextblockhash, data.nonce, data.previousblockhash || "", data.size, data.strippedsize, data.time, data.tx.join('/') || "", data.version, data.versionHex, data.weight];
+                    return new Promise((resolve, reject) => {
             
-    //                 //     const sql = `INSERT INTO blockdata 
-    //                 //                 (bits, chainwork, confirmations, difficulty, hash, height, 
-    //                 //                 mediantime, merkleroot, nextblockhash, nonce, previousblockhash, size, 
-    //                 //                 strippedsize, time, tx, version, versionHex, weight) 
-    //                 //                 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+                        const sql = `INSERT INTO blockdata 
+                                    (bits, chainwork, confirmations, difficulty, hash, height, 
+                                    mediantime, merkleroot, nextblockhash, nonce, previousblockhash, size, 
+                                    strippedsize, time, tx, version, versionHex, weight) 
+                                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
                 
-    //                 //     con.getConnection((err, connection) => {
-    //                 //         try {
-    //                 //             if (err) throw err;
-    //                 //             // console.log("mysqldb connection success!");
-    //                 //             connection.query(sql, blockdata, (err, result)=>{
-    //                 //                 if(err) {
-    //                 //                     throw err;
-    //                 //                 } 
-    //                 //                 resolve(result);
-    //                 //             });
-    //                 //             connection.release();
+                        con.getConnection((err, connection) => {
+                            try {
+                                if (err) throw err;
+                                // console.log("mysqldb connection success!");
+                                connection.query(sql, blockdata, (err, result)=>{
+                                    if(err) {
+                                        throw err;
+                                    } 
+                                    resolve(result);
+                                });
+                                connection.release();
                 
-    //                 //         } catch (err) {
-    //                 //             console.log("Blockdata error...");
-    //                 //             connection.release();
-    //                 //             resolve(reject);
-    //                 //         };
-    //                 //     });
-    //                 // });      
-    //             }
-    //         }
+                            } catch (err) {
+                                console.log("Blockdata error...");
+                                connection.release();
+                                resolve(reject);
+                            };
+                        });
+                    });      
+                }
+            }
 
-    //         request(options, callback);
-    //     }
-    // }
+            request(options, callback);
+        }
+    }
 
-    // request(foptions, fcallback);
+    request(foptions, fcallback);
 
     
-// });
+});
 

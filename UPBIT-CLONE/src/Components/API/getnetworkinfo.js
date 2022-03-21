@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Getnetworkinfo() {
 
     const onClick = () => {
-        axios.get("http://localhost:3001/api/getnetworkinfo")
+        axios.get("http://3.36.137.185:3001/api/getnetworkinfo")
         .then((response) => console.log(response.data));
     }
 
