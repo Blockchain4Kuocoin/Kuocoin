@@ -5,11 +5,12 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 function Header() {
 
   return(
+    // !if (document.location.href='')
     <Navbar style={{backgroundColor:'rgb(255, 215, 0)'}}  expand="lg">
     <Container>
-    <Navbar.Brand href="/">
+    <Navbar.Brand href="/home">
             <img
-              src="/kuoslogo.png"
+              src="/3.jpeg"
               width="50"
               height="50"
               className="d-inline-block align-top"
