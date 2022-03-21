@@ -13,6 +13,9 @@ import Getblock from "../Components/API/getblock";
 import Explorer from "../Pages/Explorer";
 import ExplorerMain from "../Pages/ExplorerMain";
 import BlocksInfo from "../Pages/BlocksInfo";
+import Userlogin from "../Pages/userlogin";
+import UserSignup from "../Pages/usersignup";
+
 
 const MainRouter = () => {
   return (
@@ -29,6 +32,8 @@ const MainRouter = () => {
       <Route exact path="/getblockhash" component={Getblockhash} />
       <Route exact path="/getblock" component={Getblock} />
       <Route exact path="/blockname" component={BlocksInfo} />
+      <Route exact path="/login" component={Userlogin} />
+      <Route exact path="/signup" component={UserSignup} />
       {/* 블록 세부페이지(blcokheight등등) :blockname 혹은 db에 저장되는 컬럼명으로 바꿔야함*/}
       <Route exact path="/explorer/blockname/blocknumberer" component={Explorer} />
       <Route exact path="/explorer" component={ExplorerMain} />  메인홈 작업후 위에 줄은 지움 
