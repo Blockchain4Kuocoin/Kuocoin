@@ -17,7 +17,7 @@ export default function Login() {
         
         console.log(`id : ${info.id}`)
         console.log(`pw : ${info.pw}`)
-        axios.get("http://3.36.137.185:3001:3001/login", {
+        axios.get("http://localhost:3001:3001/login", {
             params: {
                 id: info.id,
                 pw: info.pw

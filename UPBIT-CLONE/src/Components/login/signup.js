@@ -18,7 +18,7 @@ export default function Signup() {
         console.log(`pw : ${info.pw}`)
         console.log(`name : ${info.name}`)
 
-        axios.post("http://3.36.137.185:3001/signup", {
+        axios.post("http://localhost:3001/signup", {
                 id : info.id,
                 pw : info.pw,
                 name : info.name,
