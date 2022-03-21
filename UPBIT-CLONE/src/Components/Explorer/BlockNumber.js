@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Axios from "axios";
 import styled from "styled-components";
 import { SiHackthebox } from 'react-icons/si';
 
@@ -48,29 +50,44 @@ const clickBlock = () => {
 };
 
 const BlockNumber = () => {
+  const [ blockNumberData, setBlockNumberData ] = useState([]);
+  
+  const params = useParams();
+  console.log(params);
+
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
+    .then((response) => {setBlockNumberData(response.data); console.log(response)})
+    .catch(err=>console.log(err))
+  }, []);
+
   return(
     <>
+    
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
       <St.BlockNumInfoDiv>
         <St.BlockNumInfo>Previos</St.BlockNumInfo>
-        <>numbder</>
+        <>DB -1 </>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockCurIcon><SiHackthebox className="BlockBox" size="34"/></St.BlockCurIcon>
       <St.BlockNumInfoDiv>
         <St.BlockNumInfo>Current</St.BlockNumInfo>
-        <St.BlockCurNum>numbder</St.BlockCurNum>
+        {blockNumberData.map(element =>
+        <St.BlockCurNum>{element.blocknumber}</St.BlockCurNum>
+        )}
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     <St.BlockNumberContainer onClick={clickBlock}>
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
       <St.BlockNumInfoDiv>
       <St.BlockNumInfo>next</St.BlockNumInfo>
-        <>numbder</>
+        <>DB + 1 </>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
+    
     </>
   )
 };

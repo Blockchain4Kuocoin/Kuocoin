@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Axios from "axios";
 import styled from "styled-components";
 import copyTextUrl from "../../Container/Explorer/ClipCopy";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
@@ -42,11 +44,24 @@ const St = {
 // };
 
 const BlockHash = () => {
+  const [ blockHashData, setBlockHashData ] = useState([]);
+  
+  const params = useParams();
+  console.log(params);
+
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
+    .then((response) => {setBlockHashData(response.data); console.log(response)})
+    .catch(err=>console.log(err))
+  }, []);
+
   return(
     <>
     <St.BlockHashInfoContainer>
       <>Hash</>
-      <St.BlockHashDiv>asdfß</St.BlockHashDiv>
+      {blockHashData.map(element =>
+        <St.BlockHashDiv>{element.testcolumn}</St.BlockHashDiv>
+      )}
     </St.BlockHashInfoContainer>
     <RiCheckboxMultipleBlankLine onClick={copyTextUrl}  size="20"/>
     </>

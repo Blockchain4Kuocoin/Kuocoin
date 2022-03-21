@@ -10,7 +10,8 @@ const St = {
     display: block;
     width: 100%;
     height: 100%;
-    background-color:rgb(255, 215, 0);
+    /* background-color:rgb(255, 215, 0); */
+    background-color: #2c2d87;
     padding: 20px 0;
     @media ${({ theme }) => theme.tablet} {
       display: none;
@@ -86,7 +87,7 @@ const Footer = () => {
         <St.MainLink
           href="/"
           title={"메인으로 이동"}
-          logo={process.env.PUBLIC_URL + "/blueLogo.png"}
+          logo={process.env.PUBLIC_URL + "/kuoslogo.png"}
         />
         <St.Description>
           <St.DescSpan>Team Name : Kuos</St.DescSpan>

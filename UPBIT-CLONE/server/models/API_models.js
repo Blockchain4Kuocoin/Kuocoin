@@ -1,6 +1,7 @@
 const request = require("request");
 const modelExports = (module.exports = {});
 const controllers = require("../controllers/controllers");
+const con = require("../utils/mysqlcon");
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -107,6 +108,64 @@ modelExports.api_Listaccounts_Models = () => {
             "id":"${ID_STRING}", 
             "method":"listaccounts",
             "params":[]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                resolve(data);
+            }
+        }
+        request(options, callback);
+    });
+};
+
+modelExports.api_Getblockhash_Models = () => {
+
+    const blocknum = controllers.blocknum;
+    
+    return new Promise((resolve, reject) => {
+        var dataString = `{
+            "jsonrpc":"1.0",  
+            "method":"getblockhash",
+            "params":[${blocknum}]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                resolve(data);
+            }
+        }
+        request(options, callback);
+    });
+};
+
+modelExports.api_Getblock_Models = () => {
+    
+    const block = controllers.block;
+    console.log(block);
+
+    return new Promise((resolve, reject) => {
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"getblock",
+            "params":["${block}"]
         }`;
     
         var options = {
