@@ -35,7 +35,7 @@ const St = {
     height: 20px;
     background-image: ${({ coinNameEn }) =>
       coinNameEn !== "ADX"
-        ? `url(https://static.upbit.com/logos/${coinNameEn}.png)`
+        ? coinNameEn === "KUOS" ? `url(https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg)` : `url(https://static.upbit.com/logos/${coinNameEn}.png)`
         : "../styles/img/ADX.png"};
     background-size: cover;
     margin-left: 5px;
