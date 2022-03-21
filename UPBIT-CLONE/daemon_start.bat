@@ -1,1 +1,1 @@
-.\kigacoind.exe -conf=C:\workspace\kigacoin_win_bin\kigacoin.conf -datadir=C:\workspace\kigacoin_win_bin\data -printtoconsole
+.\kuoscoind.exe -conf=C:\workspace\kuoscoin\kigacoin.conf -datadir=C:\workspace\kuoscoin\data

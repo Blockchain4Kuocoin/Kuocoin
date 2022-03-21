@@ -9,7 +9,7 @@ dotenv.config();
 const USER = process.env.RPC_USER;
 const PASS = process.env.RPC_PASSWORD;
 const PORT = 9776;
-const ACCOUNT = "sky";
+const ACCOUNT = "kuos";
 const ID_STRING = "kuoscoin_id";
 const headers = {
     "content-type" : "text/plain;"
