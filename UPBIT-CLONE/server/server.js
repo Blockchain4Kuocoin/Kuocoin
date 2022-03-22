@@ -9,11 +9,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); app.use(cors()); app.use("/", router); 
 app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
 
-
-
-
-app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
-
 // const { spawn } = require('child_process');
 
 // const child = spawn("cmd", ['/c', 'daemon_start']);
