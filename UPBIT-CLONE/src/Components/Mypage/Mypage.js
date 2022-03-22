@@ -44,7 +44,7 @@ const handler = e => {
 }
 
 useEffect(() => {
-    axios.get("http://localhost:3001/mypage", {
+    axios.get("http://3.36.137.185:3001/mypage", {
         'params': {id: state.id},
     })
     .then((res) => {
@@ -68,7 +68,7 @@ const btnClick = () => {
     if (pw==="") inputs.pw=state.pw;
     console.log(inputs);
 
-    axios.put("http://localhost:3001/mypage", inputs,
+    axios.put("http://3.36.137.185:3001", inputs,
     )
     .then(()=> {setState(inputs)})
     .then(()=> {
