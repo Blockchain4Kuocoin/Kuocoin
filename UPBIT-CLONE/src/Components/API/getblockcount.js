@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Getblockcount() {
 
     const onClick = () => {
-        axios.get("http://localhost:3001:3001/api/getblockcount")
+        axios.get("http://localhost:3001/api/getblockcount")
         .then((response) => console.log(response.data));
     };
 
