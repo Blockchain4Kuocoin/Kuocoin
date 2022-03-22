@@ -1,10 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
-import normalize from "styled-normalize";
-import reset from "styled-reset";
 
 const ExplorerContainer = styled.div`
-  /* ${normalize} */
-  /* ${reset} */
   box-sizing: border-box;
   width: ${(props) => props.width};
   padding: 4%;

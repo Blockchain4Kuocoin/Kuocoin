@@ -15,9 +15,6 @@ const St = {
     display: flex;
     justify-content: space-between;
   `,
-
-
-
 }
 
 const ThisBlockTransactionsInfo = () => {

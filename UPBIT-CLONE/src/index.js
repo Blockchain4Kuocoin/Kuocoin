@@ -22,11 +22,6 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
-import BlockGenralInfo from "./Components/Explorer/BlockGenralInfo";
-import BlockHash from "./Components/Explorer/BlockHash";
-import BlockHeadAd from "./Components/Explorer/BlockHeadAd";
-import BlockInfoHeader from "./Components/Explorer/BlockInfoHeader";
-import BlockNumber from "./Components/Explorer/BlockNumber";
 
 // import "./index.css";
 

@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import withSize from "../Container/withSize";
 import { viewSize } from "../styles/theme";
-import { GrCubes } from "react-icons/gr"
 
 import Header from "../Components/Global/Header";
 import Footer from "../Components/Global/Footer";
 import BlockHeadAd from "../Components/Explorer/BlockHeadAd";
-import IconsHover from "../styles/IconsHover";
 import ExplorerContainer from "../styles/ExplorerContainer";
+import BlockInfoHeader from "../Components/Explorer/BlockInfoHeader";
+import BlockInfoIcons from "../Components/Explorer/BlockInfoIcons";
+import BlockInfoData1 from "../Components/Explorer/BlockInfoData1";
+import BlockInfoData2 from "../Components/Explorer/BlockInfoData2";
 
 const St = {
   BodyContainer: styled.div`
@@ -22,7 +24,12 @@ const St = {
       /* margin-bottom: 0; */
     }
   `,
-  
+  BlockInfoContainer: styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh;
+  `,
+
 }
 
 const Explorer = ({ match, widthSize, heightSize }) => {
@@ -33,16 +40,17 @@ const Explorer = ({ match, widthSize, heightSize }) => {
       <Header isExplorerURL={isExplorerURL} />
       <St.BodyContainer>
         11
-        <BlockHeadAd/>
-        <div>litecoin exploreres</div>
-        <div>
-        <IconsHover><GrCubes size={26}/></IconsHover>
-        <IconsHover><GrCubes size={26}/></IconsHover>
-        <IconsHover><GrCubes size={26}/></IconsHover>
-        <IconsHover><GrCubes size={26}/></IconsHover>
-        </div>
-        <ExplorerContainer width="50%">11</ExplorerContainer>
-        <ExplorerContainer width="50%">11</ExplorerContainer>
+        <BlockHeadAd />
+        <St.BlockInfoContainer>
+          <BlockInfoHeader/>
+        </St.BlockInfoContainer>
+        <St.BlockInfoContainer>
+          <BlockInfoIcons/>
+        </St.BlockInfoContainer>
+        <St.BlockInfoContainer>
+          <ExplorerContainer width="50%"><BlockInfoData1/></ExplorerContainer>
+          <ExplorerContainer width="50%"><BlockInfoData2/></ExplorerContainer>
+        </St.BlockInfoContainer>
       </St.BodyContainer>
       <Footer />
     </>
