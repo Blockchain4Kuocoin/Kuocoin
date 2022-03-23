@@ -28,13 +28,13 @@ function Payment() {
   /* 3. 콜백 함수 정의하기 */
   function callback(response) {
     const { success, merchant_uid, error_msg } = response;
-
     if (success) {
       alert("결제 성공");
     } else {
       alert(`결제 실패: ${error_msg}`);
     }
   }
+  
 
   return (
     <div className="paydiv">
@@ -44,5 +44,6 @@ function Payment() {
     </div>
   );
 }
+
 
 export default Payment;
