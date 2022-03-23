@@ -9,16 +9,16 @@ function Payment() {
 
     /* 2. 결제 데이터 정의하기 */
     const data = {
-      pg: "kakaopay", // PG사
-      pay_method: "card", // 결제수단
-      merchant_uid: `mid_${new Date().getTime()}`, // 주문번호
-      amount: 1000, // 결제금액
+      // pg: "naverpay", // PG사
+      // pay_method: "card", // 결제수단
+      // merchant_uid: `mid_${new Date().getTime()}`, // 주문번호
+      amount: 100000, // 결제금액
       name: "test", // 주문명
       buyer_name: "홍길동", // 구매자 이름
-      buyer_tel: "01012341234", // 구매자 전화번호
-      buyer_email: "example@example", // 구매자 이메일
-      buyer_addr: "신사동 661-16", // 구매자 주소
-      buyer_postcode: "06018", // 구매자 우편번호
+      // buyer_tel: "01012341234", // 구매자 전화번호
+      // buyer_email: "example@example", // 구매자 이메일
+      // buyer_addr: "신사동 661-16", // 구매자 주소
+      // buyer_postcode: "06018", // 구매자 우편번호
     };
 
     /* 4. 결제 창 호출하기 */
@@ -29,7 +29,7 @@ function Payment() {
   function callback(response) {
     const { success, merchant_uid, error_msg } = response;
     if (success) {
-      alert("결제 성공");
+      alert("결제가 완료되었습니다.");
     } else {
       alert(`결제 실패: ${error_msg}`);
     }

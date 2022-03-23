@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const St = {
@@ -11,6 +11,7 @@ const St = {
     width: 100%;
     height: 100%;
     /* background-color:rgb(255, 215, 0); */
+    background-color: #2c2d87;
     padding: 20px 0;
     @media ${({ theme }) => theme.tablet} {
       display: none;
@@ -83,11 +84,21 @@ const Footer = () => {
   return (
     <St.Footer>
       <St.Container>
-        <St.MainLink
+        {/* <St.MainLink
           href="/"
           title={"메인으로 이동"}
           logo={process.env.PUBLIC_URL + "/kuoslogo.png"}
-        />
+        /> */}
+        <Navbar.Brand href="/home">
+          <img
+            src="/kuoslogo.png"
+            width="120"
+            height="80"
+            className="d-inline-block align-top"
+            href='/home'
+          />
+        </Navbar.Brand>
+
         <St.Description>
           <St.DescSpan>Team Name : Kuos</St.DescSpan>
           <St.DescSpan>Member : 서기영 김민욱 이혜진 박태현 이시은</St.DescSpan>

@@ -31,7 +31,7 @@ export default function Signup() {
             }
             else {
                 alert("회원가입 성공!")
-                document.location.href = '/userlogin';    
+                document.location.href = '/login';    
             }
         });
     }

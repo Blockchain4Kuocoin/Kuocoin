@@ -116,15 +116,24 @@ exports.api_Getblock_Controllers = (req, res) => {
 //Explorer
 
 exports.explorer_Controllers = (req, res) => {
-  models.explorer.explorer_Models().then((result) => {
-    res.send(result);
-  });
+    exports.mid = req.query.testcolumn;
+    models.explorer.explorer_Models().then((result) => {
+        res.send(result);
+    });
 };
 
-exports.blockname_Controllers = (req, res) => {
-  models.explorer.blockname_Models().then((result) => {
-    res.send(result);
-  });
-};
+// exports.blockname_Controllers = (req, res) => {
+//     models.explorer.blockname_Models().then((result) => {
+//         res.send(result);
+//     });
+// };
 
-//Payment
+//Wallet
+exports.wallet_Post_Controllers = (req, res) => {
+    exports.walid = req.body.walid;
+    exports.owner = req.body.owner;
+    
+    models.wallet.post_Models().then((result) => {
+        res.send(result);
+    });
+}
