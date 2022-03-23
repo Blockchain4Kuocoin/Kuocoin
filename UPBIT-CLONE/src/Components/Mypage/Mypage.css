@@ -8,69 +8,87 @@
     /* background-size: cover; */
   }
 
-  /* body {
-    margin: 0px;
-    padding: 0px;
-    text-decoration: none;
-    font-family: sans-serif;
-    background-image: url("./me.png");
-    background-size: cover;
-  } */
 
 .mydiv {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  padding: 30px, 20px;
-  text-align: center;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 15px;
-  /* background-image: url("./me.png"); */
-  /* background-size: cover; */
-  color: #392f31;
-}
+    position:absolute;
+    width:400px;
+    height:400px;
+    padding: 30px, 20px;
+    text-align:center;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    background-image: none;
+    color: #392f31;
 
-.mytitle {
-  text-align: center;
-  margin: 30px;
-}
+
+  }
+
+  .mytitle {
+    text-align: center;
+    margin: 30px;
+  }
+  
+
 
 .mytext {
-  border-bottom: 2px solid #e6c619;
-  margin: 30px;
-  padding: 10px 10px;
-}
+    border-bottom: 2px solid #e6c619;
+    margin: 30px;
+    padding: 10px 10px;
+  }
 
-.myinput {
-  width: 100%;
-  border: none;
-  outline: none;
-  color: #392f31;
-  font-size: 16px;
-  height: 25px;
-  background: none;
-}
+  .myinput {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #392f31;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
 
 .mybtn {
-  position: relative;
-  left: 40%;
-  transform: translateX(-50%);
-  margin-bottom: 40px;
-  width: 80%;
-  height: 40px;
-  background: linear-gradient(125deg, #8d192b, #ffd700, #ff3399);
-  background-position: left;
-  background-size: 200%;
-  color: #392f31;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: 0.4s;
-  display: inline;
-}
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,#8d192b,#ffd700,#ff3399);
+    background-position: left;
+    background-size: 200%;
+    color:#392f31;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
 
-.mybtn:hover {
-  background-position: right;
-}
+  .walbtn {
+    position:relative;
+    left:40%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:80%;
+    height:40px;
+    background: linear-gradient(125deg,#8d192b,#ffd700,#ff3399);
+    background-position: left;
+    background-size: 200%;
+    color:#392f31;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
+
+  .walbtn:hover {
+    background-position: right;
+  }
+
+  .mybtn:hover {
+    background-position: right;
+  }
