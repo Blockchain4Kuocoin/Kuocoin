@@ -8,7 +8,7 @@ const path = require('path');
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); app.use(cors()); app.use("/", router); 
 app.listen(port, () => {console.log(`Server is running at port ${port}...`)})
-setINter
+// setINter
 
 // const { spawn } = require('child_process');
 

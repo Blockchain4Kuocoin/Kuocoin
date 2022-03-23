@@ -5,7 +5,6 @@ import "./Mypage.css";
 import Modal from "../Modal/Modal.js"
 
 
-
 export default function Profile() {
     const [walState, setWalState] = useState ({
         modalOpen: false,
@@ -68,7 +67,7 @@ const btnClick = () => {
     if (pw==="") inputs.pw=state.pw;
     console.log(inputs);
 
-    axios.put("http://localhost:3001", inputs,
+    axios.put("http://localhost:3001/mypage", inputs,
     )
     .then(()=> {setState(inputs)})
     .then(()=> {

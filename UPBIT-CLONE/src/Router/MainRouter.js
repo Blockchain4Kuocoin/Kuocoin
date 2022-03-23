@@ -16,6 +16,7 @@ import ExplorerMain from "../Pages/ExplorerMain";
 import BlocksInfo from "../Pages/BlocksInfo";
 import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
+import Payment from "../Pages/Payment";
 
 
 const MainRouter = () => {
@@ -25,6 +26,7 @@ const MainRouter = () => {
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/mypage" component={Mypage} />
+      <Route exact path="/payment" component={Payment} />
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
       <Route exact path="/api" component={Api} />

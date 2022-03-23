@@ -37,6 +37,7 @@ export default function  Modal (props) {
                 }
             })
             .then(res => {
+                let msg = res.data.msg;
                 if(msg === "no data found") {
                     alert('입력하신 정보가 일치하지 않습니다.');
                 }
@@ -48,10 +49,10 @@ export default function  Modal (props) {
     }
 
     const onCreate = () => {
-        axios.post("http://localhost:3001/createwallet"), {
+        axios.post("http://localhost:3001/createwallet", {
             walid: inputs.account,
             owner: sessionStorage.user_id,
-        }
+        })
         .then(res => {
             console.log(res)
             // setWalAdr(res.data.result);
@@ -85,7 +86,7 @@ export default function  Modal (props) {
                 </>
                 :
                 <>
-                    <input placeholder='wallet-id' name='account' value={inputs.account} onChange={onChange}/>
+                    <input placeholder='지갑 아이디' name='account' value={inputs.account} onChange={onChange}/>
                     <div className='walmake'>
                         <button onClick={onCreate} className="walmakebtn">다음</button>
                     </div>
