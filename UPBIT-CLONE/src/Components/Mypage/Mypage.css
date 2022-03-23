@@ -4,18 +4,7 @@
     padding: 0px;
     text-decoration: none;
     font-family:sans-serif;     
-    /* background-image: url("./me.png"); */
-    /* background-size: cover; */
   }
-
-  /* body {
-    margin: 0px;
-    padding: 0px;
-    text-decoration: none;
-    font-family: sans-serif;
-    background-image: url("./me.png");
-    background-size: cover;
-  } */
 
 .mydiv {
   position: absolute;
@@ -27,8 +16,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
-  /* background-image: url("./me.png"); */
-  /* background-size: cover; */
   color: #392f31;
 }
 
