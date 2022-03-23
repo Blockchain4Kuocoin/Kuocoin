@@ -8,7 +8,7 @@ const testapi = ({ match, widthSize, heightSize }) => {
   
     return (
       <>
-      <Mypage/>
+      <Test/>
       </>
     );
   };
