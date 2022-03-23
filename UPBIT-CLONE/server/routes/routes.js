@@ -46,3 +46,6 @@ router.get('/explorer/blockname/:blocknumberer', controllers.explorer_Controller
 // router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
 // router.get('/blockname', controllers.blockname_Controllers);
 // router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
+
+//Wallet
+router.post('/createwallet', controllers.wallet_Post_Controllers);

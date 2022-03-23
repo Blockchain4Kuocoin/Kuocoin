@@ -128,3 +128,13 @@ exports.explorer_Controllers = (req, res) => {
 //         res.send(result);
 //     });
 // };
+
+//Wallet
+exports.wallet_Post_Controllers = (req, res) => {
+    exports.walid = req.body.walid;
+    exports.owner = req.body.owner;
+    
+    models.wallet.post_Models().then((result) => {
+        res.send(result);
+    });
+}

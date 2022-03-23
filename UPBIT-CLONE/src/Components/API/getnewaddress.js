@@ -8,7 +8,7 @@ export default function Getnewaddress() {
 
     const onClick = () => {
         // console.log(account);
-        axios.get("http://3.36.137.185:3001/api/getnewaddress", {
+        axios.get("http://localhost:3001/api/getnewaddress", {
             params: {'account': account}},
             { withCredentials: true}
         )

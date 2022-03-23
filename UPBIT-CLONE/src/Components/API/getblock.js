@@ -6,7 +6,7 @@ export default function Getblock() {
     const [block, setBlock] = useState("");
 
     const onClick = () => {
-        axios.get("http://3.36.137.185:3001/api/getblock", {
+        axios.get("http://localhost:3001/api/getblock", {
             params: {'block': block},
         })
         .then((response) => console.log(response.data));

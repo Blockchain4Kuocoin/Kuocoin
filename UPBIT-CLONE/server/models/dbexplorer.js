@@ -14,6 +14,7 @@ var connection = new mysql({
 })
 
 const dotenv = require('dotenv');
+const { default: Getblockcount } = require("../../src/Components/API/getblockcount");
 dotenv.config();
 
 const USER = process.env.RPC_USER;
@@ -25,10 +26,6 @@ const headers = {
     "content-type" : "text/plain;"
 };
 // console.log(USER, PASS);
-let blockhash = "8f310888ad2ba2098f151359284c97967a68b3ad1ad9f7e09e026d8c8a8948ee"
-const arr = [...Array(2000).keys()];
-// console.log(arr); 
-let tmp = [];
 
 for (let i = 0 ; i < 1000; i++) {
     var dataString = `{
@@ -72,8 +69,7 @@ for (let i = 0 ; i < 1000; i++) {
     console.log(i);
 }
 
-//
-
+const arr = [...Array(2000).keys()];
 //arr = [1~3000]
 arr.map((val) => {
     var fdataString = `{
