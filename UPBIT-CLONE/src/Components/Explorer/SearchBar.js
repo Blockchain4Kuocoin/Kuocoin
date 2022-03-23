@@ -10,21 +10,39 @@ const Input = styled.input`
 `;
 
 const SearchBar = () => {
-  const [searchText, setSearchText] = useState('');
-  const onChange = (event) => {
-    setSearchText(event.target.value);
+  // const blocks = props.searchblocks;
+  
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleInputChange = (event) => {
+    //console.log(event.target.value);
+    setSearchValue(event.currentTarget.value);
   }
+
+  // const shouldDisplayButton = searchValue.length > 0;
+
+  // const handleInputClear = () => {
+  //   setSearchValue("")
+  // }
+
+  // const filteredBlocks = blocks.filter((block) => {
+  //   return block.includes(searchValue)
+  // })
 
   return(
     <>
       <FaSearch/>
       <Input
         type="text"
-        name="searchText"
-        value={searchText}
+        value={searchValue || ''}
         placeholder="Search for transaction, address, blocks and embedded text data...."
-        onChange={onChange} 
+        onChange={handleInputChange} 
       />
+      <ul>
+        {/* {filteredBlocks.map((block) => {
+          return (<li key={block}>{block}</li>)
+        })} */}
+      </ul>
     </>
   )
 };

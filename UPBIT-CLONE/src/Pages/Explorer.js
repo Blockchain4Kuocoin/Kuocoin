@@ -13,6 +13,7 @@ import BlockGenralInfo from "../Components/Explorer/BlockGenralInfo";
 import ThisBlockTransactionsInfo from "../Components/Explorer/BlockTransactionsInfo";
 import SearchBar from "../Components/Explorer/SearchBar";
 import ExplorerContainer from "../styles/ExplorerContainer";
+import BlockGenralInfo1 from "../Components/Explorer/BlockGenralInfo1";
 
 const St = {
   ExplorerContentContainer: styled.div`
@@ -131,6 +132,9 @@ const Explorer = ({ match, widthSize, heightSize }) => {
             <St.BlockGeneralInfoContainer width="100%">
               <BlockGenralInfo />
             </St.BlockGeneralInfoContainer>
+            <ExplorerContainer width="100%">
+              <BlockGenralInfo1/>
+            </ExplorerContainer>
           </St.BlockInfoContainer>
           {/* <St.BlockMarketPriceContainer>
             block market price container
