@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Modal from '../../../commons/components/Modals/Modal';
 import "./Modal.css";
 import axios from "axios";
+import Walletmain from '../Payment/Walletmain';
 
 export default function  Modal (props) {
     
-    const { open, close, header } = props;
+    const { open, close, data, header, setData, auth, setAuth } = props;
 
-    const [ state, setState ] = useState(true);
-
-    const [ walAdr, setWalAdr ] = useState("");
+    const [ state, setState ] = useState("main");
 
     const [ inputs, setInputs ] = useState({
         id: "",
         pw: "",
-        account: "",
     });
 
     const onChange = e => {
@@ -27,36 +25,29 @@ export default function  Modal (props) {
     const onClick = () => {
         console.log(inputs.id);
         console.log(inputs.pw);
-
-        // if (sessionStorage.getItem('user_id') !== inputs.id) alert("잘못된 정보입니다!");
-        // else {
-            axios.get("http://localhost:3001/login", {
-                params: {
-                    id: inputs.id,
-                    pw: inputs.pw,
-                }
-            })
-            .then(res => {
-                let msg = res.data.msg;
-                if(msg === "no data found") {
-                    alert('입력하신 정보가 일치하지 않습니다.');
-                }
-                else {
-                    setState(false);
-                }
-            })
-        // }
-    }
-
-    const onCreate = () => {
-        axios.post("http://localhost:3001/createwallet", {
-            walid: inputs.account,
-            owner: sessionStorage.user_id,
+        axios.get("http://localhost:3001/login", {
+            params: {
+                id: inputs.id,
+                pw: inputs.pw,
+            }
         })
         .then(res => {
-            console.log(res)
-            // setWalAdr(res.data.result);
-        });
+            let msg = res.data.msg;
+            if(msg === "no data found") {
+                alert('입력하신 정보가 일치하지 않습니다.');
+                setInputs({
+                    id: "",
+                    pw: "",
+                })
+            }
+            else {
+                setInputs({
+                    id: "",
+                    pw: "",
+                })
+                setAuth(true);
+            }
+        })
     }
 
     return (
@@ -65,36 +56,30 @@ export default function  Modal (props) {
             <section>
                 <header>
                     {header}
-                <button className="close" onClick={close}>
-                    &times;
-                </button>
+                    <button className="close" onClick={close}>
+                        &times;
+                    </button>
                 </header>
-                {state === true
+
+                <main>{props.children}
+
+                {!auth
                 ?
                 <>
-                <main>{props.children}
-                    <h1 className='walmaintxt'>지갑 생성하기</h1>
-                    <h4>아래 무료 지갑을 생성하세요.</h4>
                     <h5 className="waltxt">아이디</h5>
                     <input placeholder='id' name='id' value={inputs.id} onChange={onChange}></input>
-                    <h5 className="waltxt">암호</h5>
+                    <h5 className="waltxt">비밀번호</h5>
                     <input placeholder='pw' name='pw' value={inputs.pw} onChange={onChange}></input>
                     <div className='walmake'>
-                        <button onClick={onClick} className="walmakebtn">다음</button>
-                    </div>
-                </main>
+                        <button onClick={onClick} className="walmakebtn">확인</button> 
+                    </div>           
                 </>
                 :
                 <>
-                    <input placeholder='지갑 아이디' name='account' value={inputs.account} onChange={onChange}/>
-                    <div className='walmake'>
-                        <button onClick={onCreate} className="walmakebtn">다음</button>
-                    </div>
+                <Walletmain data={data} onClose={close} setData={setData} state={state} setState={setState}/>
                 </>
-                }
-                <div>
-                    {walAdr}
-                </div>
+                }  
+                </main>
                 <footer>
                 <button className="close" onClick={close}>
                     close
