@@ -1,5 +1,15 @@
 const models = require("../models/models");
 
+//OrderList
+exports.orderlist_Controllers = (req, res) => {
+  exports.mid = req.query.id;
+  models.trade.orderlist_Models().then((result) => {
+    res.send(result);
+  });
+};
+
+
+
 //Mypage
 exports.mypage_ProfileGet_Controllers = (req, res) => {
   exports.mid = req.query.id;
@@ -35,31 +45,6 @@ exports.login_Controllers = (req, res) => {
   models.auth.login_Models().then((result) => {
     res.send(result);
     console.log(result.msg);
-    // if (result.msg ==="success!") {
-    //     const { spawn } = require('child_process');
-
-    //     const makedir = spawn("cmd", ['/c', `cd /home/data & mkdir ${req.query.id}`]);
-    //     const fs = require('fs');
-    //     fs.writeFileSync(`/home/daemon/${req.query.id}.bat`, `.\\kigacoind.exe -conf=C:\\home\\kigacoin.conf -datadir=C:\\home\\data\\${req.query.id} -printtoconsole`);
-    //     // '.\kigacoind.exe -conf=C:\workspace\kigacoin_win_bin\kigacoin.conf -datadir=C:\workspace\kigacoin_win_bin\data -printtoconsole'
-    //     const child = spawn("cmd", ['/c', `cd /home/daemon & ${req.query.id}`]);
-
-    //     child.stdout.on('data', (data) => {
-    //         console.log(`stdout: ${data}`);
-    //     });
-
-    //     child.stderr.on('data', (data) => {
-    //         console.log(`stderr: ${data}`);
-    //     });
-
-    //     child.on('error', (error) => console.log(`error: ${error.message}`));
-
-    //     child.on('exit', (code, signal) => {
-    //         if (code) console.log(`Process exit with code: ${code}`);
-    //         if (signal) console.log(`Process killed with signal: ${signal}`);
-    //         console.log(`Done!`)
-    //     });
-    // }
   });
 };
 

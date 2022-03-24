@@ -91,15 +91,6 @@ return (
         <React.Fragment>
                 <button className="walbtn" onClick={ openModal }> 지갑생성하기</button>
                 <Modal open={ walState.modalOpen } close={ closeModal } title="Create a chat room">
-                    {/* <h3>지갑 생성하기</h3>
-                    <h4>아래 무료 지갑을 생성하세요.</h4>
-                    <h5 className="waltxt">이메일</h5>
-                    <input></input>
-                    <h5 className="waltxt">암호</h5>
-                    <input></input>
-                    <div>
-                        <button className="walmakebtn">만들기</button>
-                    </div> */}
                 </Modal>
         </React.Fragment>
     </div>
