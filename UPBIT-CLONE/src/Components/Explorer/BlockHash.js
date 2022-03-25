@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 import styled from "styled-components";
-import copyTextUrl from "../../Container/Explorer/ClipCopy";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
 // import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
