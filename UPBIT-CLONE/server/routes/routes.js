@@ -48,4 +48,6 @@ router.get('/explorer/blockname/:blocknumberer', controllers.explorer_Controller
 // router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
 
 //Wallet
-router.post('/createwallet', controllers.wallet_Post_Controllers);
+router.post('/wallet', controllers.wallet_Post_Controllers);
+router.get('/wallet', controllers.wallet_Get_Controllers);
+router.put('/wallet', controllers.wallet_Put_Controllers);

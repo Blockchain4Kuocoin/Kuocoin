@@ -137,4 +137,19 @@ exports.wallet_Post_Controllers = (req, res) => {
     models.wallet.post_Models().then((result) => {
         res.send(result);
     });
+};
+
+exports.wallet_Get_Controllers = (req, res) => {
+  exports.gowner = req.query.owner;
+  models.wallet.get_Models().then((result) => {
+    res.send(result);
+  });
+}
+
+exports.wallet_Put_Controllers = (req,res) => {
+    console.log('test');
+    exports.wbdata = req.body;
+    models.wallet.balance_put_Models().then((result) => {
+        res.send(result);
+    })
 }
