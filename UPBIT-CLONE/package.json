@@ -51,6 +51,8 @@
     "styled-components": "^5.3.3",
     "styled-normalize": "^8.0.7",
     "styled-reset": "^4.3.0",
+    "sync-mysql": "^3.0.1",
+    "sync-request": "^6.1.0",
     "text-encoding": "^0.7.0",
     "websocket": "^1.0.32"
   },
@@ -80,6 +82,5 @@
       "not dead"
     ]
   },
-
   "homepage": "http://3.36.137.185/"
 }
