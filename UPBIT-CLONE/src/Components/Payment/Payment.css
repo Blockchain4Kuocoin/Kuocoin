@@ -6,16 +6,31 @@
   }
 
   .paydiv {
-    position: absolute;
-    width: 400px;
-    height: 400px;
+    /* position: absolute; */
+    width: 200px;
+    /* height: 400px; */
     padding: 30px, 20px;
     text-align: center;
-    top: 40%;
-    left: 50%;
+    /* top: 40%; */
+    /* left: 50%; */
     transform: translate(-50%, -50%);
     border-radius: 15px;
     color: #392f31;
+  }
+  .paytext {
+    border-bottom: 2px solid #e6c619;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+
+  .payinput {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #392f31;
+    font-size:16px;
+    height:25px;
+    background: none;
   }
 
 .paybtn {

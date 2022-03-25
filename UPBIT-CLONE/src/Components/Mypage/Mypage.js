@@ -8,77 +8,93 @@ import Modal from "../Modal/Modal.js"
 export default function Profile() {
     const [walState, setWalState] = useState ({
         modalOpen: false,
-    })
+    });
+    const [data, setData] = useState ("");
+    const [modalState, setModalState] = useState(true);
+    const [auth, setAuth] = useState(false);
 
     const openModal = () => {
         setWalState({ modalOpen: true })
     }
     const closeModal = () => {
+        setModalState(true);
+        setAuth(false);
         setWalState({ modalOpen: false })
     }
     
     
-const [state, setState] = useState({
-    id: sessionStorage.user_id,
-    name: "",
-    pw: "",
-});
+    const [state, setState] = useState({
+        id: sessionStorage.user_id,
+        name: "",
+        pw: "",
+    });
 
-const [check, setCheck] = useState(true);
+    const [check, setCheck] = useState(true);
 
-const [inputs, setInputs] = useState({
-    id: sessionStorage.user_id,
-    name: "",
-    pw: "",
-});
+    const [inputs, setInputs] = useState({
+        id: sessionStorage.user_id,
+        name: "",
+        pw: "",
+    });
 
-const {name, id, pw} = inputs
+    const {name, id, pw} = inputs
 
-const handler = e => {
-    const {value, name} = e.target
-    setInputs ({
-        ...inputs,
-        [name]: value,
-    })
-}
-
-useEffect(() => {
-    axios.get("http://localhost:3001/mypage", {
-        'params': {id: state.id},
-    })
-    .then((res) => {
-        const tmp = res.data;
-        console.log(tmp);
-        setState({
-            id: sessionStorage.user_id,
-            name: tmp.username,
-            pw: tmp.userpw,
-        });
-    })
-}, []); 
-
-const onClick = () => {
-    setCheck(false)
-}
-
-const btnClick = () => {
-
-    if (name==="") inputs.name=state.name;
-    if (pw==="") inputs.pw=state.pw;
-    console.log(inputs);
-
-    axios.put("http://localhost:3001/mypage", inputs,
-    )
-    .then(()=> {setState(inputs)})
-    .then(()=> {
-        setInputs({
-            name: "",   
-            id: "",
-            pw: "",
+    const handler = e => {
+        const {value, name} = e.target
+        setInputs ({
+            ...inputs,
+            [name]: value,
         })
-        setCheck(true)
-    })
-}
+    }
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/mypage", {
+            'params': {id: state.id},
+        })
+        .then((res) => {
+            const tmp = res.data;
+            console.log(tmp);
+            axios.get("http://localhost:3001/wallet", {
+                params: {
+                    owner: sessionStorage.user_id,
+                }
+            })
+            .then((res) => {
+                console.log(res.data);
+                setData(res.data);
+                setState({
+                    id: sessionStorage.user_id,
+                    name: tmp.username,
+                    pw: tmp.userpw,
+                });
+                // setWalAdr(res.data)
+            })
+        })
+    }, []); 
+
+    const onClick = () => {
+        setCheck(false)
+    }
+
+    const btnClick = () => {
+
+        if (name==="") inputs.name=state.name;
+        if (pw==="") inputs.pw=state.pw;
+        console.log(inputs);
+
+        axios.put("http://localhost:3001/mypage", inputs,
+        )
+        .then(()=> {setState(inputs)})
+        .then(()=> {
+            setInputs({
+                name: "",   
+                id: "",
+                pw: "",
+            })
+            setCheck(true)
+        })
+    }
+
 if(check) {
 return (
     <div className="mydiv">
@@ -91,15 +107,6 @@ return (
         <React.Fragment>
                 <button className="walbtn" onClick={ openModal }> 지갑생성하기</button>
                 <Modal open={ walState.modalOpen } close={ closeModal } title="Create a chat room">
-                    {/* <h3>지갑 생성하기</h3>
-                    <h4>아래 무료 지갑을 생성하세요.</h4>
-                    <h5 className="waltxt">이메일</h5>
-                    <input></input>
-                    <h5 className="waltxt">암호</h5>
-                    <input></input>
-                    <div>
-                        <button className="walmakebtn">만들기</button>
-                    </div> */}
                 </Modal>
         </React.Fragment>
     </div>

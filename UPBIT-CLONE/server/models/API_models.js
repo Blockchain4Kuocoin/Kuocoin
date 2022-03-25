@@ -8,7 +8,7 @@ dotenv.config();
 
 const USER = process.env.RPC_USER;
 const PASS = process.env.RPC_PASSWORD;
-const PORT = 9776;
+const PORT = 9554;
 const ACCOUNT = "kuos";
 const ID_STRING = "kuoscoin_id";
 const headers = {
