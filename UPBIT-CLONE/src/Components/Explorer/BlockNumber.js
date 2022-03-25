@@ -56,7 +56,7 @@ const BlockNumber = () => {
   console.log(params);
 
   useEffect(()=>{
-    Axios.get(`http://3.36.137.185:3001/explorer/blockname/${params.blocknumber}`)
+    Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
     .then((response) => {setBlockNumberData(response.data); console.log(response)})
     .catch(err=>console.log(err))
   }, []);
