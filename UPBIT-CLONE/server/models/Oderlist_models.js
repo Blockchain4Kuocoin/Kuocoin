@@ -8,7 +8,7 @@ modelExports.orderlist_Models = () => {
     return new Promise((resolve, reject) => {
 
         const sql = `SELECT * FROM payment WHERE userid = "${id}"`;
-
+        // const sql = `SELECT date_format(paytime, '%Y-%m-%d') FROM payment`
         con.getConnection((err, connection) => {
             try {
                 if (err) throw err;
@@ -31,35 +31,3 @@ modelExports.orderlist_Models = () => {
         });
     });      
 };
-
-// modelExports.mypage_ProfilePut_Models = () => {
-//     const name = controllers.pname;
-//     const pw = controllers.ppw;
-//     const id = controllers.pid;
-
-//     return new Promise((resolve, reject) => {
-
-//         const sql = `UPDATE userinfo SET username = '${name}',  userpw = '${pw}' WHERE userid = '${id}'`;
-
-//         con.getConnection((err, connection) => {
-//             try {
-//                 if (err) throw err;
-//                 console.log("mysqldb connection success!");
-//                 connection.query(sql, (err, result)=>{
-//                     if(err) {
-//                         throw err;
-//                     } else {
-//                         console.log("profile has successfully changed!");
-//                         resolve({msg: "success"});
-//                     }    
-//                 });
-//                 connection.release();
-
-//             } catch (err) {
-//                 console.log("Mypage put error...");
-//                 console.error(err);
-//                 connection.release();
-//             };
-//         })
-//     })      
-// };
