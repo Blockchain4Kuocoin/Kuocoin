@@ -17,6 +17,8 @@ const upload = multer({
     })
 });
 
+//OderList
+router.get('/trade', controllers.orderlist_Controllers);
 
 //Mypage
 router.get('/mypage', controllers.mypage_ProfileGet_Controllers);

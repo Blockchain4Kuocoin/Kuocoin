@@ -94,40 +94,42 @@ export default function Profile() {
             setCheck(true)
         })
     }
-    if(check) {
+
+if(check) {
+return (
+    <div className="mydiv">
+        <h2 className="mytitle">PROFILE</h2><br/>
+        <p className="mytext">NAME : {state.name}</p>
+        <p className="mytext">ID : {state.id}</p>
+        <p className="mytext">PASSWORD : {state.pw}</p>
+        <button className="mybtn" type = "button" onClick = {onClick} >수정하기</button>
+        {/* <button className="walbtn" type = "button">지갑생성하기</button> */}
+        <React.Fragment>
+                <button className="walbtn" onClick={ openModal }> 지갑생성하기</button>
+                <Modal open={ walState.modalOpen } close={ closeModal } title="Create a chat room">
+                </Modal>
+        </React.Fragment>
+    </div>
+    );
+}
+else{
     return (
-        <div className="mydiv">
-            <h2 className="mytitle">PROFILE</h2><br/>
-            <p className="mytext">ID : {state.id}</p>
-            <p className="mytext">NAME : {state.name}</p>
-            <p className="mytext">PASSWORD : {state.pw}</p>
-            <button className="mybtn" type = "button" onClick = {onClick} >수정하기</button>
-            <React.Fragment>
-                    <button className="walbtn" onClick={ openModal }> 내 지갑 정보</button>
-                    <Modal open={ walState.modalOpen } close={ closeModal } data={ data } setData={setData} modalState={modalState} setModalState={setModalState} auth={auth} setAuth={setAuth} title="Create a chat room">
-                    </Modal>
-            </React.Fragment>
-        </div>
+<>
+    <div className="mydiv">
+        <h2 className="mytitle">PROFILE</h2><br/>
+        <p className="mytext">ID 
+            <input className="myinput" name = "id" value = {id} type = "text" placeholder = {state.id} readOnly/>
+        </p>
+        <p className="mytext">NAME 
+            <input className="myinput" name = "name" value = {name} type = "text" placeholder = {state.name} onChange = {handler}/>
+        </p>
+        <p className="mytext">PASSWORD 
+            <input className="myinput" name = "pw" value = {pw} type = "text" placeholder = {state.pw} onChange = {handler}/>
+        </p>
+        <button className="mybtn" type = "button" onClick = {btnClick}>저장하기</button>
+
+    </div>
+</>
         );
     }
-    else{
-        return (
-    <>
-        <div className="mydiv">
-            <h2 className="mytitle">PROFILE</h2><br/>
-            <p className="mytext">ID 
-                <input className="myinput" name = "id" value = {id} type = "text" placeholder = {state.id} readOnly/>
-            </p>
-            <p className="mytext">NAME 
-                <input className="myinput" name = "name" value = {name} type = "text" placeholder = {state.name} onChange = {handler}/>
-            </p>
-            <p className="mytext">PASSWORD 
-                <input className="myinput" name = "pw" value = {pw} type = "text" placeholder = {state.pw} onChange = {handler}/>
-            </p>
-            <button className="mybtn" type = "button" onClick = {btnClick}>저장하기</button>
-
-        </div>
-    </>
-            );
-        }
-    }
+}

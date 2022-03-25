@@ -6,6 +6,7 @@ import {
   changePriceAndTotalPrice,
   changeTotalPriceAndAmount,
 } from "../../Reducer/coinReducer";
+import OrderInfo from "./OrderInfo";
 import OrderInfoTradeList from "./OrderInfoTradeList";
 
 const St = {
@@ -91,6 +92,7 @@ const St = {
     min-width: ${({ minWidth }) => minWidth};
     height: ${({ height }) => height || "38px"};
     margin-right: ${({ marginRight }) => marginRight};
+    margin: ${({ margin }) => margin};
     background-color: ${({ bgColor }) => bgColor || "tranceparent"};
     border: none;
     border-top: 1px solid ${({ borderColor }) => borderColor || "tranceparent"};
@@ -224,30 +226,23 @@ const OrderInfoAskBid = ({
               placeholder={0}
             />
           </St.OrderInfoDetailContainer>
+          {
+            <St.OrderBtnContainer>
+              <St.Button
+                width={"60%"}
+                bgColor={theme.test}
+                fontSize={"0.9rem"}
+                fontColor={"white"}
+                margin={"auto"}
+              >
+                채결하기
+              </St.Button>
+            </St.OrderBtnContainer>
+          }
         </>
       ) : (
         <OrderInfoTradeList theme={theme} />
       )}
-      <St.OrderBtnContainer>
-        <St.Button
-          width={"30%"}
-          minWidth={"70px"}
-          marginRight={"5px"}
-          bgColor={theme.test}
-          fontSize={"0.9rem"}
-          fontColor={"white"}
-        >
-          회원가입
-        </St.Button>
-        <St.Button
-          width={"65%"}
-          bgColor={theme.test}
-          fontSize={"0.9rem"}
-          fontColor={"white"}
-        >
-          로그인
-        </St.Button>
-      </St.OrderBtnContainer>
     </St.OrderInfoContainer>
   );
 };
