@@ -138,6 +138,13 @@ exports.wallet_Put_Controllers = (req,res) => {
     });
 }
 
+exports.wallet_UserinfoWallet_Controllers = (req, res) => {
+  exports.userwallet = req.body;
+  models.wallet.userinfo_Wallet_Models().then((result) => {
+    res.send(result);
+  })
+}
+
 //Order
 exports.order_Buy_Controllers = (req, res) => {
     exports.buyinfo = req.body;

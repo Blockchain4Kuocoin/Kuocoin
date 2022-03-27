@@ -53,6 +53,7 @@ router.get('/explorer/blockname/:blocknumberer', controllers.explorer_Controller
 router.post('/wallet', controllers.wallet_Post_Controllers);
 router.get('/wallet', controllers.wallet_Get_Controllers);
 router.put('/wallet', controllers.wallet_Put_Controllers);
+router.put('/userinfo/wallet', controllers.wallet_UserinfoWallet_Controllers);
 
 //Order
 router.put('/order/buy', controllers.order_Buy_Controllers);

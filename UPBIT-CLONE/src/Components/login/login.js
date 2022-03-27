@@ -24,7 +24,7 @@ export default function Login() {
             }
         })
         .then(res => {
-            console.log(res)
+            console.log(res);
             // console.log('res.data.userId :: ', res.data.id)/
             console.log('res.data.msg :: ', res.data.msg);
             let msg = res.data.msg;
@@ -55,8 +55,28 @@ export default function Login() {
     return (
         <div className="loginregister">
             <form>
-                <input name="id" type="id" placeholder="아이디" value={ info.id || "" } className="loginregister__input" onChange={ onChange }/><br/>
-                <input name="pw" type="password" placeholder="비밀번호" value={ info.pw || "" } className="loginregister__input"onChange={ onChange } /><br/>
+                <input 
+                className="loginregister__input"
+                name="id" 
+                type="id" 
+                placeholder="아이디" 
+                value={ info.id || "" } 
+                onChange={ onChange }
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") onSubmit()
+                }}
+                /><br/>
+                <input 
+                className="loginregister__input"
+                name="pw" 
+                type="password" 
+                placeholder="비밀번호" 
+                value={ info.pw || "" } 
+                onChange={ onChange } 
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") onSubmit()
+                }}
+                /><br/>
                 <button type="button" onClick={onSubmit} className="loginregister__button">로그인</button>
             </form>
         </div>

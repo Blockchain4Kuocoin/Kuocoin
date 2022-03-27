@@ -69,7 +69,7 @@ const OrderInfo = ({
           <St.OrderTypeBtn
             borderBottom={selectedAskBidOrder === "bid" && theme.strongRed}
             fontColor={selectedAskBidOrder === "bid" && theme.strongRed}
-            onClick={() => {dispatch(changeAskBidOrder("bid"))}}
+            onClick={() => dispatch(changeAskBidOrder("bid"))}
           >
             매수
           </St.OrderTypeBtn>

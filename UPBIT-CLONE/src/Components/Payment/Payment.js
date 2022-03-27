@@ -66,7 +66,7 @@ function Payment(props) {
     <>
       <div>
         <Selectwal setState={setState} data={data}/> 
-        <Selectpay setState={setState} pay={pay} setPay={setPay}/>
+        <Selectpay pay={pay} setPay={setPay}/>
         <button onClick={onClickPayment}>결제하기</button>
       </div>
     </>
