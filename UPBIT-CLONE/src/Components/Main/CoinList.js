@@ -135,6 +135,8 @@ const CoinList = ({
 }) => {
   const dispatch = useDispatch();
 
+  const kuoList = ["KRW-BTC", "KRW-ETC", "KRW-SAND", "KRW-WAVES", "KRW-QTUM", "KRW-XRP", "KRW-SOL", "KRW-DOGE", "KRW-NEO", "KRW-ATOM", "KRW-BTG", "KRW-ENJ", "KRW-LINK", "KRW-SSX", "KRW-HIVE", "KRW-QKC", "KRW-STEEM", "KRW-TT", "KRW-ZRX"];
+
   return (
     <St.CoinListContainer isRootURL={isRootURL} heightSize={heightSize - 80}>
       <St.HiddenH3>코인 리스트</St.HiddenH3>
@@ -157,25 +159,6 @@ const CoinList = ({
         </St.CoinSortList>
       </St.CoinSortContainer>
       <St.CoinUl heightSize={heightSize - 140}>
-      {/* {isMarketNamesLoading || isInitCandleLoading ? (
-          <Loading center={false} />
-        ) : (
-          <li className="sc-gGCDDS bMXpf">
-            <button className="sc-clIzBv hpymPy">
-              <i title="쿠오코인 로고" class="sc-faUpoM drGdGg"></i>
-              <div className="sc-Galmp kgsplp">
-                <strong className="sc-fWCJzd cjycOF">쿠오코인</strong>
-                <span className="sc-dvQaRk bFyisN">KUOSCOIN</span>
-              </div>
-              <strong className="sc-TBWPX ghExOU">99,999</strong>
-              <div className="sc-jIkXHa gVrLxc">
-                <span className="sc-ZOtfp fghBGh">4.35%</span>
-                <span className="sc-jOxtWs cESbST">1,222,332</span>
-              </div>
-              <span className="sc-hmjpVf ejGRaP">111,111 백만</span>
-            </button>
-          </li>
-      )} */}
         {isMarketNamesLoading || isInitCandleLoading ? (
           <Loading center={false} />
         ) : (
@@ -201,23 +184,25 @@ const CoinList = ({
                 : +changePrice24Hour < 0
                 ? theme.strongBlue
                 : "black";
-            return (
-              <CoinListItem
-                theme={theme}
-                marketName={marketName}
-                selectedMarket={selectedMarket}
-                coinName={(marketNames[marketName].korean=='비트코인골드')?'쿠오코인':marketNames[marketName].korean}
-                enCoinName={(marketNames[marketName].korean=='비트코인골드')?'KUOS/KRW':enCoinName}
-                fontColor={fontColor}
-                price={price}
-                changeRate24Hour={changeRate24Hour + "%"}
-                changePrice24Hour={changePrice24Hour}
-                tradePrice24Hour={tradePrice24Hour}
-                // isTraded={isTraded}
-                key={`coinList-${marketName}`}
-              />
-            );
-          
+            
+            if (kuoList.includes(marketName)) {
+              return (
+                <CoinListItem
+                  theme={theme}
+                  marketName={marketName}
+                  selectedMarket={selectedMarket}
+                  coinName={(marketNames[marketName].korean=='비트코인골드')?'쿠오코인':marketNames[marketName].korean}
+                  enCoinName={(marketNames[marketName].korean=='비트코인골드')?'KUOS/KRW':enCoinName}
+                  fontColor={fontColor}
+                  price={price}
+                  changeRate24Hour={changeRate24Hour + "%"}
+                  changePrice24Hour={changePrice24Hour}
+                  tradePrice24Hour={tradePrice24Hour}
+                  // isTraded={isTraded}
+                  key={`coinList-${marketName}`}
+                />
+              );
+            }
           })
         )}
       </St.CoinUl>

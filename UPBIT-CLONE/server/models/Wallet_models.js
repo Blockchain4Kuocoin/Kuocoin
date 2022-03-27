@@ -147,3 +147,92 @@ modelExports.balance_put_Models = () => {
         });
     });  
 }
+
+modelExports.order_Buy_Models = () => {
+    const orderinfo = controllers.buyinfo;
+    const owner = orderinfo.userid;
+    const wal_id = orderinfo.wal;
+    let balance;
+    const coinSymbol = orderinfo.coinSymbol;
+    let Amount = Number(orderinfo.orderAmount);
+
+    console.log("orderinfo:");
+    console.log(orderinfo);
+
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
+        const sql1= `UPDATE walletinfo SET ${coinSymbol}=?, balance=? WHERE wal_id = ? AND owner = ?;`;
+        const sql2 = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
+        const sql3 = `INSERT INTO payment (userid, wal_id, coinname, quantity, price, method) VALUES (?,?,?,?,?,?);`
+        con.getConnection((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("mysqldb connection success!");
+                connection.query(sql, [wal_id, owner], (err, result) => {
+                    if (err) throw err; 
+                    Amount += Number(result[0][`${coinSymbol}`]);
+                    balance = Number(result[0].balance) - orderinfo.orderPrice;
+                    connection.query(sql1, [String(Amount), String(balance), wal_id, owner], (err, result1) => {
+                        if (err) throw err;
+                        connection.query(sql3,[owner, wal_id, coinSymbol, String(Amount), orderinfo.orderPrice, 'B'], (err, result3) => {
+                            if (err) throw err;
+                            connection.query(sql2, [wal_id, owner], (err, result2) => {
+                                if (err) throw err;
+                                resolve(result2[0]);
+                                connection.release();
+                            });
+                        })
+                    })
+                })
+            } catch (err) {
+                console.log("Wallet put error...");
+                console.error(err);
+            };
+        });
+    });  
+}
+
+modelExports.order_Sell_Models = () => {
+    const orderinfo = controllers.sellinfo;
+    const owner = orderinfo.userid;
+    const wal_id = orderinfo.wal;
+    let balance;
+    const coinSymbol = orderinfo.coinSymbol;
+    let Amount;
+
+    console.log("orderinfo:");
+    console.log(orderinfo);
+
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
+        const sql1= `UPDATE walletinfo SET ${coinSymbol}=?, balance=? WHERE wal_id = ? AND owner = ?;`;
+        const sql2 = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
+        const sql3 = `INSERT INTO payment (userid, wal_id, coinname, quantity, price, method) VALUES (?,?,?,?,?,?);`
+        con.getConnection((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("mysqldb connection success!");
+                connection.query(sql, [wal_id, owner], (err, result) => {
+                    if (err) throw err; 
+                    Amount = Number(result[0][`${coinSymbol}`])-Number(orderinfo.orderAmount);
+                    balance = Number(result[0].balance) + orderinfo.orderPrice;
+                    connection.query(sql1, [String(Amount), String(balance), wal_id, owner], (err, result1) => {
+                        if (err) throw err;
+                        connection.query(sql3, [owner, wal_id, coinSymbol, orderinfo.orderAmount, String(orderinfo.orderPrice), 'S'], (err, result3) => {
+                            if (err) throw err;
+                            connection.query(sql2, [wal_id, owner], (err, result2) => {
+                                if (err) throw err;
+                                resolve(result2[0]);
+                                connection.release();
+                            })
+                        })
+                    })
+                })
+            } catch (err) {
+                console.log("Wallet put error...");
+                console.error(err);
+            };
+        });
+    });  
+}
+

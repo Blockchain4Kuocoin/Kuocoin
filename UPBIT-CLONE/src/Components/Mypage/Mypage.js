@@ -9,7 +9,7 @@ export default function Profile() {
     const [walState, setWalState] = useState ({
         modalOpen: false,
     });
-    const [data, setData] = useState ("");
+    const [data, setData] = useState("");
     const [modalState, setModalState] = useState(true);
     const [auth, setAuth] = useState(false);
 
@@ -106,7 +106,7 @@ return (
         {/* <button className="walbtn" type = "button">지갑생성하기</button> */}
         <React.Fragment>
                 <button className="walbtn" onClick={ openModal }> 지갑생성하기</button>
-                <Modal open={ walState.modalOpen } close={ closeModal } title="Create a chat room">
+                <Modal open={ walState.modalOpen } close={ closeModal } data={data} setData={setData} auth={auth} setAuth={setAuth}title="Create a chat room">
                 </Modal>
         </React.Fragment>
     </div>

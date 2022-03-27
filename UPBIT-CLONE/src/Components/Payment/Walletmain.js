@@ -5,13 +5,16 @@ import Payment from "./Payment";
 
 export default function Walletmain(props) {
     const { data, setData, close, state, setState } = props;
-    console.log(props);
-    console.log("state: " + state);
+    // console.log(props);
+    // console.log("state: " + state);
+    console.log("data: ");
+    console.log(data);
+    if (data.length > 0) sessionStorage.setItem("wallet", JSON.stringify(data[0]));
 
     const onWallet = () => {
         setState("wallet");
     }
-
+    
     const onPayment = () => {
         setState("payment");
     }
