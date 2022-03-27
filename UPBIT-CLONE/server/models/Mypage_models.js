@@ -16,17 +16,15 @@ modelExports.mypage_ProfileGet_Models = () => {
                 connection.query(sql, (err, result)=>{
                     if(err) {
                         throw err;
-                    } else {
-                        resolve(result[0]);
-                        console.log(result[0]);
-                    }    
+                    } 
+                    resolve(result[0]);
+                    console.log(result[0]);
+                    connection.release();
                 });
-                connection.release();
 
             } catch (err) {
                 console.log("Mypage get error...");
                 console.error(err);
-                connection.release();
             };
         });
     });      
@@ -36,10 +34,12 @@ modelExports.mypage_ProfilePut_Models = () => {
     const name = controllers.pname;
     const pw = controllers.ppw;
     const id = controllers.pid;
+    console.log(name, pw, id);
 
     return new Promise((resolve, reject) => {
 
         const sql = `UPDATE userinfo SET username = '${name}',  userpw = '${pw}' WHERE userid = '${id}'`;
+        const sql1 = `SELECT * FROM userinfo WHERE userid="${id}";`;
 
         con.getConnection((err, connection) => {
             try {
@@ -48,18 +48,18 @@ modelExports.mypage_ProfilePut_Models = () => {
                 connection.query(sql, (err, result)=>{
                     if(err) {
                         throw err;
-                    } else {
-                        console.log("profile has successfully changed!");
-                        resolve({msg: "success"});
-                    }    
+                    } 
+                    console.log("profile has successfully changed!");
+                    connection.query(sql1, (err, result1) => {
+                        if (err) throw err;
+                        resolve(result1[0]);
+                        connection.release();
+                    })
                 });
-                connection.release();
 
             } catch (err) {
                 console.log("Mypage put error...");
-                console.error(err);
-                connection.release();
-            };
+                console.error(err);            };
         })
     })      
 };

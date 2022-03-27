@@ -169,23 +169,34 @@ const OrderInfoAskBid = ({
     [dispatch]
   );
 
-  const [wallet, setWallet] = useState("");
+  if (coinSymbol === 'BTG') coinSymbol = 'KUOS'; 
+
+  const [wallet, setWallet] = useState({
+    balance: 0,
+    coinSymbol: 0,
+  });
 
   useEffect(() => {
-    axios.get("http://localhost:3001/wallet", {
+    let wallet;
+    axios.get("http://localhost:3001/mypage", {
       params: {
-        owner: sessionStorage.user_id,
+        id: sessionStorage.user_id,
       }
     })
-    .then((res)=> {
-      // console.log(res.data);
-      res.data.forEach((data) => {
-        if (data.wal_id == JSON.parse(sessionStorage.wallet).wal_id) {
-          console.log(data);
-          setWallet(data);
-          return;
-        }
-      })
+    .then((res) => {
+      console.log(res.data);
+      wallet = res.data.wallet;
+      if (res.data.wallet !== null) {
+        axios.get("http://localhost:3001/wallet", {
+          params: {
+            owner: sessionStorage.user_id,
+          }
+        }).then((res) => {
+          res.data.forEach(ele => {
+            if (ele.wal_id === wallet) setWallet(ele)
+          })
+        })
+      }
    })
   }, []);
 
@@ -195,7 +206,7 @@ const OrderInfoAskBid = ({
     console.log(orderAmount);
     console.log(orderPrice);
     if (!sessionStorage.user_id) alert("로그인 후 이용 가능합니다.");
-    else if (wallet=="") alert("지갑 생성 후 이용해주세요.");
+    else if (!wallet.wal_id) alert("지갑 생성 후 이용해주세요");
     else {
       if (selectedAskBidOrder === "bid"){
         if (orderPrice===0) alert("상품을 선택해주세요.");
@@ -207,7 +218,8 @@ const OrderInfoAskBid = ({
             wal: wallet.wal_id,
             orderPrice: orderTotalPrice,
             coinSymbol: coinSymbol,
-            orderAmount: orderAmount, 
+            orderAmount: orderAmount,
+            wal_addr: wallet.wal_addr,
           })
           .then((res) => {
             console.log(res.data);
@@ -230,6 +242,7 @@ const OrderInfoAskBid = ({
             orderPrice: orderTotalPrice,
             coinSymbol: coinSymbol,
             orderAmount: orderAmount,
+            wal_addr: wallet.wal_addr,
           })
           .then((res) => {
             console.log(res.data);
@@ -242,28 +255,6 @@ const OrderInfoAskBid = ({
     }
   }
 
-  const priceUp = useCallback(
-      (orderPrice) => 
-        console.log(parseInt(orderPrice-100000))
-        // console.log(e.target)
-      //   dispatch(
-      //     changePriceAndTotalPrice(
-      //       parseInt(orderPrice + 100000)
-      //     )
-      //   ),
-      // [dispatch]
-  )
-
-  const priceDown = useCallback(
-      () =>
-        dispatch(
-          changePriceAndTotalPrice(
-            parseInt(orderPrice - 100000)
-          )
-        ),
-      [dispatch]
-  )
-
   return (
     <St.OrderInfoContainer theme={theme}>
       {selectedAskBidOrder !== "tradeList" ? (
@@ -271,7 +262,7 @@ const OrderInfoAskBid = ({
           <St.OrderInfoDetailContainer>
             <St.OrderInfoDetailTitle>주문가능</St.OrderInfoDetailTitle>
             <St.PossibleAmount>
-              {selectedAskBidOrder === "bid" ? wallet.balance : wallet[`${coinSymbol}`]}
+              {selectedAskBidOrder === "bid" ? wallet.balance : wallet[`${coinSymbol}`] ? wallet[`${coinSymbol}`] : 0}
               <St.Unit>
                 {selectedAskBidOrder === "bid" ? "KRW" : coinSymbol}
               </St.Unit>

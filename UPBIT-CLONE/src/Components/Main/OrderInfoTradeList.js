@@ -77,7 +77,6 @@ const St = {
 
 export default function OrderInfoTradeList({ theme, coinSymbol }) {
   const [state, setState] = useState([]);
-  const [auth, setAuth] = useState(sessionStorage.user_id ? true : false);
 
   useEffect(() => {
     axios
@@ -94,10 +93,6 @@ export default function OrderInfoTradeList({ theme, coinSymbol }) {
       });
   }, []);
   return (
-    // <St.Container>
-    //     {/* <p>지갑: {state.wallet} 코인종류: {state.coinName} 수량: {state.quantity} 구매가격: {state.price}</p>
-    //     <p>거래시간: {state.time}</p> */}
-    // </St.Container>
     <St.Container>
       <St.HiddenH3>실시간 체결내역</St.HiddenH3>
       <St.TradeListTitle bgColor={theme.lightGray1}>

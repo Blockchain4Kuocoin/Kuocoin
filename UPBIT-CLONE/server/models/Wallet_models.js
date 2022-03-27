@@ -26,6 +26,7 @@ modelExports.post_Models = () => {
         const sql = "SELECT * FROM walletinfo where wal_id = ? and owner = ?;";
         const sql1 = "INSERT INTO walletinfo (wal_id, owner, wal_addr, balance) VALUES (?,?,?,?)";
         const sql2 = "SELECT * FROM walletinfo where owner = ?;"
+        const sql3 = "UPDATE userinfo SET wallet=? WHERE userid = ?";
 
         con.getConnection((err, connection) => {
             try {
@@ -64,7 +65,13 @@ modelExports.post_Models = () => {
                                         connection.query(sql2, [owner], (err, result) => {
                                             console.log("data read success!");
                                             resolve(result);
-                                            connection.release();
+                                            if (result.length===1) {
+                                                connection.query(sql3, [walid, owner], (err, result3) => {
+                                                    if (err) throw err;
+                                                    console.log("success!");
+                                                    connection.release();
+                                                });
+                                            }
                                         })
                                     });
                                 }
@@ -155,9 +162,38 @@ modelExports.order_Buy_Models = () => {
     let balance;
     const coinSymbol = orderinfo.coinSymbol;
     let Amount = Number(orderinfo.orderAmount);
+    const wal_addr = orderinfo.wal_addr;
 
     console.log("orderinfo:");
     console.log(orderinfo);
+
+    if (coinSymbol === 'KUOS') {
+        console.log('KUOS');
+        console.log(wal_addr);
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"sendmany",
+            "params":["kuoscoin", {"${wal_addr}": ${Amount}}]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                // console.log('kuos1')
+                console.log(data);
+            }
+        }
+        request(options, callback)
+
+    }
 
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
@@ -199,9 +235,38 @@ modelExports.order_Sell_Models = () => {
     let balance;
     const coinSymbol = orderinfo.coinSymbol;
     let Amount;
+    const wal_addr = orderinfo.wal_addr;
 
     console.log("orderinfo:");
     console.log(orderinfo);
+
+    if (coinSymbol === 'KUOS') {
+        console.log('KUOS');
+        console.log(wal_addr);
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"sendmany",
+            "params":["${wal_id}", {"KBoxq2jS7eZRDrsLBJ2B9iDKMwQpyKztz1": ${orderinfo.orderAmount}}]
+        }`;
+    
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const data = JSON.parse(body);
+                // console.log('kuos1')
+                console.log(data);
+            }
+        }
+        request(options, callback)
+
+    }
 
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
@@ -230,6 +295,29 @@ modelExports.order_Sell_Models = () => {
                 })
             } catch (err) {
                 console.log("Wallet put error...");
+                console.error(err);
+            };
+        });
+    });  
+}
+
+modelExports.userinfo_Wallet_Models = () => {
+    const data = controllers.userwallet;
+
+    return new Promise((resolve, reject) => {
+        const sql = "UPDATE userinfo SET wallet=? WHERE userid=?;";
+    
+        con.getConnection((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("mysqldb connection success!");
+                connection.query(sql, [data.wallet, data.userid], (err, result) => {
+                    if (err) throw err; 
+                    console.log("success!")
+                    resolve(result);
+                })
+            } catch (err) {
+                console.log("Userinfo wallet put error...");
                 console.error(err);
             };
         });
