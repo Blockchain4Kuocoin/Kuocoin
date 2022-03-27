@@ -4,10 +4,11 @@ const controllers = require("../controllers/controllers");
 
 modelExports.orderlist_Models = () => {
     
-    const id = controllers.mid;
+    const orderList = controllers.orderList;
+    console.log(orderList);
     return new Promise((resolve, reject) => {
 
-        const sql = `SELECT * FROM payment WHERE userid = "${id}"`;
+        const sql = `SELECT * FROM payment WHERE userid = "${orderList.id}" AND coinname="${orderList.coinSymbol}"`;
         // const sql = `SELECT date_format(paytime, '%Y-%m-%d') FROM payment`
         con.getConnection((err, connection) => {
             try {
@@ -17,16 +18,15 @@ modelExports.orderlist_Models = () => {
                     if(err) {
                         throw err;
                     } else {
-                        resolve(result[0]);
-                        console.log(result[0]);
+                        resolve(result);
+                        console.log(result);
                     }    
                 });
                 connection.release();
 
             } catch (err) {
-                console.log("Payment get error...");
+                console.log("Orderlist get error...");
                 console.error(err);
-                connection.release();
             };
         });
     });      

@@ -2,7 +2,7 @@ const models = require("../models/models");
 
 //OrderList
 exports.orderlist_Controllers = (req, res) => {
-  exports.mid = req.query.id;
+  exports.orderList = req.query;
   models.trade.orderlist_Models().then((result) => {
     res.send(result);
   });
@@ -134,6 +134,23 @@ exports.wallet_Put_Controllers = (req,res) => {
     console.log('test');
     exports.wbdata = req.body;
     models.wallet.balance_put_Models().then((result) => {
+        res.send(result);
+    });
+}
+
+//Order
+exports.order_Buy_Controllers = (req, res) => {
+    exports.buyinfo = req.body;
+
+    models.wallet.order_Buy_Models().then((result) => {
+        res.send(result);
+    })
+}
+
+exports.order_Sell_Controllers = (req, res) => {
+    exports.sellinfo = req.body;
+
+    models.wallet.order_Sell_Models().then((result) => {
         res.send(result);
     })
 }

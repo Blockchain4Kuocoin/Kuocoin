@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import {
@@ -8,6 +8,7 @@ import {
 } from "../../Reducer/coinReducer";
 import OrderInfo from "./OrderInfo";
 import OrderInfoTradeList from "./OrderInfoTradeList";
+import axios from "axios";
 
 const St = {
   Container: styled.section`
@@ -168,6 +169,101 @@ const OrderInfoAskBid = ({
     [dispatch]
   );
 
+  const [wallet, setWallet] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/wallet", {
+      params: {
+        owner: sessionStorage.user_id,
+      }
+    })
+    .then((res)=> {
+      // console.log(res.data);
+      res.data.forEach((data) => {
+        if (data.wal_id == JSON.parse(sessionStorage.wallet).wal_id) {
+          console.log(data);
+          setWallet(data);
+          return;
+        }
+      })
+   })
+  }, []);
+
+  const onClick = () => {
+    console.log(orderTotalPrice);
+    console.log(coinSymbol);
+    console.log(orderAmount);
+    console.log(orderPrice);
+    if (!sessionStorage.user_id) alert("로그인 후 이용 가능합니다.");
+    else if (wallet=="") alert("지갑 생성 후 이용해주세요.");
+    else {
+      if (selectedAskBidOrder === "bid"){
+        if (orderPrice===0) alert("상품을 선택해주세요.");
+        else if (orderTotalPrice < 10000) alert("10000원 이상 체결해주세요!");
+        else if (wallet.balance < orderTotalPrice) alert("보유금액을 초과했습니다.");
+        else {
+          axios.put("http://localhost:3001/order/buy", {
+            userid: sessionStorage.user_id,
+            wal: wallet.wal_id,
+            orderPrice: orderTotalPrice,
+            coinSymbol: coinSymbol,
+            orderAmount: orderAmount, 
+          })
+          .then((res) => {
+            console.log(res.data);
+            // setWallet(res.data);
+            document.location.reload();
+            alert("체결되었습니다!");
+          })
+        }
+      }
+      else {
+        // console.log(orderAmount);
+        // console.log(Number(wallet[`${coinSymbol}`]) < orderAmount);
+        if (orderPrice===0) alert("상품을 선택해주세요.");
+        else if (orderTotalPrice < 10000) alert("10000원 이상 체결해주세요!");
+        else if (Number(wallet[`${coinSymbol}`]) < orderAmount) alert("보유금액을 초과했습니다.");
+        else {
+          axios.put("http://localhost:3001/order/sell", {
+            userid: sessionStorage.user_id,
+            wal: wallet.wal_id,
+            orderPrice: orderTotalPrice,
+            coinSymbol: coinSymbol,
+            orderAmount: orderAmount,
+          })
+          .then((res) => {
+            console.log(res.data);
+            // setWallet(res.data);
+            document.location.reload();
+            alert("체결되었습니다!");
+          })
+        }
+      }
+    }
+  }
+
+  const priceUp = useCallback(
+      (orderPrice) => 
+        console.log(parseInt(orderPrice-100000))
+        // console.log(e.target)
+      //   dispatch(
+      //     changePriceAndTotalPrice(
+      //       parseInt(orderPrice + 100000)
+      //     )
+      //   ),
+      // [dispatch]
+  )
+
+  const priceDown = useCallback(
+      () =>
+        dispatch(
+          changePriceAndTotalPrice(
+            parseInt(orderPrice - 100000)
+          )
+        ),
+      [dispatch]
+  )
+
   return (
     <St.OrderInfoContainer theme={theme}>
       {selectedAskBidOrder !== "tradeList" ? (
@@ -175,7 +271,7 @@ const OrderInfoAskBid = ({
           <St.OrderInfoDetailContainer>
             <St.OrderInfoDetailTitle>주문가능</St.OrderInfoDetailTitle>
             <St.PossibleAmount>
-              0
+              {selectedAskBidOrder === "bid" ? wallet.balance : wallet[`${coinSymbol}`]}
               <St.Unit>
                 {selectedAskBidOrder === "bid" ? "KRW" : coinSymbol}
               </St.Unit>
@@ -192,11 +288,16 @@ const OrderInfoAskBid = ({
                 fontWeight={800}
                 placeholder={0}
               />
-              <St.Button
+              {/* <St.Button
                 bgColor={theme.lightGray}
                 borderColor={theme.lightGray2}
                 fontColor={"#666"}
                 fontSize={"1.1rem"}
+                onClick={() => {
+                  console.log(Math.ceil(orderPrice))
+                  // dispatch(changePriceAndTotalPrice(orderPrice-100000))
+                
+                }}
               >
                 +
               </St.Button>
@@ -205,9 +306,10 @@ const OrderInfoAskBid = ({
                 borderColor={theme.lightGray2}
                 fontColor={"#666"}
                 fontSize={"1.1rem"}
+                onClick={() => dispatch(changePriceAndTotalPrice(orderPrice-100000))}
               >
                 -
-              </St.Button>
+              </St.Button> */}
             </St.OrderInfoInputContainer>
           </St.OrderInfoDetailContainer>
           <St.OrderInfoDetailContainer>
@@ -234,6 +336,7 @@ const OrderInfoAskBid = ({
                 fontSize={"0.9rem"}
                 fontColor={"white"}
                 margin={"auto"}
+                onClick={onClick}
               >
                 채결하기
               </St.Button>
@@ -241,7 +344,15 @@ const OrderInfoAskBid = ({
           }
         </>
       ) : (
-        <OrderInfoTradeList theme={theme} />
+        // <OrderInfo 
+        // theme={theme}
+        // selectedAskBidOrder={selectedAskBidOrder}
+        // coinSymbol={coinSymbol}
+        // orderPrice={orderPrice}
+        // orderAmount={orderAmount}
+        // orderTotalPrice={orderTotalPrice}
+        // />
+        <OrderInfoTradeList theme={theme} coinSymbol={coinSymbol}/>
       )}
     </St.OrderInfoContainer>
   );

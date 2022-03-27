@@ -88,7 +88,35 @@ const TradeListItem = ({
   changePrice,
   tradeAmount,
   askBid,
+  coin,
 }) => {
+  if (coin) {
+    return (
+      <St.TradeListLi
+      bgColor={index % 2 ? theme.lightGray1 : "white"}
+      index={index}
+    >
+      <St.Datetime>
+        <St.Date>{date}</St.Date>
+        <St.Time>{time}</St.Time>
+      </St.Datetime>
+      <St.TradePrice
+        fontColor={changePrice > 0 ? theme.priceUp : theme.priceDown}
+      >
+        {tradePrice.toLocaleString()}
+      </St.TradePrice>
+      <St.TradeAmount
+        theme={theme}
+        fontColor={askBid === "BID" ? theme.priceUp : theme.priceDown}
+      >
+        {tradeAmount.toFixed(5)}
+      </St.TradeAmount>
+      <St.TradeKRW theme={theme}>
+        {Math.floor(tradePrice * tradeAmount).toLocaleString()}
+      </St.TradeKRW>
+    </St.TradeListLi>
+    )
+  }
   return (
     <St.TradeListLi
       bgColor={index % 2 ? theme.lightGray1 : "white"}
