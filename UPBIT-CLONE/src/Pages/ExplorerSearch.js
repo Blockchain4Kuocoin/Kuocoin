@@ -14,7 +14,7 @@ const St = {
   BodyContainer: styled.div`
     max-width: 1400px;
     min-height: 350px;
-    margin: 20vh auto;
+    margin: 15vh auto;
     width: 100%;
     height: 100%;
     @media ${({ theme }) => theme.tablet} {
@@ -30,14 +30,12 @@ const St = {
   `,
 }
 
-const Explorer = (props) => {
+const ExplorerSearch = (props) => {
   return (
     <>
       <Header/>
       <St.BodyContainer>
-        <St.ContentDiv fontSize="50px" fontWeight="900">Blockchain explorer,<br/>analytics and web services</St.ContentDiv>
-        <St.ContentDiv fontSize="24px">Explore data stored on 19 blockchains</St.ContentDiv>
-        <SearchBar/>
+        <SearchBar />
         <St.ContentDiv >Search examples: <GrBook/>Address <SiHackthebox/>Block <GrTransaction/>Transaction</St.ContentDiv>
       </St.BodyContainer>
       <Footer />
@@ -45,4 +43,4 @@ const Explorer = (props) => {
   );
 };
 
-export default withSize()(React.memo(Explorer));
+export default withSize()(React.memo(ExplorerSearch));
