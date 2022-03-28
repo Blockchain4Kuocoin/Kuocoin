@@ -1,6 +1,6 @@
 
 import React from 'react';
-import roadmap from './3.jpeg'
+import Roadmap from './kuoslogo.png'
 import styled from 'styled-components';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,15 +21,15 @@ const RoadmapStyle = styled.div`
     width: 100%;
     height: 100%;
     color: white;
-    background-color: darkgreen;
-    background: url(${roadmap}) no-repeat center/cover;
+    /* background-color: darkgreen; */
+    background: url(${Roadmap}) no-repeat center/cover;
     margin-left: -10px;
   }
 
   /* 캐러셀 */
   .roadmap_slider {
     padding-top: 20px;
-    background-color: darkgray;
+    /* background-color: darkgray; */
     height: 100%;
   }
   /* 배경 불투명처리 */
@@ -86,6 +86,8 @@ const RoadmapStyle = styled.div`
 
   .concept_body {
     text-align: center;
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 3vw ;
   }
 
   .phase_concept {
@@ -186,7 +188,7 @@ function HomeBackimg() {
               <div className="phase_concept">
                 <div className="concept_head">'Why'</div>
                 <div className="concept_body">
-                  <span>KuosCoin은 전 세계 누구에게나 거의 제로에 가까운<br/> 비용의 수수료를 가능하게 하는 P2P 암호화페 입니다.<br/></span>
+                  <span>KuosCoin은 전 세계 누구에게나 거의 제로에 가까운<br/> 비용으로 거래가 가능하게 하는 P2P 암호화페 입니다.<br/></span>
                   <span>KuosCoin은 탈 중앙화된 오픈 소스 글로벌 결제 네트워크입니다.<br/></span>
                   <span>거래량 및 유동성을 갖춘 Kuoscoin은 Bitcoin을 보완하는 코인입니다.<br/></span>
                 </div>
@@ -201,16 +203,22 @@ function HomeBackimg() {
               <h1 className="phase_head">회사소개</h1>
               <div className="phase_item">
                 <ul className="item_list">
-                  Features
-                  <li className="idea_item">'선술집(TAVERN)'</li>
-                  <li className="idea_item">'해도(Sea Map)'</li>
-                  <li className="slide_next">Slide to next Phase</li>
+                <br/>kuos Foundation은 최첨단 블록체인 기술을<br/> 개발 및 홍보하여 ​​사회의 이익을 위해<br/> kuosCoin을 발전시키는 것을 사명으로 하는<br/> 비영리 조직입니다.
                 </ul>
               </div>
             </div>
             <div className="phase_2">
-              <h1 className="phase_head">Phase 2.</h1>
-              <h2 className="coming_soon">COMING SOON...</h2>
+              <h1 className="phase_head">기부하기</h1>
+              <div className="phase_item">
+                <ul className="item_list">
+                모든 기부는 인지도를 높이고 kuoscoin의 전 세계적인 영향력을<br/>높이기 위해 설립된 kuos Foundation에 직접 자금을 지원합니다.
+                  <li className="idea_item">'kuosCoin 기부'</li>
+                  <li className="idea_item">'bitCoin 기부'</li>
+                  <li className="idea_item">'kakaoPay 기부'</li>
+                  <li className="slide_next">Slide next</li>
+                </ul>
+              </div>
+              {/* <h2 className="coming_soon">COMING SOON...</h2> */}
             </div>
           </Slider>          
         </div>
