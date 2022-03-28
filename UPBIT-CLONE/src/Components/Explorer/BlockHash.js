@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 import styled from "styled-components";
-import copyTextUrl from "../../Container/Explorer/ClipCopy";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
 // import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
@@ -35,35 +34,36 @@ const St = {
   `
 };
 
-// const CopyHash = () => {
-//   const url = window.location.href; // url 복사
-
-//   navigator.clipboard.writeText(url).then(() => {
-//     alert("링크를 복사했습니다.");
-//   });
-// };
-
 const BlockHash = () => {
   const [ blockHashData, setBlockHashData ] = useState([]);
   
   const params = useParams();
   console.log(params);
 
+  const CopyHash = () => {
+    console.log(blockHashData);
+  
+    navigator.clipboard.writeText(blockHashData).then(() => {
+      alert("복사성공!");
+    });
+  };
+
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
-    .then((response) => {setBlockHashData(response.data); console.log(response)})
+    .then((response) => {setBlockHashData(response.data[0].testcolumn); console.log(response.data[0].testcolumn)})
     .catch(err=>console.log(err))
   }, []);
 
   return(
     <>
+    
     <St.BlockHashInfoContainer>
       <>Hash</>
-      {blockHashData.map(element =>
-        <St.BlockHashDiv>{element.testcolumn}</St.BlockHashDiv>
-      )}
+      {/* {blockHashData.map(element => */}
+        <St.BlockHashDiv>{blockHashData}</St.BlockHashDiv>
+      {/* )} */}
     </St.BlockHashInfoContainer>
-    <RiCheckboxMultipleBlankLine onClick={copyTextUrl}  size="20"/>
+    <RiCheckboxMultipleBlankLine onClick={CopyHash} size="20"/>
     </>
   )
 };
