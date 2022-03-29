@@ -16,7 +16,7 @@ return (
     <IconContext.Provider value={{color: '#fff'}}>
         {/* <div className='navbar'> */}
             {/* <Link to="#" className='menu-bars'> */}
-                <FaIcons.FaBars onClick={showSidebar}/>
+                <FaIcons.FaBars onClick={showSidebar} color="#ffb00b"/>
             {/* </Link>     */}
         {/* </div> */}
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
@@ -24,10 +24,8 @@ return (
                 <li className='navbar-toggle'>
                     <Link to="#" className='menu-bars'>
                         <AiIcons.AiOutlineClose onClick={showSidebar}/>
-                        <div>
-                            <MyPage/>
-                        </div>
                     </Link>
+                    <MyPage/>
                 </li>
             </ul>    
         </nav>

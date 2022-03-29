@@ -23,6 +23,7 @@ const RoadmapStyle = styled.div`
     height: 100%;
     color: white;
     background: url(${Roadmap}) no-repeat center/cover;
+    /* z-index: -1; */
     margin-left: -10px;
   }
 

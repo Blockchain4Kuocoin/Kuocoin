@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import React from "react"
 import axios from "axios"   //server와 통신하는 모듈
 import "./LoginRegister.css"

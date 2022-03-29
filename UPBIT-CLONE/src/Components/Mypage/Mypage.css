@@ -9,16 +9,17 @@
 
 .mydiv {
     position:absolute;
-    width:400px;
-    height:400px;
-    padding: 30px, 20px;
+    width:450px;
+    height:800px;
+    /* padding: 30px, 20px; */
     text-align:center;
-    top:40%;
+    top:50%;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
     background-image: none;
     color: #392f31;
+    cursor: default
 
 
   }

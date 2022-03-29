@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
 
@@ -91,7 +91,7 @@ export default function OrderInfoTradeList({ theme, coinSymbol }) {
         console.log(tmp);
         setState(tmp);
       });
-  }, []);
+  }, [coinSymbol]);
   return (
     <St.Container>
       <St.HiddenH3>실시간 체결내역</St.HiddenH3>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
 import Navb from '../Nav/Navbar';
@@ -25,6 +25,7 @@ function Header() {
                 width="120"
                 height="80"
                 className="d-inline-block align-top"
+                alt="kuoslogo"
               />{' '}
           </Navbar.Brand>
           <Nav className="ml-auto">
@@ -39,9 +40,9 @@ function Header() {
             : <>
             <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}><St.Container>로그아웃</St.Container></Nav.Link>
             {/* <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link> */}
-            <Link to="#" className='menu-bars'>
+            <div className='menu-bars'>
               <Navb/>
-            </Link>  
+            </div>  
             </> 
             }
           </Nav>

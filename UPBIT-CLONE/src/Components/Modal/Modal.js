@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import Modal from '../../../commons/components/Modals/Modal';
-import "./Modal.css";
+import "./Modal1.css";
 import axios from "axios";
 import Walletmain from '../Payment/Walletmain';
 
