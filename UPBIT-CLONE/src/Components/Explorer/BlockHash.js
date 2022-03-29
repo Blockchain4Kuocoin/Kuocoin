@@ -45,14 +45,14 @@ const BlockHash = () => {
   
     console.log(blockHashData);
   
-    navigator.clipboard.writeText(blockHashData).then(() => {
+    navigator.clipboard.writeText(blockHashData.hash).then(() => {
       alert("복사성공!");
     });
   };
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/blockname/${params.height}`)
-    .then((response) => {setBlockHashData(response.data); console.log(response.data[0].hash)})
+    .then((response) => {setBlockHashData(response.data[0]); console.log(response.data)})
     .catch(err=>console.log(err))
   }, []);
 
@@ -62,7 +62,7 @@ const BlockHash = () => {
     <St.BlockHashInfoContainer>
       <>Hash</>
       {/* {blockHashData.map(element => */}
-        <St.BlockHashDiv>{blockHashData}</St.BlockHashDiv>
+        <St.BlockHashDiv>{blockHashData.hash}</St.BlockHashDiv>
       {/* )} */}
     </St.BlockHashInfoContainer>
     <RiCheckboxMultipleBlankLine onClick={CopyHash} size="20"/>
