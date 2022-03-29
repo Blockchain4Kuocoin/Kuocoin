@@ -6,9 +6,7 @@ import Walletmain from '../Payment/Walletmain';
 
 export default function Modal (props) {
     
-    const { open, close, data, header, setData, auth, setAuth, info, setInfo } = props;
-
-    const [ state, setState ] = useState("main");
+    const { open, close, data, header, setData, auth, setAuth, info, setInfo, state, setState } = props;
 
     const [ inputs, setInputs ] = useState({
         id: "",

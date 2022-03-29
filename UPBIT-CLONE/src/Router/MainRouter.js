@@ -18,7 +18,6 @@ import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
 import ExplorerSearch from "../Pages/ExplorerSearch";
 
-
 const MainRouter = () => {
   return (
     <Switch>
@@ -26,7 +25,6 @@ const MainRouter = () => {
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/mypage" component={Mypage} />
-      <Route exact path="/payment" component={Payment} />
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
       <Route exact path="/api" component={Api} />
