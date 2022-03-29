@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
+import Navb from '../Nav/Navbar';
 
 const St = {
   Container: styled.span`
@@ -62,7 +63,12 @@ function Header() {
             </>
             : <>
             <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}><St.Container>로그아웃</St.Container></Nav.Link>
-            <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link>
+            {/* <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link> */}
+            <Link to="#" className='menu-bars'>
+              <Navb/>
+                {/* <FaIcons.FaBars onClick={showSidebar}/> */}
+            </Link>  
+
             </> 
             }
           </Nav>
