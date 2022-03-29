@@ -84,11 +84,6 @@ const Footer = () => {
   return (
     <St.Footer>
       <St.Container>
-        {/* <St.MainLink
-          href="/"
-          title={"메인으로 이동"}
-          logo={process.env.PUBLIC_URL + "/kuoslogo.png"}
-        /> */}
         <Navbar.Brand href="/home">
           <img
             src="/kuoslogo.png"
@@ -126,7 +121,7 @@ const Footer = () => {
                   size="lg"
                   title={"이메일 아이콘"}
                 />
-                <St.LinkSpan>leesieun@gmail.com</St.LinkSpan>
+                <St.LinkSpan>kuos@gmail.com</St.LinkSpan>
               </St.LinkTag>
             </li>
           </ul>
