@@ -16,11 +16,14 @@ import ExplorerMain from "../Pages/ExplorerMain";
 import BlocksInfo from "../Pages/BlocksInfo";
 import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
+import Payment from "../Pages/Payment";
+import MyNavbar from "../Components/Mypage/MyNavbar";
 import ExplorerSearch from "../Pages/ExplorerSearch";
 
 const MainRouter = () => {
   return (
     <Switch>
+      <Route exact path="/navbar" component={MyNavbar} />
       <Route exact path="/" component={Home} />
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />

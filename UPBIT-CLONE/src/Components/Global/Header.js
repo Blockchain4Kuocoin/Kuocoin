@@ -11,13 +11,13 @@ const St = {
     font-weight: 600;
     font-size: 0.9rem;
     height: 20px;
-    color: white;
+    color: #ffb00b;
   `,
 }
 
 function Header() {
   return(
-      <Navbar style={{backgroundColor:'#2c2d87'}}  expand="lg">
+      <Navbar style={{backgroundColor:'#ffffff'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">
               <img
@@ -39,13 +39,13 @@ function Header() {
             : <>
             <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}><St.Container>로그아웃</St.Container></Nav.Link>
             {/* <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link> */}
+
             <Nav.Link to="#" className='menu-bars'>
               <St.Container>
                 <Navb/>
               </St.Container>
                 {/* <FaIcons.FaBars onClick={showSidebar}/> */}
             </Nav.Link>  
-
             </> 
             }
           </Nav>
