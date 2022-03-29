@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
 import "./Mypage.css";
@@ -71,7 +71,7 @@ export default function Profile() {
                 });
             })
         })
-    }, []); 
+    }, [details.id]); 
 
     const onClick = () => {
         setCheck(false)
@@ -89,7 +89,7 @@ export default function Profile() {
             axios.put("http://localhost:3001/mypage", inputs)
             .then((res) => {
                 console.log(res.data);
-                setState(inputs);
+                setDetails(inputs);
                 setInfo(res.data);
 
             })

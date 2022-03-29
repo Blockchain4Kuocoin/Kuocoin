@@ -37,7 +37,7 @@ export default function Signup() {
             .then(res => {
                 let msg = res.data.msg
                 console.log(msg);
-                if (msg == "user already exists!") {
+                if (msg === "user already exists!") {
                     alert("중복된 ID입니다.");
                 }
                 else {

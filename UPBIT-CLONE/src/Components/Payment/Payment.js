@@ -9,12 +9,12 @@ function Payment(props) {
   
   const [pay, setPay] = useState("");
 
-  const { data, close, setData, setState } = props;
+  const { data, setData, setState } = props;
 
   function onClickPayment() {
     /* 1. 가맹점 식별하기 */
     let selection = document.getElementById("select_wallet");
-    if (selection.value=="") alert("지갑을 선택해 주세요!");
+    if (selection.value==="") alert("지갑을 선택해 주세요!");
     else {
         const { IMP } = window;
         IMP.init("imp12267773");
@@ -40,7 +40,7 @@ function Payment(props) {
 
   /* 3. 콜백 함수 정의하기 */
   function callback(response) {
-    const { success, merchant_uid, error_msg } = response;
+    const { success, error_msg } = response;
     if (success) {
       axios.put("http://localhost:3001/wallet", {
         wal_id: document.getElementById("select_wallet").value,

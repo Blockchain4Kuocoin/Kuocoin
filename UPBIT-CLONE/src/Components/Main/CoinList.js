@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { searchCoin } from "../../Reducer/coinReducer";
-import { useDispatch } from "react-redux";
+// import { searchCoin } from "../../Reducer/coinReducer";
+// import { useDispatch } from "react-redux";
 
 import CoinListItem from "./CoinListItem";
 import Loading from "../Global/Loading";
@@ -133,7 +133,7 @@ const CoinList = ({
   heightSize,
   isRootURL,
 }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const kuoList = ["KRW-BTC", "KRW-ETC", "KRW-SAND", "KRW-WAVES", "KRW-QTUM", "KRW-XRP", "KRW-SOL", "KRW-DOGE", "KRW-NEO", "KRW-ATOM", "KRW-BTG", "KRW-ENJ", "KRW-LINK", "KRW-SSX", "KRW-HIVE", "KRW-QKC", "KRW-STEEM", "KRW-TT", "KRW-ZRX"];
 
@@ -191,8 +191,8 @@ const CoinList = ({
                   theme={theme}
                   marketName={marketName}
                   selectedMarket={selectedMarket}
-                  coinName={(marketNames[marketName].korean=='비트코인골드')?'쿠오코인':marketNames[marketName].korean}
-                  enCoinName={(marketNames[marketName].korean=='비트코인골드')?'KUOS/KRW':enCoinName}
+                  coinName={(marketNames[marketName].korean==='비트코인골드')?'쿠오코인':marketNames[marketName].korean}
+                  enCoinName={(marketNames[marketName].korean==='비트코인골드')?'KUOS/KRW':enCoinName}
                   fontColor={fontColor}
                   price={price}
                   changeRate24Hour={changeRate24Hour + "%"}

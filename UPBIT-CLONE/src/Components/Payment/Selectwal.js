@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
 
 export default function Selectwal(props) {
-    const { setState, data } = props;
+    const { data } = props;
 
     // console.log(data);
 

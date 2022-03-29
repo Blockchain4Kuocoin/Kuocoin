@@ -11,20 +11,23 @@
     margin-left: 2rem;
     font-size: 2rem;
     background-color: none;
+    cursor: pointer;
 }
 
 .nav-menu {
     /* background-color: rgb(44, 45, 135); */
     background-color: #fff;
-    width: 400px;
+    width: 450px;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 10%;
+    top: 8%;
     /* left: -100%; */
     right: -100%;
     transform: 850ms;
+    z-index: 1;
+    cursor: default;
 }
 
 .nav-menu.active {
