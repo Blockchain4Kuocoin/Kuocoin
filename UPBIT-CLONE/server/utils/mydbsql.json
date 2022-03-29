@@ -1,0 +1,7 @@
+{
+    "host": "3.36.137.185",
+    "user": "kuos",
+    "password": "kuos1995",
+    "database": "kuos",
+    "connectionLimit": 10
+}

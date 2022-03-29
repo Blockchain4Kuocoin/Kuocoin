@@ -138,7 +138,7 @@ const CoinList = ({
   return (
     <St.CoinListContainer isRootURL={isRootURL} heightSize={heightSize - 80}>
       <St.HiddenH3>코인 리스트</St.HiddenH3>
-      <St.CoinSearchContainer>
+      {/* <St.CoinSearchContainer>
         <St.CoinSearchInput
           type="search"
           onChange={(e) => dispatch(searchCoin(e.target.value))}
@@ -146,7 +146,7 @@ const CoinList = ({
           placeholder={"코인명/심볼검색"}
         />
         <St.CoinSearchBtn />
-      </St.CoinSearchContainer>
+      </St.CoinSearchContainer> */}
       <St.CoinSortContainer>
         <St.CoinSortList width={"50px"} />
         <St.CoinSortList textAlign={"left"}>한글명</St.CoinSortList>
@@ -157,6 +157,25 @@ const CoinList = ({
         </St.CoinSortList>
       </St.CoinSortContainer>
       <St.CoinUl heightSize={heightSize - 140}>
+      {/* {isMarketNamesLoading || isInitCandleLoading ? (
+          <Loading center={false} />
+        ) : (
+          <li className="sc-gGCDDS bMXpf">
+            <button className="sc-clIzBv hpymPy">
+              <i title="쿠오코인 로고" class="sc-faUpoM drGdGg"></i>
+              <div className="sc-Galmp kgsplp">
+                <strong className="sc-fWCJzd cjycOF">쿠오코인</strong>
+                <span className="sc-dvQaRk bFyisN">KUOSCOIN</span>
+              </div>
+              <strong className="sc-TBWPX ghExOU">99,999</strong>
+              <div className="sc-jIkXHa gVrLxc">
+                <span className="sc-ZOtfp fghBGh">4.35%</span>
+                <span className="sc-jOxtWs cESbST">1,222,332</span>
+              </div>
+              <span className="sc-hmjpVf ejGRaP">111,111 백만</span>
+            </button>
+          </li>
+      )} */}
         {isMarketNamesLoading || isInitCandleLoading ? (
           <Loading center={false} />
         ) : (
@@ -172,6 +191,10 @@ const CoinList = ({
             const price = latestCoinData[marketName].price;
             // const isTraded = latestCoinData[marketName].isTraded;
 
+            // console.log(marketName);
+            // console.log(marketNames);
+            // console.log(theme);
+
             const fontColor =
               +changePrice24Hour > 0
                 ? theme.strongRed
@@ -183,8 +206,8 @@ const CoinList = ({
                 theme={theme}
                 marketName={marketName}
                 selectedMarket={selectedMarket}
-                coinName={marketNames[marketName].korean}
-                enCoinName={enCoinName}
+                coinName={(marketNames[marketName].korean=='비트코인골드')?'쿠오코인':marketNames[marketName].korean}
+                enCoinName={(marketNames[marketName].korean=='비트코인골드')?'KUOS/KRW':enCoinName}
                 fontColor={fontColor}
                 price={price}
                 changeRate24Hour={changeRate24Hour + "%"}
@@ -194,6 +217,7 @@ const CoinList = ({
                 key={`coinList-${marketName}`}
               />
             );
+          
           })
         )}
       </St.CoinUl>
