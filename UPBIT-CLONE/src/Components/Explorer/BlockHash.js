@@ -41,6 +41,8 @@ const BlockHash = () => {
   console.log(params);
 
   const CopyHash = () => {
+    const url = window.location.href; // url 복사
+  
     console.log(blockHashData);
   
     navigator.clipboard.writeText(blockHashData).then(() => {
@@ -49,8 +51,8 @@ const BlockHash = () => {
   };
 
   useEffect(()=>{
-    Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
-    .then((response) => {setBlockHashData(response.data[0].testcolumn); console.log(response.data[0].testcolumn)})
+    Axios.get(`http://localhost:3001/explorer/blockname/${params.height}`)
+    .then((response) => {setBlockHashData(response.data); console.log(response.data[0].hash)})
     .catch(err=>console.log(err))
   }, []);
 

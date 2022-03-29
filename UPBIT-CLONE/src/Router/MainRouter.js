@@ -38,7 +38,7 @@ const MainRouter = () => {
       <Route exact path="/blockname" component={BlocksInfo} />
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
-      <Route exact path="/explorer/blockname/:blocknumber" component={Explorer} />
+      <Route exact path="/explorer/blockname/:height" component={Explorer} />
       <Route exact path="/explorer" component={ExplorerMain} /> 
       <Route exact path="/search" component={ExplorerSearch} /> 
       {/* 메인홈 작업후 위에 줄은 지움  */}

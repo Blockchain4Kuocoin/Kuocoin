@@ -1,17 +1,18 @@
 const con = require("../utils/mysqlcon");
 const modelExports = (module.exports = {});
-// const controllers = require("../controllers/controllers");
+const controllers = require("../controllers/controllers");
 
 modelExports.explorer_Models = () => {
+  const pHeight = controllers.height
   return new Promise((resolve, reject) => {
-
-      const sql = "SELECT * FROM testexplorer;";
+    
+      const sql = `SELECT * FROM kuosblockdata WHERE height = '${pHeight}';`;
 
       con.getConnection((err, connection) => {
           try {
               if (err) throw err;
               console.log("mysqldb connection success!");
-              connection.query(sql, (err, result)=>{
+              connection.query(sql,[pHeight], (err, result)=>{
                   if(err) {
                       throw err;
                   } else {
