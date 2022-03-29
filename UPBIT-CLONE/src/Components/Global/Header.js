@@ -11,37 +11,13 @@ const St = {
     font-weight: 600;
     font-size: 0.9rem;
     height: 20px;
-    color: white;
+    color: #ffb00b;
   `,
 }
 
 function Header() {
-//   return(
-// <Navbar style={{backgroundColor:'rgb(255, 215, 0)'}}  expand="lg">
-// <Container>
-// <Navbar.Brand href="/">
-//         <img
-//           src="/3.jpeg"
-//           width="50"
-//           height="50"
-//           className="d-inline-block align-top"
-//         />{' '}
-//       KuoCoin
-//       </Navbar.Brand>
-//     <Nav className="ml-auto">
-//       <Nav.Link href='home/'>거래소</Nav.Link>
-//       <Nav.Link href='/trade'>거래소</Nav.Link>
-//       <Nav.Link href='/explorer'>Kuo Explorer</Nav.Link>
-//       <Nav.Link href='https://www.bockmedia.co.kr/'>Topic</Nav.Link>
-//       <Nav.Link href='/userlogin'>로그인</Nav.Link>
-//       <Nav.Link href='/usersignup'>회원가입</Nav.Link>
-    {/* </Nav> */}
-  {/* </Container>
-  </Navbar> */}
-
   return(
-    // !if (document.location.href='')
-      <Navbar style={{backgroundColor:'#2c2d87'}}  expand="lg">
+      <Navbar style={{backgroundColor:'#ffffff'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">
               <img
@@ -50,7 +26,6 @@ function Header() {
                 height="80"
                 className="d-inline-block align-top"
               />{' '}
-            {/* <St.Container>KuoCoin</St.Container> */}
           </Navbar.Brand>
           <Nav className="ml-auto">
             <Nav.Link href='/trade'><St.Container>거래소</St.Container></Nav.Link>
@@ -66,9 +41,7 @@ function Header() {
             {/* <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link> */}
             <Link to="#" className='menu-bars'>
               <Navb/>
-                {/* <FaIcons.FaBars onClick={showSidebar}/> */}
             </Link>  
-
             </> 
             }
           </Nav>
@@ -76,25 +49,5 @@ function Header() {
       </Navbar>
     )
   }
-
-    // <Navbar style={{backgroundColor:'rgb(255, 255, 255)'}}  expand="lg">
-    // <Container>
-    // <Navbar.Brand href="/home">
-    //         <img
-    //           src="/kuoslogo.png"
-    //           width="50"
-    //           height="50"
-    //           className="d-inline-block align-top"
-    //         />{' '}
-    //       KuosCoin
-    //       </Navbar.Brand>
-    //     <Nav className="ml-auto">
-    //       <Nav.Link href='/'>거래소</Nav.Link>
-    //       <Nav.Link href='/explorer'>Kuo Explorer</Nav.Link>
-    //       <Nav.Link href='https://www.blockmedia.co.kr/'>Topic</Nav.Link>
-    //       <Nav.Link href='login'>Login</Nav.Link>
-    //     </Nav>
-    // </Container>
-    // </Navbar>
 
 export default Header;

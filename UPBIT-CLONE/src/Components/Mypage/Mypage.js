@@ -10,7 +10,6 @@ export default function Profile() {
         modalOpen: false,
     });
     const [data, setData] = useState("");
-    // const [modalState, setModalState] = useState(true);
     const [auth, setAuth] = useState(false);
     const [info, setInfo] = useState({});
 
@@ -20,7 +19,6 @@ export default function Profile() {
         setWalState({ modalOpen: true })
     }
     const closeModal = () => {
-        // setModalState(true);
         setAuth(false);
         setWalState({ modalOpen: false });
         setState("main");
