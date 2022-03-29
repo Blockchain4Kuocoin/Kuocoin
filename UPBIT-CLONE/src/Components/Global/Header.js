@@ -2,9 +2,7 @@ import React from "react";
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import { IconContext } from 'react-icons';
+
 
 const St = {
   Container: styled.span`
@@ -13,13 +11,13 @@ const St = {
     font-weight: 600;
     font-size: 0.9rem;
     height: 20px;
-    color: #ffb00b;
+    color: #ddda76;
   `,
 }
 
 function Header() {
   return(
-      <Navbar style={{backgroundColor:'#ffffff'}}  expand="lg">
+      <Navbar style={{backgroundColor:'#549aff'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">
               <img

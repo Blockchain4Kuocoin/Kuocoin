@@ -83,12 +83,9 @@ export default function Signup() {
                 onChange={onChange} 
                 onKeyDown={onKeyDown}
                 /><br/>
-                {/* <input name="confirmPassword" type="password" placeholder="비밀번호 확인" className="loginregister__input"/><br/> */}
                 <button type="button" onClick={onSubmit} className="loginregister__button">계정 생성하기</button>
             </form>
         </div>
         
     )
 }
-
-// value={ info.name || "" } 초기화를 안한경우 빈값으로 둔다라는 의미 ||""

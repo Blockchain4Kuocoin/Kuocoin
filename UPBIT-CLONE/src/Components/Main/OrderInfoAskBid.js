@@ -279,28 +279,6 @@ const OrderInfoAskBid = ({
                 fontWeight={800}
                 placeholder={0}
               />
-              {/* <St.Button
-                bgColor={theme.lightGray}
-                borderColor={theme.lightGray2}
-                fontColor={"#666"}
-                fontSize={"1.1rem"}
-                onClick={() => {
-                  console.log(Math.ceil(orderPrice))
-                  // dispatch(changePriceAndTotalPrice(orderPrice-100000))
-                
-                }}
-              >
-                +
-              </St.Button>
-              <St.Button
-                bgColor={theme.lightGray}
-                borderColor={theme.lightGray2}
-                fontColor={"#666"}
-                fontSize={"1.1rem"}
-                onClick={() => dispatch(changePriceAndTotalPrice(orderPrice-100000))}
-              >
-                -
-              </St.Button> */}
             </St.OrderInfoInputContainer>
           </St.OrderInfoDetailContainer>
           <St.OrderInfoDetailContainer>
@@ -335,14 +313,6 @@ const OrderInfoAskBid = ({
           }
         </>
       ) : (
-        // <OrderInfo 
-        // theme={theme}
-        // selectedAskBidOrder={selectedAskBidOrder}
-        // coinSymbol={coinSymbol}
-        // orderPrice={orderPrice}
-        // orderAmount={orderAmount}
-        // orderTotalPrice={orderTotalPrice}
-        // />
         <OrderInfoTradeList theme={theme} coinSymbol={coinSymbol}/>
       )}
     </St.OrderInfoContainer>

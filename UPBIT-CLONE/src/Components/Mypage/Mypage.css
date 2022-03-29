@@ -6,7 +6,6 @@
     font-family:sans-serif;     
   }
 
-
 .mydiv {
     position:absolute;
     width:400px;
@@ -19,8 +18,6 @@
     border-radius: 15px;
     background-image: none;
     color: #392f31;
-
-
   }
 
   .mytitle {
@@ -28,8 +25,6 @@
     margin: 30px;
   }
   
-
-
 .mytext {
     border-bottom: 2px solid #e6c619;
     margin: 30px;
@@ -46,7 +41,6 @@
     background: none;
   }
   
-
 .mybtn {
     position:relative;
     left:40%;
