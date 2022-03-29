@@ -1,6 +1,7 @@
 
 import React from 'react';
-import Roadmap from './kuoslogo.png'
+// import Roadmap from './4.webp'
+import Roadmap from './2.jpeg'
 import styled from 'styled-components';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,7 +22,6 @@ const RoadmapStyle = styled.div`
     width: 100%;
     height: 100%;
     color: white;
-    /* background-color: darkgreen; */
     background: url(${Roadmap}) no-repeat center/cover;
     margin-left: -10px;
   }
@@ -29,7 +29,6 @@ const RoadmapStyle = styled.div`
   /* 캐러셀 */
   .roadmap_slider {
     padding-top: 20px;
-    /* background-color: darkgray; */
     height: 100%;
   }
   /* 배경 불투명처리 */
@@ -55,13 +54,13 @@ const RoadmapStyle = styled.div`
   }
 
   .phase_head {
-    font-family: 'East Sea Dokdo', cursive;
+    font-family: 'Poor Story';
     text-align: center;
     font-size: 6vw;
   }
 
   .coming_soon {
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Poor Story';
     text-align: center;
     font-size: 4vw;
   }
@@ -72,22 +71,27 @@ const RoadmapStyle = styled.div`
     /* font-family: 'Rock Salt', cursive; */
     /* font-family: 'Gowun Batang', serif; */
     padding: 0px 8px;
-    font-family: 'Walter Turncoat', cursive;
+    /* font-family: 'Walter Turncoat', cursive; */
+    font-family: 'Poor Story';
     text-align: center;
     font-size: 2vw;
   }
 
   .concept_head {
-    font-family: 'East Sea Dokdo', cursive;
+    /* font-family: 'East Sea Dokdo', cursive; */
+    font-family: 'Poor Story';
     font-size: 6vw;
     padding-right: 4vw;
+    padding-top: 4vw ;
     text-align: center;
   }
 
   .concept_body {
     text-align: center;
-    font-family: 'East Sea Dokdo', cursive;
-    font-size: 3vw ;
+    /* font-family: 'East Sea Dokdo', cursive; */
+    /* font-family: 'Gamja Flower'; */
+    font-family: 'Poor Story';
+    font-size: 41px ;
   }
 
   .phase_concept {
@@ -105,7 +109,7 @@ const RoadmapStyle = styled.div`
   }
 
   .item_list {
-    font-family: 'East Sea Dokdo', cursive;
+    font-family: 'Poor Story';
     font-size: 4vw;
     text-align: center;
     padding-top: 20px;
@@ -114,15 +118,15 @@ const RoadmapStyle = styled.div`
   .idea_item {
     text-align: center;
     font-size: 4vw;
-    font-family: 'East Sea Dokdo', cursive;
+    font-family: 'Poor Story';
     padding: 1vw 0;
   }
 
   .slide_next {
-    font-family: 'East Sea Dokdo', cursive;
-    font-size: 4vw;
+    font-family: 'Poor Story';
+    font-size: 2vw;
     padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 2px;
   }
 
   /* 반응형 */
@@ -178,7 +182,8 @@ function HomeBackimg() {
       {/* font */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Gothic+A1&family=Gowun+Batang&family=Nanum+Brush+Script&family=Roboto:wght@900&family=Rock+Salt&family=Walter+Turncoat&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Gamja+Flower:400" rel="stylesheet"></link>
+      <link href="https://fonts.googleapis.com/css?family=Poor+Story:400" rel="stylesheet"></link>
       {/* body */}
       <div className="container_roadmap">
         <div className="phase_carousel">
@@ -186,24 +191,31 @@ function HomeBackimg() {
             <div className="phase_0">
               <h1 className="phase_head">Kuos Coin<br/></h1>
               <div className="phase_concept">
-                <div className="concept_head">'Why'</div>
+                <div className="concept_head">Why?</div>
                 <div className="concept_body">
-                  <span>KuosCoin은 전 세계 누구에게나 거의 제로에 가까운<br/> 비용으로 거래가 가능하게 하는 P2P 암호화페 입니다.<br/></span>
+                  <span>KuosCoin은 전 세계 누구에게나 거의 제로에 가까운<br/></span>
+                  <span>비용으로 거래가 가능하게 하는 P2P 암호화페 입니다.<br/></span>
                   <span>KuosCoin은 탈 중앙화된 오픈 소스 글로벌 결제 네트워크입니다.<br/></span>
                   <span>거래량 및 유동성을 갖춘 Kuoscoin은 Bitcoin을 보완하는 코인입니다.<br/></span>
                 </div>
               </div>
               <div className="phase_item">
-                <ul className="item_list">
-                  <li className="slide_next">Slide next</li>
-                </ul>
+            
               </div>
+              <ul className="item_list">
+                  <li className="slide_next"><br/><br/>swipe page</li>
+                </ul>
             </div>
             <div className="phase_1">
               <h1 className="phase_head">회사소개</h1>
               <div className="phase_item">
                 <ul className="item_list">
-                <br/>kuos Foundation은 최첨단 블록체인 기술을<br/> 개발 및 홍보하여 ​​사회의 이익을 위해<br/> kuosCoin을 발전시키는 것을 사명으로 하는<br/> 비영리 조직입니다.
+                <br/>
+                <li className="idea_item">Kuos Foundation은 최첨단 블록체인 기술을</li>
+                <li className='idea_item'>개발 및 홍보하여 ​​사회의 이익을 위해</li>
+                <li className='idea_item'>KuosCoin을 발전시키는 것을 사명으로 하는</li>
+                <li className='idea_item'>비영리 조직입니다.</li><br/>
+                <li className="slide_next">swipe page</li>
                 </ul>
               </div>
             </div>
@@ -211,14 +223,12 @@ function HomeBackimg() {
               <h1 className="phase_head">기부하기</h1>
               <div className="phase_item">
                 <ul className="item_list">
-                모든 기부는 인지도를 높이고 kuoscoin의 전 세계적인 영향력을<br/>높이기 위해 설립된 kuos Foundation에 직접 자금을 지원합니다.
-                  <li className="idea_item">'kuosCoin 기부'</li>
-                  <li className="idea_item">'bitCoin 기부'</li>
-                  <li className="idea_item">'kakaoPay 기부'</li>
-                  <li className="slide_next">Slide next</li>
+                모든 기부는 인지도를 높이고<br/> kuoscoin의 전 세계적인 영향력을<br/>높이기 위해 설립된 kuos Foundation에 <br/>직접 자금을 지원합니다.
+                  <li className="idea_item"><br/><a href='/home'>kuosCoin 기부하기</a></li>
+                  <li className="idea_item"><a href='/home'>bitCoin 기부하기</a></li>
+                  <li className="idea_item"><a href='/home'>kakaoPay 기부하기</a></li>
                 </ul>
               </div>
-              {/* <h2 className="coming_soon">COMING SOON...</h2> */}
             </div>
           </Slider>          
         </div>
