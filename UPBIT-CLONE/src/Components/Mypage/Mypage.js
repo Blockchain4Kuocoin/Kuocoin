@@ -14,17 +14,19 @@ export default function Profile() {
     const [auth, setAuth] = useState(false);
     const [info, setInfo] = useState({});
 
+    const [state, setState] = useState("main");
+
     const openModal = () => {
         setWalState({ modalOpen: true })
     }
     const closeModal = () => {
         // setModalState(true);
         setAuth(false);
-        setWalState({ modalOpen: false })
+        setWalState({ modalOpen: false });
+        setState("main");
     }
     
-    
-    const [state, setState] = useState({
+    const [details, setDetails] = useState({
         id: sessionStorage.user_id,
         name: "",
         pw: "",
@@ -50,7 +52,7 @@ export default function Profile() {
 
     useEffect(() => {
         axios.get("http://localhost:3001/mypage", {
-            'params': {id: state.id},
+            'params': {id: details.id},
         })
         .then((res) => {
             const tmp = res.data;
@@ -64,7 +66,7 @@ export default function Profile() {
             .then((res) => {
                 console.log(res.data);
                 setData(res.data);
-                setState({
+                setDetails({
                     id: sessionStorage.user_id,
                     name: tmp.username,
                     pw: tmp.userpw,
@@ -78,8 +80,8 @@ export default function Profile() {
     }
 
     const btnClick = () => {
-        if (name==="") inputs.name=state.name;
-        if (pw==="") inputs.pw=state.pw;
+        if (name==="") inputs.name=details.name;
+        if (pw==="") inputs.pw=details.pw;
         // console.log(inputs);
 
         let reg_pw = /(?=.*\d)(?=.*[a-zA-ZS]).{4,}/; // 문자, 숫자 1개이상 포함, 4자리 이상
@@ -112,9 +114,9 @@ if(check) {
 return (
     <div className="mydiv">
         <h2 className="mytitle">PROFILE</h2><br/>
-        <p className="mytext">ID : {state.id}</p>
-        <p className="mytext">PASSWORD : {state.pw}</p>
-        <p className="mytext">NAME : {state.name}</p>
+        <p className="mytext">ID : {details.id}</p>
+        <p className="mytext">PASSWORD : {details.pw}</p>
+        <p className="mytext">NAME : {details.name}</p>
         <button className="mybtn" type = "button" onClick = {onClick} >수정하기</button>
         {/* <button className="walbtn" type = "button">지갑생성하기</button> */}
         <React.Fragment>
@@ -128,6 +130,8 @@ return (
                 setAuth={setAuth} 
                 info={info}
                 setInfo={setInfo}
+                state={state}
+                setState={setState}
                 title="Create a chat room">
             </Modal>
         </React.Fragment>
@@ -145,7 +149,7 @@ else{
             name="id" 
             value={id} 
             type="text" 
-            placeholder={state.id} readOnly
+            placeholder={details.id} readOnly
             />
         </p>
         <p className="mytext">PASSWORD 
@@ -154,7 +158,7 @@ else{
             name="pw" 
             value={pw} 
             type="text" 
-            placeholder={state.pw} 
+            placeholder={details.pw} 
             onChange = {handler}
             onKeyDown={onKeyDown}
             />
@@ -165,7 +169,7 @@ else{
             name="name" 
             value={name} 
             type="text" 
-            placeholder={state.name} 
+            placeholder={details.name} 
             onChange={handler}
             onKeyDown={onKeyDown}
             />

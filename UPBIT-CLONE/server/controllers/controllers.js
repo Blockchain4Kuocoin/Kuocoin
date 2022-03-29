@@ -145,6 +145,13 @@ exports.wallet_UserinfoWallet_Controllers = (req, res) => {
   })
 }
 
+exports.wallet_Sendkuos_Controllers = (req, res) => {
+  exports.onSend = req.body;
+  models.wallet.sendkuos_Models().then((result) => {
+    res.send(result);
+  })
+}
+
 //Order
 exports.order_Buy_Controllers = (req, res) => {
     exports.buyinfo = req.body;

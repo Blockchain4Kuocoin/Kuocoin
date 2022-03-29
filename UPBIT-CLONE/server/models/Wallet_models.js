@@ -206,11 +206,11 @@ modelExports.order_Buy_Models = () => {
                 console.log("mysqldb connection success!");
                 connection.query(sql, [wal_id, owner], (err, result) => {
                     if (err) throw err; 
-                    Amount += Number(result[0][`${coinSymbol}`]);
+                    // Amount += Number(result[0][`${coinSymbol}`]);
                     balance = Number(result[0].balance) - orderinfo.orderPrice;
                     connection.query(sql1, [String(Amount), String(balance), wal_id, owner], (err, result1) => {
                         if (err) throw err;
-                        connection.query(sql3,[owner, wal_id, coinSymbol, String(Amount), orderinfo.orderPrice, 'B'], (err, result3) => {
+                        connection.query(sql3,[owner, wal_id, coinSymbol, String(orderinfo.orderAmount), String(orderinfo.orderPrice), 'B'], (err, result3) => {
                             if (err) throw err;
                             connection.query(sql2, [wal_id, owner], (err, result2) => {
                                 if (err) throw err;
@@ -283,7 +283,7 @@ modelExports.order_Sell_Models = () => {
                     balance = Number(result[0].balance) + orderinfo.orderPrice;
                     connection.query(sql1, [String(Amount), String(balance), wal_id, owner], (err, result1) => {
                         if (err) throw err;
-                        connection.query(sql3, [owner, wal_id, coinSymbol, orderinfo.orderAmount, String(orderinfo.orderPrice), 'S'], (err, result3) => {
+                        connection.query(sql3, [owner, wal_id, coinSymbol, String(orderinfo.orderAmount), String(orderinfo.orderPrice), 'S'], (err, result3) => {
                             if (err) throw err;
                             connection.query(sql2, [wal_id, owner], (err, result2) => {
                                 if (err) throw err;
@@ -322,5 +322,49 @@ modelExports.userinfo_Wallet_Models = () => {
             };
         });
     });  
+}
+
+modelExports.sendkuos_Models = () => {
+    const data = controllers.onSend;
+    console.log(data);
+    console.log('here');
+    console.log(data.wallet.wal_id);
+    console.log(data.to_addr);
+    console.log(data.amount)
+
+    return new Promise((resolve, reject) => {
+
+        var dataString = `{
+            "jsonrpc":"1.0", 
+            "id":"${ID_STRING}", 
+            "method":"sendmany",
+            "params":["${data.wallet.wal_id}", {"${data.to_addr}": ${data.amount}}]
+        }`;
+        
+        var options = {
+            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+            method: "POST",
+            headers: headers,
+            body: dataString,
+        };
+
+        callback = (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                const result = JSON.parse(body);
+                console.log("res1:")
+                console.log(result);
+                resolve(result)
+            }
+            else 
+            {
+                console.log("res2:")
+                console.log(error)
+                resolve({msg: "error"})
+            }
+            console.log(response.body);
+        }
+        
+        request(options, callback);
+    })    
 }
 

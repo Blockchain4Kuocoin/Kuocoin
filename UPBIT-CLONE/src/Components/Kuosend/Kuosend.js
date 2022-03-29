@@ -9,8 +9,10 @@ export default function KuoSend(props) {
     });
 
     const onChange = (e) => {
+        var reg = /[^0-9a-zA-Z]/g
+        if (reg.test(e.target.value)) alert("지갑주소를 올바르게 입력하세요")
         const name = e.target.name;
-        const value = e.target.value;
+        const value = e.target.value.replace(/[^0-9a-zA-Z]/g, "");
         setInputs(values => ({...values, [name] : value}));
     } 
 
@@ -20,6 +22,18 @@ export default function KuoSend(props) {
 
     const onSend = () => {
         console.log("test");
+        axios.put("http://localhost:3001/sendkuos", {
+            wallet: mainWallet,
+            to_addr: inputs.wal_addr,
+            amount: inputs.amount,
+        })
+        .then((res) => {
+            console.log(res.data);
+            if (res.data.msg) alert("존재하지 않는 지갑주소입니다.");
+            else {
+                alert("전송 성공")
+            }
+        })
     }
 
     return (

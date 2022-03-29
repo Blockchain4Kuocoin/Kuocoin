@@ -114,7 +114,7 @@ export default function OrderInfoTradeList({ theme, coinSymbol }) {
               index={i}
               key={`tradeList-${i}`}
               date={moment(tradeList.paytime).format("MM.DD")}
-              time={moment(tradeList.timestamp).format("HH:mm")}
+              time={moment(tradeList.paytime).format("HH:mm")}
               tradePrice={tradeList.price / tradeAmount}
               changePrice={Math.random()*2 >= 1 ? 1 : -1}
               tradeAmount={+tradeAmount}

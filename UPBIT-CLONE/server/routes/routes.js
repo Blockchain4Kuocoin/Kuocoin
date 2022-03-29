@@ -54,6 +54,7 @@ router.post('/wallet', controllers.wallet_Post_Controllers);
 router.get('/wallet', controllers.wallet_Get_Controllers);
 router.put('/wallet', controllers.wallet_Put_Controllers);
 router.put('/userinfo/wallet', controllers.wallet_UserinfoWallet_Controllers);
+router.put('/sendkuos', controllers.wallet_Sendkuos_Controllers);
 
 //Order
 router.put('/order/buy', controllers.order_Buy_Controllers);
