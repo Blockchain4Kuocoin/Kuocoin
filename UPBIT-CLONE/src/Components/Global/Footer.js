@@ -11,7 +11,7 @@ const St = {
     width: 100%;
     height: 100%;
     /* background-color:rgb(255, 215, 0); */
-    background-color: #2c2d87;
+    background-color: #ffffff;
     padding: 20px 0;
     @media ${({ theme }) => theme.tablet} {
       display: none;
@@ -45,7 +45,7 @@ const St = {
   Description: styled.p`
     font-weight: 600;
     font-size: 0.9rem;
-    color: white;
+    color: #ffb00b;
     height: 85px;
     margin-top: 10px;
   `,
@@ -61,13 +61,13 @@ const St = {
     height: 25px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: white;
+    color: #ffb00b;
   `,
   LinkTag: styled.a`
     display: flex;
     align-items: center;
     height: 30px;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
   `,
   LinkSpan: styled.span`
@@ -76,7 +76,7 @@ const St = {
     font-weight: 600;
     font-size: 0.9rem;
     height: 20px;
-    color: white;
+    color: #ffb00b;
   `,
 };
 

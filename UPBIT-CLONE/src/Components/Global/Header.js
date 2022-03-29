@@ -2,6 +2,9 @@ import React from "react";
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { IconContext } from 'react-icons';
 
 const St = {
   Container: styled.span`
@@ -10,13 +13,13 @@ const St = {
     font-weight: 600;
     font-size: 0.9rem;
     height: 20px;
-    color: white;
+    color: #ffb00b;
   `,
 }
 
 function Header() {
   return(
-      <Navbar style={{backgroundColor:'#2c2d87'}}  expand="lg">
+      <Navbar style={{backgroundColor:'#ffffff'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">
               <img
@@ -37,7 +40,7 @@ function Header() {
             </>
             : <>
             <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}><St.Container>로그아웃</St.Container></Nav.Link>
-            <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link>
+            <Nav.Link href='/navbar'><St.Container>마이페이지</St.Container></Nav.Link>
             </> 
             }
           </Nav>
