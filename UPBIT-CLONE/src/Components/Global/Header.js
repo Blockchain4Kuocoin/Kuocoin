@@ -64,10 +64,12 @@ function Header() {
             : <>
             <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}><St.Container>로그아웃</St.Container></Nav.Link>
             {/* <Nav.Link href='/mypage'><St.Container>마이페이지</St.Container></Nav.Link> */}
-            <Link to="#" className='menu-bars'>
-              <Navb/>
+            <Nav.Link to="#" className='menu-bars'>
+              <St.Container>
+                <Navb/>
+              </St.Container>
                 {/* <FaIcons.FaBars onClick={showSidebar}/> */}
-            </Link>  
+            </Nav.Link>  
 
             </> 
             }

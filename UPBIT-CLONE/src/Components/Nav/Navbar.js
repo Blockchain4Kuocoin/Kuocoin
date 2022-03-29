@@ -6,6 +6,19 @@ import { Link } from 'react-router-dom';
 import './Navbar.css'
 import { IconContext } from 'react-icons';
 import MyPage from '../Mypage/Mypage';
+// import styled from "styled-components";
+
+// const St = {
+//     Container: styled.span`
+//         display: block;
+//         margin-left: ${({ marginLeft }) => marginLeft || "8px"};
+//         font-weight: 600;
+//         font-size: 0.9rem;
+//         height: 20px;
+//         color: white;
+//     `,
+// }
+
 
 function Navbar() {
     const [sidebar, setSidebar] = useState(false)
@@ -16,7 +29,9 @@ return (
     <IconContext.Provider value={{color: '#fff'}}>
         {/* <div className='navbar'> */}
             {/* <Link to="#" className='menu-bars'> */}
-                <FaIcons.FaBars onClick={showSidebar}/>
+                <p onClick={showSidebar}>
+                    마이페이지
+                </p>
             {/* </Link>     */}
         {/* </div> */}
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
