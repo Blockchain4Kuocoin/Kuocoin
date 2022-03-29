@@ -30,12 +30,10 @@ const St = {
   `,
 }
 
-const Explorer = ({ match, widthSize, heightSize }) => {
-  const isExplorerURL = match.path === "/explorer";
-
+const Explorer = (props) => {
   return (
     <>
-      <Header isExplorerURL={isExplorerURL}></Header>
+      <Header/>
       <St.BodyContainer>
         <St.ContentDiv fontSize="50px" fontWeight="900">Blockchain explorer,<br/>analytics and web services</St.ContentDiv>
         <St.ContentDiv fontSize="24px">Explore data stored on 19 blockchains</St.ContentDiv>

@@ -6,6 +6,12 @@ import { startChangeMarketAndData } from "../../Reducer/coinReducer";
 
 import isEqual from "react-fast-compare";
 
+import {
+  changeAmountAndTotalPrice,
+  changePriceAndTotalPrice,
+  changeTotalPriceAndAmount,
+} from "../../Reducer/coinReducer";
+
 const St = {
   CoinLi: styled.li`
     width: 100%;
@@ -167,6 +173,9 @@ const CoinListItem = ({
 
   const changeMarket = useCallback(() => {
     dispatch(startChangeMarketAndData(marketName));
+    dispatch(changePriceAndTotalPrice(""));
+    dispatch(changeAmountAndTotalPrice(""));
+    dispatch(changeTotalPriceAndAmount(""));
     history.push("/trade");
   }, [dispatch, marketName, history]);
 

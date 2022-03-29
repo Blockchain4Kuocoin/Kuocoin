@@ -18,31 +18,71 @@ export default function Signup() {
         console.log(`pw : ${info.pw}`)
         console.log(`name : ${info.name}`)
 
-        axios.post("http://3.36.137.185:3001/signup", {
+        var reg_id = /^[a-zA-Z0-9]{3,}$/ ;
+        let reg_pw = /(?=.*\d)(?=.*[a-zA-ZS]).{4,}/; // 문자, 숫자 1개이상 포함, 4자리 이상
+
+        //회원가입 조건문
+        if (info.id === "") alert("아이디를 입력하세요");
+        else if (!reg_id.test(info.id)) alert("id: 영문 숫자 조합 3자리 이상으로 입력하세요");
+        else if (info.pw === "") alert("비밀번호를 입력하세요");
+        else if (!reg_pw.test(info.pw)) alert("password: 문자, 숫자 1개이상 포함하여 4자리 이상으로 입력하세요");
+        else if (info.name === "") alert("이름을 입력하세요");
+
+        else {
+            axios.post("http://localhost:3001/signup", {
                 id : info.id,
                 pw : info.pw,
                 name : info.name,
-        })
-        .then(res => {
-            let msg = res.data.msg
-            console.log(msg);
-            if (msg == "user already exists!") {
-                alert("중복된 ID입니다.");
-            }
-            else {
-                alert("회원가입 성공!")
-                document.location.href = '/login';    
-            }
-        });
+            })
+            .then(res => {
+                let msg = res.data.msg
+                console.log(msg);
+                if (msg == "user already exists!") {
+                    alert("중복된 ID입니다.");
+                }
+                else {
+                    alert("회원가입 성공!")
+                    document.location.href = '/login';    
+                }
+            });
+        }
+    }
+
+    const onKeyDown = (e) => {
+        if (e.key === "Enter") onSubmit()
     }
 
 
     return (
         <div className="loginregister">
             <form>
-                <input name="name" type="text" placeholder="이름" value={ info.name || "" }  className="loginregister__input" onChange={ onChange } /><br/>
-                <input name="id" type="id" placeholder="아이디" value={ info.id || "" }  className="loginregister__input" onChange={ onChange } /><br/>
-                <input name="pw" type="password" placeholder="비밀번호" value={ info.pw || "" }  className="loginregister__input" onChange={ onChange } /><br/>
+                <input 
+                className="loginregister__input"
+                name="id" 
+                type="id" 
+                placeholder="아이디" 
+                value={ info.id || "" }  
+                onChange={onChange} 
+                onKeyDown={onKeyDown}
+                /><br/>
+                <input 
+                className="loginregister__input"
+                name="pw" 
+                type="password" 
+                placeholder="비밀번호" 
+                value={ info.pw || "" }  
+                onChange={onChange} 
+                onKeyDown={onKeyDown}
+                /><br/>
+                <input 
+                className="loginregister__input" 
+                name="name" 
+                type="text" 
+                placeholder="이름" 
+                value={ info.name || "" }  
+                onChange={onChange} 
+                onKeyDown={onKeyDown}
+                /><br/>
                 {/* <input name="confirmPassword" type="password" placeholder="비밀번호 확인" className="loginregister__input"/><br/> */}
                 <button type="button" onClick={onSubmit} className="loginregister__button">계정 생성하기</button>
             </form>

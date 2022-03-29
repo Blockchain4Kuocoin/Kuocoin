@@ -1,12 +1,13 @@
 .modal {
     display: none;
     position: fixed;
-    top: 0;
+    top: -20%;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 99;
     background: rgba(0, 0, 0, 0.6);
+    height: 800px;
     /* background-color: rgb(255, 215, 0); */
 }
 .modal button {
@@ -22,6 +23,7 @@
     background-color: #fff;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-show 0.3s;
+    height: auto;
     overflow: hidden;
 }
 .modal > section > header {
@@ -42,7 +44,7 @@
     background-color: transparent;
 }
 .modal > section > main {
-    height: 300px;
+    height: auto;
     padding: 16px;
     border-bottom: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
@@ -99,6 +101,28 @@
 
 .modal > section > main > .walmake >.walmakebtn:hover {
     background-position: right;
+}
+
+.wal_info {
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+}
+
+.wal_id {
+    /* background-color: blue; */
+    width: 50%;
+    border: solid 1px;
+}
+
+.wal_balance {
+    /* background-color: yellow; */
+    width: 50%;
+    border: solid 1px;
+}
+
+.wal_container {
+    margin-top: 5%;
 }
 
 @keyframes modal-show {

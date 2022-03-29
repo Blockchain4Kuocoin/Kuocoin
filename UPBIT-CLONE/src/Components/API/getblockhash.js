@@ -8,7 +8,7 @@ export default function Getblockhash() {
     const [block, setBlock] = useState("");
 
     const onClick = () => {
-        axios.get("http://localhost:3001:3001/api/getblockhash", {
+        axios.get("http://localhost:3001/api/getblockhash", {
             params: {'blocknum': blocknum},
         })
         .then((response) => {
