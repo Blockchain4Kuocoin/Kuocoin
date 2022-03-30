@@ -13,7 +13,7 @@ export default function Signup() {
     // 사용자가 정보를 입력했을 때 그 정보를 실시간으로 반영하는것 (불러온다)
     const name = event.target.name; // 건드려 지는 대상을 의미
     const value = event.target.value;
-    setInfo(values, ({...values, [name]: value}))
+    setInfo(values => ({...values, [name]: value}))
   }
 
     const onSubmit = () => {
