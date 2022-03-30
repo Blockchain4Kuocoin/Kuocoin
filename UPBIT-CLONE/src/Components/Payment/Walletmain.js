@@ -13,16 +13,11 @@ const St = {
         height: 225px;
         background-image: url(https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg);
         background-size: cover;
-        /* margin-left: 5px; */
   `,
 }
 
 export default function Walletmain(props) {
     const { data, setData, state, setState, info, setInfo } = props;
-    // console.log("state: " + state);
-    // console.log("data: ");
-    // console.log(info);
-    // if (data.length > 0) sessionStorage.setItem("wallet", JSON.stringify(data[0]));
     
     const [mainWallet, setMainWallet] = useState("");
     const [price, setPrice] = useState("");
@@ -51,11 +46,8 @@ export default function Walletmain(props) {
                     else result += tmp.slice(3*(i-1)+start, 3*i+start)
                     if (i !== parseInt(tmp.length / 3) -1) result += ',';
                 }
-                // console.log('result: ');
-                // console.log(result);
                 setPrice(result);
                 return;
-                // sessionStorage.setItem("wallet", JSON.stringify(ele));
             }
         })
     }
@@ -104,7 +96,7 @@ export default function Walletmain(props) {
                 <div>
                     {data.length !==0
                     ? 
-                    <select id="my_wallet" onChange={onChange}>
+                    <select className="wal_select" id="my_wallet" onChange={onChange}>
                         <option value={info.wallet}>{info.wallet}</option>
                         {data.map(ele => {
                             if (ele.wal_id !== info.wallet) {
