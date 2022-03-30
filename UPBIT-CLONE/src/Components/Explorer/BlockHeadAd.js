@@ -21,7 +21,7 @@ const St = {
 
 const BlockHeadAd = () => {
   return(
-    <St.BlockHeadAdContainer width="30%">
+    <St.BlockHeadAdContainer width="100%">
       <St.BlockHeadAd BColor='skyblue'>해적단 NFT 무료로 받기</St.BlockHeadAd>
       <St.BlockHeadAd BColor='lightpink' marginL='2%'>Block Adv Test</St.BlockHeadAd>
     </St.BlockHeadAdContainer>

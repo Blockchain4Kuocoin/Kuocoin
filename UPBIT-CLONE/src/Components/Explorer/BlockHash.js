@@ -51,7 +51,7 @@ const BlockHash = () => {
   };
 
   useEffect(()=>{
-    Axios.get(`http://localhost:3001/explorer/blockname/${params.height}`)
+    Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
     .then((response) => {setBlockHashData(response.data[0]); console.log(response.data)})
     .catch(err=>console.log(err))
   }, []);

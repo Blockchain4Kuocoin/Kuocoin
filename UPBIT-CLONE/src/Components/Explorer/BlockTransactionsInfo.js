@@ -20,10 +20,12 @@ const St = {
 const ThisBlockTransactionsInfo = () => {
   return(
     <>
-    <St.ThisBlockTransactions>Transactions included in this block</St.ThisBlockTransactions>
+    <St.ThisBlockTransactions>Latest blocks</St.ThisBlockTransactions>
     <ExplorerContainer marginTop="10px" width="100%">
-      <St.TransactionCate><div style={{marginRight:"8vw"}}>Hash</div><div>Output total (LTC)</div><div>Output total (USD)</div><div>Transaction fee (LTC)</div><div>Transaction fee (USD)</div><div>Fee per kB (LTC)</div><div>Size</div><div>Input count</div><div>Output count</div><div>Coindays destroyed</div></St.TransactionCate>
-      <BlockWhiteDiv><div style={{marginRight:"8vw"}}>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div><div>DB</div></BlockWhiteDiv>
+      <St.TransactionCate><div>Hash</div><div>Mined on</div></St.TransactionCate>
+      <BlockWhiteDiv><div>DB</div><div>DB</div></BlockWhiteDiv>
+      <BlockWhiteDiv><div>DB</div><div>DB</div></BlockWhiteDiv>
+      <BlockWhiteDiv><div>DB</div><div>DB</div></BlockWhiteDiv>
     </ExplorerContainer>
     </>
   )
