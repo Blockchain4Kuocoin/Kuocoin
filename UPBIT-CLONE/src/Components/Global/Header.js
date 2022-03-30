@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
+// import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
 
@@ -17,7 +17,7 @@ const St = {
 function Header() {
 
   return(
-    // if (!document.location.href='explorer/kuoscoin/:height')
+    // !if (document.location.href='')
       <Navbar style={{backgroundColor:'#2c2d87'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">

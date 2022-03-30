@@ -44,15 +44,23 @@ const clickBlock = () => {
 
 const BlockInfoIcons = () => {
   const [ blockHeights, setBlockHeights ] = useState([]);
+  const [ blockTxData, setBlockTxData ] = useState([]);
   
   const params = useParams();
   console.log(params);
 
   useEffect(()=>{
-    Axios.get(`http://localhost:3001/exlorer/kuoscoinblocks`)
+    Axios.get(`http://localhost:3001/explorer/kuoscoinblocks`)
     .then((response) => {setBlockHeights(response.data.countheights); console.log(response.data)})
     .catch(err=>console.log(err))
   }, []);
+
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
+    .then((response) => {setBlockTxData(response.data[0]); console.log(response.data)})
+    .catch(err=>console.log(err))
+  }, []);
+  
   return(
     <>
     <St.Container onClick={clickBlock}>
@@ -66,7 +74,7 @@ const BlockInfoIcons = () => {
       <St.BlockIcons><RiArrowUpDownLine className="IconBox" size="34"/></St.BlockIcons>
       <St.BlockInfoDiv>
         <>Transactions</>
-        <St.BlockInfoDb>DB</St.BlockInfoDb>
+        <St.BlockInfoDb>{blockTxData.tx}</St.BlockInfoDb>
       </St.BlockInfoDiv>
     </St.Container>
     <St.Container onClick={clickBlock}>

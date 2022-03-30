@@ -22,6 +22,8 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
+// import ToastsPop from "./Components/Explorer/BlockHash copy";
+// import Test from "./Components/Explorer/BlockHash copy";
 
 // import "./index.css";
 
@@ -38,6 +40,7 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <GlobalStyle />
+        {/* <Test /> */}
         <App />
       </BrowserRouter>
     </Provider>

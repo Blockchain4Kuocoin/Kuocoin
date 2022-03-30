@@ -3,24 +3,9 @@ import { useParams } from "react-router-dom";
 import Axios from "axios";
 import styled from "styled-components";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
-// import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
+import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
-// const ToastsPop = () => {
-//   ToastsStore.success("Copied!");
 
-//   return (
-//     <div>
-//       {/* <button type="button"
-//               id="popup"
-//               onClick={ToastsPop}>
-//           Toast
-//       </button> */}
-//       <ToastsContainer position={ToastsContainerPosition.TOP_CENTER}
-//               store={ToastsStore} 
-//                       lightBackground/>
-//     </div>
-//   );
-// };
 const St = {
   BlockHashInfoContainer: styled.div`
     display: block;
@@ -31,7 +16,13 @@ const St = {
     font-size: x-large;
     font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: space-between;
   `
+};
+
+const ToastsPop = () => {
+  ToastsStore.success("Copied!");
 };
 
 const BlockHash = () => {
@@ -41,12 +32,10 @@ const BlockHash = () => {
   console.log(params);
 
   const CopyHash = () => {
-    const url = window.location.href; // url 복사
-  
     console.log(blockHashData);
   
     navigator.clipboard.writeText(blockHashData.hash).then(() => {
-      alert("복사성공!");
+      ToastsPop()
     });
   };
 
@@ -58,14 +47,29 @@ const BlockHash = () => {
 
   return(
     <>
-    
     <St.BlockHashInfoContainer>
       <>Hash</>
-      {/* {blockHashData.map(element => */}
         <St.BlockHashDiv>{blockHashData.hash}</St.BlockHashDiv>
-      {/* )} */}
     </St.BlockHashInfoContainer>
     <RiCheckboxMultipleBlankLine onClick={CopyHash} size="20"/>
+      <div className="url_copy">
+        <style jsx="true">{`
+          .toast {
+            font-size: 16px !important;
+            color: #fff !important;
+            display: inline-block !important;
+            background-color: #000000 !important;
+            box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.16) !important;
+            opacity: 0.7 !important;
+            border-radius: 5px !important;
+            width: 343px !important;
+            line-height: 53px !important;
+            height: 53px !important;
+            margin: 129px 16px auto !important;
+          }
+        `}</style>
+        <ToastsContainer position={ToastsContainerPosition.BOTTOM_CENTER} store={ToastsStore} />
+      </div>
     </>
   )
 };

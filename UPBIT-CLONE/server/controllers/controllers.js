@@ -123,9 +123,15 @@ exports.explorer_Controllers = (req, res) => {
     });
 };
 
-exports.blockheight_Controllers = (req, res) => {
+exports.blockHeight_Controllers = (req, res) => {
     exports.blocks = req.query.height
-    models.explorer.blockheight_Models().then((result) => {
+    models.explorer.blockHeight_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.latestblocks_Controllers = (req, res) => {
+    models.explorer.latestBlocks_Models().then((result) => {
         res.send(result);
     });
 };

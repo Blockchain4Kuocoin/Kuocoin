@@ -31,7 +31,7 @@ modelExports.explorer_Models = () => {
   });
 };
 
-modelExports.blockheight_Models = () => {
+modelExports.blockHeight_Models = () => {
     
     const heights = controllers.blocks;
     return new Promise((resolve, reject) => {
@@ -42,13 +42,42 @@ modelExports.blockheight_Models = () => {
             try {
                 if (err) throw err;
                 console.log("mysqldb connection success!");
-                connection.query(sql, [heights], (err, result)=>{
+                connection.query(sql, (err, result)=>{
                     if(err) {
                         throw err;
                     } else {
                         resolve(result[0]);
                         console.log(result[0]);
                         // resolve({height: result[0]['count(height)']})
+                    }    
+                });
+                connection.release();
+
+            } catch (err) {
+                console.log("Mypage get error...");
+                console.error(err);
+                connection.release();
+            };
+        });
+    });      
+};
+
+modelExports.latestBlocks_Models = () => {
+    
+    return new Promise((resolve, reject) => {
+
+        const sql = `SELECT height, hash, mediantime FROM kuosblockdata ORDER BY height desc LIMIT 3;`;
+
+        con.getConnection((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("mysqldb connection success!");
+                connection.query(sql, (err, result)=>{
+                    if(err) {
+                        throw err;
+                    } else {
+                        resolve(result);
+                        console.log(result);
                     }    
                 });
                 connection.release();
