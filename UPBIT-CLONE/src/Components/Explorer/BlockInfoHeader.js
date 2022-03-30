@@ -7,6 +7,7 @@ const St = {
     justify-content: space-between;
     align-items: center;
     width: 90%;
+    font-family: 'Poor Story';
     /* padding: 10px; */
     /* cursor: pointer; */
   `,
@@ -22,6 +23,8 @@ const St = {
     border-radius: 50px;
     object-fit: cover;
     /* background-image: url("../../../public/kuoslogo.png"); */
+    background: url("./kuoslogo.png") ;
+    background-image: url("./kuoslogo.png");
   `,
   BlockLogoInfo: styled.div`
     height: 70px;

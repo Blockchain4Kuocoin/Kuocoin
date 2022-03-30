@@ -6,17 +6,20 @@ const St = {
     display: flex;
     margin-top: 20px;
     line-height: 5vh;
+    font-family: 'Poor Story';
   `,
   InforCol: styled.div`
     width: 50%;
     color: darkgray;
     font-size: initial;
+    font-family: 'Poor Story';
   `,
   InfoDb: styled.div`
     width: 50%;
     /* color: ${(props) => props.color}; */
     font-weight: 400;
     font-size: initial;
+    font-family: 'Poor Story';
   `
 };
 

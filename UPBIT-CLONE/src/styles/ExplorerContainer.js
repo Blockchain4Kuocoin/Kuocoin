@@ -8,6 +8,8 @@ const ExplorerContainer = styled.div`
   border: 1px solid white;
   border-radius: 10px;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Poor Story';
+  font-size: 20px ;
 `;
 
 export default ExplorerContainer;

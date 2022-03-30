@@ -24,13 +24,14 @@ import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
 const St = {
   BlockHashInfoContainer: styled.div`
     display: block;
+    font-family: 'Poor Story';
   `,
   BlockHashDiv: styled.div`
     color: #000;
     margin-top: 10px;
     font-size: x-large;
     font-weight: 900;
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
   `
 };
 

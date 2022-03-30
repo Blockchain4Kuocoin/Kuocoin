@@ -6,8 +6,7 @@ import { FaSearch } from "react-icons/fa";
 const Input = styled.input`
   width: 90%;
   height: 50px;
-  /* display: flex; */
-  /* justify-content: space-between; */
+  font-family: 'Poor Story' ;
 `;
 
 const SearchBar = () => {

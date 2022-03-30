@@ -9,6 +9,7 @@ const St = {
     width: 100%;
     font-size: larger;
     font-weight: 500;
+    font-family: 'Poor Story';
   `,
   TransactionCate: styled.div`
     width: 100%;

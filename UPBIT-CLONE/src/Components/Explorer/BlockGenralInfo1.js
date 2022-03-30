@@ -8,6 +8,7 @@ const St = {
     display: flex;
     margin-top: 20px;
     line-height: 5vh;
+    font-family: 'Poor Story';
   `,
   GeneralInformationCate: styled.div`
     width: 25%;
@@ -40,7 +41,7 @@ const BlockGenralInfo1 = () => {
 
   return(
     <>
-    General info
+    <St.GeneralInfoContainer>General info</St.GeneralInfoContainer>
     <St.GeneralInfoContainer>
       <St.GeneralInformationCate>
         <div>Size</div><div>Stripped size</div><div>Version</div><div>Merkle root</div><div>Nonce</div><div>Chainwork</div><div>Coinbase data</div>
