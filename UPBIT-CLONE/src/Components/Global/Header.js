@@ -9,15 +9,17 @@ const St = {
     display: block;
     margin-left: ${({ marginLeft }) => marginLeft || "8px"};
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     height: 20px;
-    color: #ffb00b;
+    color: #ddda76;
+    font-family: 'Poor Story';
+
   `,
 }
 
 function Header() {
   return(
-      <Navbar style={{backgroundColor:'#ffffff'}}  expand="lg">
+      <Navbar style={{backgroundColor:'#549aff'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">
               <img

@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const St = {
   Footer: styled.footer`
+    font-family: 'Poor Story' ;
     display: block;
     width: 100%;
     height: 100%;
-    /* background-color:rgb(255, 215, 0); */
-    background-color: #ffffff;
+    background-color: #549aff;
     padding: 20px 0;
     @media ${({ theme }) => theme.tablet} {
       display: none;
@@ -26,6 +26,7 @@ const St = {
     max-width: 1360px;
     margin: 0 auto;
     padding: 0 20px;
+    
 
     @media ${({ theme }) => theme.tablet} {
       display: block;
@@ -44,8 +45,8 @@ const St = {
   `,
   Description: styled.p`
     font-weight: 600;
-    font-size: 0.9rem;
-    color: #ffb00b;
+    font-size: 1.1rem;
+    color: #ddda76;
     height: 85px;
     margin-top: 10px;
   `,
@@ -59,24 +60,24 @@ const St = {
   `,
   LinkTitle: styled.span`
     height: 25px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: #ffb00b;
+    color: #ddda76;
   `,
   LinkTag: styled.a`
     display: flex;
     align-items: center;
     height: 30px;
-    color: #ffffff;
+    color: #ff5478;
     text-decoration: none;
   `,
   LinkSpan: styled.span`
     display: block;
     margin-left: ${({ marginLeft }) => marginLeft || "8px"};
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     height: 20px;
-    color: #ffb00b;
+    color: #ddda76;
   `,
 };
 

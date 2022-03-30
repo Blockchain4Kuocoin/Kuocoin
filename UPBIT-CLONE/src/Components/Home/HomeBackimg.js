@@ -118,9 +118,15 @@ const RoadmapStyle = styled.div`
 
   .idea_item {
     text-align: center;
-    font-size: 4vw;
+    font-size: 3vw;
     font-family: 'Poor Story';
     padding: 1vw 0;
+  }
+  .text {
+    color: white;
+  }
+  .text:hover {
+    color: gold;
   }
 
   .slide_next {
@@ -183,8 +189,6 @@ function HomeBackimg() {
       {/* font */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css?family=Gamja+Flower:400" rel="stylesheet"></link>
-      <link href="https://fonts.googleapis.com/css?family=Poor+Story:400" rel="stylesheet"></link>
       {/* body */}
       <div className="container_roadmap">
         <div className="phase_carousel">
@@ -212,10 +216,10 @@ function HomeBackimg() {
               <div className="phase_item">
                 <ul className="item_list">
                 <br/>
-                <li className="idea_item">Kuos Foundation은 최첨단 블록체인 기술을</li>
-                <li className='idea_item'>개발 및 홍보하여 ​​사회의 이익을 위해</li>
-                <li className='idea_item'>KuosCoin을 발전시키는 것을 사명으로 하는</li>
-                <li className='idea_item'>비영리 조직입니다.</li><br/>
+                <li className="item_list">Kuos Foundation은 최첨단 블록체인 기술을</li>
+                <li className='item_list'>개발 및 홍보하여 ​​사회의 이익을 위해</li>
+                <li className='item_list'>KuosCoin을 발전시키는 것을 사명으로 하는</li>
+                <li className='item_list'>비영리 조직입니다.</li><br/>
                 <li className="slide_next">swipe page</li>
                 </ul>
               </div>
@@ -225,9 +229,9 @@ function HomeBackimg() {
               <div className="phase_item">
                 <ul className="item_list">
                 모든 기부는 인지도를 높이고<br/> kuoscoin의 전 세계적인 영향력을<br/>높이기 위해 설립된 kuos Foundation에 <br/>직접 자금을 지원합니다.
-                  <li className="idea_item"><br/><a href='/home'>kuosCoin 기부하기</a></li>
-                  <li className="idea_item"><a href='/home'>bitCoin 기부하기</a></li>
-                  <li className="idea_item"><a href='/home'>kakaoPay 기부하기</a></li>
+                  <li className="idea_item"><br/><a className='text' href='/home'>kuosCoin 기부하기</a></li>
+                  <li className="idea_item"><a className='text' href='/home'>bitCoin 기부하기</a></li>
+                  <li className="idea_item"><a className='text' href='/home'>kakaoPay 기부하기</a></li>
                 </ul>
               </div>
             </div>

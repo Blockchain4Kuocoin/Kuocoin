@@ -17,6 +17,7 @@ const St = {
     margin-top: 10px;
     @media ${({ theme }) => theme.mobileM} {
       margin-top: 0;
+      font-family: 'Poor Story' ;
     }
   `,
   HiddenH3: styled.h3`
@@ -50,13 +51,14 @@ const St = {
     align-items: center;
     height: 25px;
     background-color: ${({ theme }) => theme.lightGray1};
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     @media ${({ theme }) => theme.mobileS} {
       font-size: 0.6rem;
     }
   `,
   TitleListItem: styled.li`
+    font-family: 'Poor Story';
     width: 20%;
 
     min-width: 58px;

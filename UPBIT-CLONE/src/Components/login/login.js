@@ -25,7 +25,6 @@ export default function Login() {
         })
         .then(res => {
             console.log(res);
-            // console.log('res.data.userId :: ', res.data.id)/
             console.log('res.data.msg :: ', res.data.msg);
             let msg = res.data.msg;
             if(msg === "no data found"){
@@ -33,11 +32,6 @@ export default function Login() {
                 console.log('======================',res.data.msg)
                 alert('입력하신 정보가 일치하지 않습니다.')
             } 
-            // else if(res.data.userId === null){
-            //     // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
-            //     console.log('======================','입력하신 비밀번호 가 일치하지 않습니다.')
-            //     alert('입력하신 비밀번호 가 일치하지 않습니다.')
-            // } 
             else {
                 // id, pw 모두 일치 userId = userId1, msg = undefined
                 console.log('======================','로그인 성공')
@@ -50,13 +44,13 @@ export default function Login() {
 
 
     }
-
-
     return (
-        <div className="loginregister">
+        <>
+        <div className="Ldiv">
             <form>
+                <p className="Ltext">
                 <input 
-                className="loginregister__input"
+                className="Linput"
                 name="id" 
                 type="id" 
                 placeholder="아이디" 
@@ -65,9 +59,12 @@ export default function Login() {
                 onKeyDown={(e) => {
                     if (e.key === "Enter") onSubmit()
                 }}
-                /><br/>
+                />
+                </p>
+                <br/>
+                <p className="Ltext">
                 <input 
-                className="loginregister__input"
+                className="Linput"
                 name="pw" 
                 type="password" 
                 placeholder="비밀번호" 
@@ -76,9 +73,12 @@ export default function Login() {
                 onKeyDown={(e) => {
                     if (e.key === "Enter") onSubmit()
                 }}
-                /><br/>
-                <button type="button" onClick={onSubmit} className="loginregister__button">로그인</button>
+                />
+                </p>
+                <br/>
+                <button type="button" onClick={onSubmit} className="Lbtn">로그인</button>
             </form>
         </div>
+        </>
     )
 }
