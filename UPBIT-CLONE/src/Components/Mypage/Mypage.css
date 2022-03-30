@@ -6,19 +6,25 @@
     font-family:sans-serif;     
   }
 
+.titleimg {
+  margin-top: 50px;
+  width: 200px;
+  height: 200px;
+}
+
 
 .mydiv {
     position:absolute;
     width:400px;
     height:400px;
-    padding: 30px, 20px;
+    /* padding: 30px, 20px; */
     text-align:center;
-    top:40%;
+    top:30%;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
     background-image: none;
-    color: white;
+    color: black;
 
 
   }
@@ -32,8 +38,8 @@
 
 .mytext {
     border-bottom: 2px solid #e6c619;
-    margin: 30px;
-    padding: 10px 10px;
+    margin: 20px;
+    /* padding: 10px 10px; */
   }
 
   .myinput {

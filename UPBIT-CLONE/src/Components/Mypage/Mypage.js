@@ -111,7 +111,7 @@ export default function Profile() {
 if(check) {
 return (
     <div className="mydiv">
-        <h2 className="mytitle">PROFILE</h2><br/>
+        <h2 className="mytitle"><img className="titleimg" src="./modal.png"></img></h2><br/>
         <p className="mytext">ID : {details.id}</p>
         <p className="mytext">PASSWORD : {details.pw}</p>
         <p className="mytext">NAME : {details.name}</p>
@@ -140,7 +140,7 @@ else{
     return (
 <>
     <div className="mydiv">
-        <h2 className="mytitle">PROFILE</h2><br/>
+        <h2 className="mytitle"></h2><br/>
         <p className="mytext">ID 
             <input 
             className="myinput" 

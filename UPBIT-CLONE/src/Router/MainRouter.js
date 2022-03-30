@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-
 import Main from "../Pages/Main";
 import Home from "../Pages/Home";
 import Mypage from "../Pages/Mypage";
@@ -16,14 +15,11 @@ import ExplorerMain from "../Pages/ExplorerMain";
 import BlocksInfo from "../Pages/BlocksInfo";
 import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
-import Payment from "../Pages/Payment";
-import MyNavbar from "../Components/Mypage/MyNavbar";
-import ExplorerSearch from "../Pages/ExplorerSearch";
+
 
 const MainRouter = () => {
   return (
     <Switch>
-      <Route exact path="/navbar" component={MyNavbar} />
       <Route exact path="/" component={Home} />
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />
@@ -40,9 +36,9 @@ const MainRouter = () => {
       <Route exact path="/blockname" component={BlocksInfo} />
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
+      {/* 블록 세부페이지(blcokheight등등) :blockname 혹은 db에 저장되는 컬럼명으로 바꿔야함*/}
       <Route exact path="/explorer/blockname/:blocknumber" component={Explorer} />
-      <Route exact path="/explorer" component={ExplorerMain} /> 
-      <Route exact path="/search" component={ExplorerSearch} /> 
+      <Route exact path="/explorer" component={ExplorerMain} />
       {/* 메인홈 작업후 위에 줄은 지움  */}
       {/* <Route exact path="/explorer/:blockname/block/:blocknumber" component={Explorer} /> :뒤 db컬럼명에 따라 달라짐 */}
     </Switch>
