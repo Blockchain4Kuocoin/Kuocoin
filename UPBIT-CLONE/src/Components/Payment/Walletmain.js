@@ -46,6 +46,7 @@ export default function Walletmain(props) {
                     else result += tmp.slice(3*(i-1)+start, 3*i+start)
                     if (i !== parseInt(tmp.length / 3)) result += ',';
                 }
+                if (result.startsWith(',')) result = result.slice(1,result.length+1)
                 setPrice(result);
                 return;
             }
@@ -82,6 +83,7 @@ export default function Walletmain(props) {
                     if (i !== parseInt(tmp.length / 3)) result += ',';
                 }
                 console.log("result: " + result)
+                if (result.startsWith(',')) result = result.slice(1,result.length+1)
                 setPrice(result);
                 return;
             }
