@@ -41,15 +41,15 @@ export default function Walletmain(props) {
                 setMainWallet(ele);
                 let result = "";
                 let tmp = ele.balance;
-                let start = tmp.length % 3 === 0 ? 3 : tmp.length % 3 === 1 ? 2 : 1;
+                let start = tmp.length % 3 === 0 ? 0 : tmp.length % 3 === 1 ? 1 : 2;
                 if (tmp.length < 3) {
                     setPrice(tmp)
                     return;
                 }
-                for (let i = 0; i < parseInt(tmp.length / 3); i++) {
+                for (let i = 0; i < parseInt(tmp.length / 3) + 1; i++) {
                     if (i === 0) result += tmp.slice(0, start)
                     else result += tmp.slice(3*(i-1)+start, 3*i+start)
-                    if (i !== parseInt(tmp.length / 3) -1) result += ',';
+                    if (i !== parseInt(tmp.length / 3)) result += ',';
                 }
                 // console.log('result: ');
                 // console.log(result);
@@ -75,19 +75,21 @@ export default function Walletmain(props) {
     useEffect(() => {
         data.forEach(ele => {
             if (ele.wal_id === info.wallet) {
+                console.log(ele)
                 setMainWallet(ele);
                 let result = "";
                 let tmp = ele.balance;
-                let start = tmp.length % 3 === 0 ? 3 : tmp.length % 3 === 1 ? 2 : 1;
+                let start = tmp.length % 3 === 0 ? 0 : tmp.length % 3 === 1 ? 1 : 2;
                 if (tmp.length < 3) {
                     setPrice(tmp)
                     return;
                 }
-                for (let i = 0; i < parseInt(tmp.length / 3); i++) {
+                for (let i = 0; i < parseInt(tmp.length / 3)+1; i++) {
                     if (i === 0) result += tmp.slice(0, start)
                     else result += tmp.slice(3*(i-1)+start, 3*i+start)
-                    if (i !== parseInt(tmp.length / 3) -1) result += ',';
+                    if (i !== parseInt(tmp.length / 3)) result += ',';
                 }
+                console.log("result: " + result)
                 setPrice(result);
                 return;
             }
