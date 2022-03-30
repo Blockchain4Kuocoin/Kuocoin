@@ -1,11 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 export default function Getblockhash() {
     const [blocknum, setBlocknum] = useState("");
     const [blockhash, setBlockhash] = useState("");
-    const [block, setBlock] = useState("");
+    // const [block, setBlock] = useState("");
 
     const onClick = () => {
         axios.get("http://localhost:3001/api/getblockhash", {

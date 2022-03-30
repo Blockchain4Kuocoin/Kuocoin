@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Main from "../Pages/Main";
 import Home from "../Pages/Home";
@@ -17,7 +17,6 @@ import BlocksInfo from "../Pages/BlocksInfo";
 import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
 import ExplorerSearch from "../Pages/ExplorerSearch";
-
 
 const MainRouter = () => {
   return (

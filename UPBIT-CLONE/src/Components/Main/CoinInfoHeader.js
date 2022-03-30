@@ -151,6 +151,7 @@ const CoinInfoHeader = ({
   price,
 }) => {
   const priceColor = changeRate24Hour > 0 ? theme.priceUp : theme.priceDown;
+  // console.log(coinSymbol);
   return (
     <St.CoinInfoContainer>
       <St.HiddenH3>코인 가격 및 기타 정보</St.HiddenH3>

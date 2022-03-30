@@ -12,6 +12,7 @@ import SearchBar from "../Components/Explorer/SearchBar";
 
 const St = {
   BodyContainer: styled.div`
+    font-family: "Poor Story" ;
     max-width: 1400px;
     min-height: 350px;
     margin: 20vh auto;
