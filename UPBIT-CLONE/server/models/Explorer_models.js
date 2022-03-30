@@ -29,15 +29,35 @@ modelExports.explorer_Models = () => {
           };
       });
   });
-  
-  
-  // const sqlQuery = "SELECT * FROM testexplorer;"
-  // pool.getConnection((err, connection) => {
-  //   if(err) throw err;
+};
+
+modelExports.blockheight_Models = () => {
     
-  //   connection.query(sqlQuery, (err, result)=>{
-  //     res.send(result);
-  //     connection.release();
-  //   })
-  // })
+    const heights = controllers.blocks;
+    return new Promise((resolve, reject) => {
+
+        const sql = `SELECT count(height) AS countheights FROM kuosblockdata;`;
+
+        con.getConnection((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("mysqldb connection success!");
+                connection.query(sql, [heights], (err, result)=>{
+                    if(err) {
+                        throw err;
+                    } else {
+                        resolve(result[0]);
+                        console.log(result[0]);
+                        // resolve({height: result[0]['count(height)']})
+                    }    
+                });
+                connection.release();
+
+            } catch (err) {
+                console.log("Mypage get error...");
+                console.error(err);
+                connection.release();
+            };
+        });
+    });      
 };

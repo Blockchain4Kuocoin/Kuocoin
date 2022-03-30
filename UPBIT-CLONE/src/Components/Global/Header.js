@@ -17,7 +17,7 @@ const St = {
 function Header() {
 
   return(
-    // !if (document.location.href='')
+    // if (!document.location.href='explorer/kuoscoin/:height')
       <Navbar style={{backgroundColor:'#2c2d87'}}  expand="lg">
         <Container>
           <Navbar.Brand href="/home">

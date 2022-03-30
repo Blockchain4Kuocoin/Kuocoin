@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Axios from "axios";
 import styled from "styled-components";
 import { FaCubes } from "react-icons/fa";
 import { RiArrowUpDownLine } from "react-icons/ri";
@@ -41,13 +43,23 @@ const clickBlock = () => {
 };
 
 const BlockInfoIcons = () => {
+  const [ blockHeights, setBlockHeights ] = useState([]);
+  
+  const params = useParams();
+  console.log(params);
+
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/exlorer/kuoscoinblocks`)
+    .then((response) => {setBlockHeights(response.data.countheights); console.log(response.data)})
+    .catch(err=>console.log(err))
+  }, []);
   return(
     <>
     <St.Container onClick={clickBlock}>
       <St.BlockIcons><FaCubes className="IconBox" size="34"/></St.BlockIcons>
       <St.BlockInfoDiv>
         <>Blocks</>
-        <St.BlockInfoDb>DB</St.BlockInfoDb>
+        <St.BlockInfoDb>{blockHeights}</St.BlockInfoDb>
       </St.BlockInfoDiv>
     </St.Container>
     <St.Container onClick={clickBlock}>
