@@ -24,7 +24,7 @@ const St = {
   `
 };
 
-const BlockGenralInfo1 = () => {
+const BlocksGenralInfo = () => {
   const [ blockGeneralInfo, setBlockGeneralInfo ] = useState([]);
   const [ timestamp, setTimestamp ] = useState('');
   console.log(blockGeneralInfo);
@@ -69,7 +69,7 @@ const BlockGenralInfo1 = () => {
 
   return(
     <>
-    General info
+    <div style={{fontSize: "x-larger", fontWeight: "bolder"}}>General info</div>
     <St.GeneralInfoContainer>
       <St.GeneralInformationCate>
         <div>Size</div><div>Stripped size</div><div>Version</div><div>Merkle root</div><div>Nonce</div><div>Chainwork</div>
@@ -92,4 +92,4 @@ const BlockGenralInfo1 = () => {
 
 };
 
-export default BlockGenralInfo1;
+export default BlocksGenralInfo;

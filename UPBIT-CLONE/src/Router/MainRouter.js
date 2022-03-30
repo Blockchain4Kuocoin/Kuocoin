@@ -13,10 +13,8 @@ import Getblockhash from "../Components/API/getblockhash";
 import Getblock from "../Components/API/getblock";
 import Explorer from "../Pages/Explorer";
 import ExplorerMain from "../Pages/ExplorerMain";
-import BlocksInfo from "../Pages/BlocksInfo";
 import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
-import ExplorerSearch from "../Pages/ExplorerSearch";
 
 const MainRouter = () => {
   return (

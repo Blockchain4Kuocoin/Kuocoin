@@ -7,11 +7,16 @@ import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toast
 
 
 const St = {
+  container: styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `,
   BlockHashInfoContainer: styled.div`
     display: block;
   `,
   BlockHashDiv: styled.div`
-    color: #000;
+    color: blue;
     margin-top: 10px;
     font-size: x-large;
     font-weight: 900;
@@ -31,6 +36,12 @@ const BlockHash = () => {
   const params = useParams();
   console.log(params);
 
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
+    .then((response) => {setBlockHashData(response.data[0]); console.log(response.data)})
+    .catch(err=>console.log(err))
+  }, []);
+
   const CopyHash = () => {
     console.log(blockHashData);
   
@@ -39,14 +50,8 @@ const BlockHash = () => {
     });
   };
 
-  useEffect(()=>{
-    Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
-    .then((response) => {setBlockHashData(response.data[0]); console.log(response.data)})
-    .catch(err=>console.log(err))
-  }, []);
-
   return(
-    <>
+    <St.container>
     <St.BlockHashInfoContainer>
       <>Hash</>
         <St.BlockHashDiv>{blockHashData.hash}</St.BlockHashDiv>
@@ -70,7 +75,7 @@ const BlockHash = () => {
         `}</style>
         <ToastsContainer position={ToastsContainerPosition.BOTTOM_CENTER} store={ToastsStore} />
       </div>
-    </>
+    </St.container>
   )
 };
 

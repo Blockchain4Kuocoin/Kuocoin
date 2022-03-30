@@ -108,7 +108,7 @@ exports.explorer_Controllers = (req, res) => {
 };
 
 exports.blockHeight_Controllers = (req, res) => {
-    exports.blocks = req.query.height
+    exports.blocks = req.query.height;
     models.explorer.blockHeight_Models().then((result) => {
         res.send(result);
     });
