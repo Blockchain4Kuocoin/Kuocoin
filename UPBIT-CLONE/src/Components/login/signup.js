@@ -52,7 +52,7 @@ export default function Signup() {
         <div className="loginregister">
             <form>
                 <div>
-                    <button type="button" className="loginregister__sign">회원가입</button>
+                    <div type="button" className="loginregister__sign">회원가입</div>
                 </div>
                 <input name="name" type="text" placeholder="이름" value={ info.name || "" } className="loginregister__input" onChange={ onChange } onKeyDown={onKeyDown}/><br/>
                 <input name="id" type="id" placeholder="아이디" value={ info.id || "" }  className="loginregister__input" onChange={ onChange } onKeyDown={onKeyDown}/><br/>
