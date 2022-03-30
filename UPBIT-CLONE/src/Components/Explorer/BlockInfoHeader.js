@@ -21,16 +21,21 @@ const St = {
     margin-right: 20px;
     border: 1px solid black;
     border-radius: 50px;
-    object-fit: cover;
+    /* object-fit: cover; */
+    /* background-color: red; */
     /* background-image: url("../../../public/kuoslogo.png"); */
-    background: url("./kuoslogo.png") ;
-    background-image: url("./kuoslogo.png");
+    /* background: url("./kuoslogo.png") ; */
+    background-image: url("https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg");
+    background-repeat: cover;
+    z-index: 99 ;
   `,
   BlockLogoInfo: styled.div`
     height: 70px;
     margin-right: 10px;
     line-height: 35px; //이 방법 대신 다른 방법 찾기
-    color: gray;
+    /* color: gray; */
+    background: url("./kuoslogo.png") ;
+    background-image: url("./kuoslogo.png") ;
   `,
   BlcokLogoName: styled.div`
     color: black;
