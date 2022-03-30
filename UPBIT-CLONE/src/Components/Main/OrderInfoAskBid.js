@@ -15,6 +15,7 @@ const St = {
     width: 100%;
     height: 50%;
     background-color: white;
+    font-family: 'Poor Story';
   `,
   OrderTypeContainer: styled.div`
     display: flex;
@@ -105,6 +106,7 @@ const St = {
     color: ${({ fontColor }) => fontColor || "black"};
     font-size: ${({ fontSize }) => fontSize};
     font-weight: 900;
+    font-family: 'Poor Story' ;
   `,
   PossibleAmount: styled.span`
     display: block;
@@ -300,9 +302,10 @@ const OrderInfoAskBid = ({
           {
             <St.OrderBtnContainer>
               <St.Button
+                
                 width={"60%"}
                 bgColor={theme.test}
-                fontSize={"0.9rem"}
+                fontSize={"1.1rem"}
                 fontColor={"white"}
                 margin={"auto"}
                 onClick={onClick}

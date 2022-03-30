@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const St = {
   Footer: styled.footer`
+    font-family: 'Poor Story' ;
     display: block;
     width: 100%;
     height: 100%;
@@ -25,6 +26,7 @@ const St = {
     max-width: 1360px;
     margin: 0 auto;
     padding: 0 20px;
+    
 
     @media ${({ theme }) => theme.tablet} {
       display: block;
@@ -43,7 +45,7 @@ const St = {
   `,
   Description: styled.p`
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #ddda76;
     height: 85px;
     margin-top: 10px;
@@ -58,7 +60,7 @@ const St = {
   `,
   LinkTitle: styled.span`
     height: 25px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #ddda76;
   `,
@@ -73,7 +75,7 @@ const St = {
     display: block;
     margin-left: ${({ marginLeft }) => marginLeft || "8px"};
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     height: 20px;
     color: #ddda76;
   `,

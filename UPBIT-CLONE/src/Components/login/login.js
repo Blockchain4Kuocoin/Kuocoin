@@ -45,6 +45,7 @@ export default function Login() {
 
     }
     return (
+        <>
         <div className="Ldiv">
             <form>
                 <p className="Ltext">
@@ -78,5 +79,6 @@ export default function Login() {
                 <button type="button" onClick={onSubmit} className="Lbtn">로그인</button>
             </form>
         </div>
+        </>
     )
 }

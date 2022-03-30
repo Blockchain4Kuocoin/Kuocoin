@@ -188,8 +188,6 @@ function HomeBackimg() {
       {/* font */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css?family=Gamja+Flower:400" rel="stylesheet"></link>
-      <link href="https://fonts.googleapis.com/css?family=Poor+Story:400" rel="stylesheet"></link>
       {/* body */}
       <div className="container_roadmap">
         <div className="phase_carousel">
