@@ -1,16 +1,5 @@
-/* .myp
-{
-    display: block;
-    margin-left: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    height: 40px; 
-    color: white;
-} */
-
 .navbar {
-    /* background-color: rgb(44, 45, 135); */
-    background-color: #fff;
+    background-color: rgb(44, 45, 135);
     height: 80px;
     display: flex;
     justify-content: start;
@@ -21,28 +10,22 @@
     margin-left: 2rem;
     font-size: 2rem;
     background-color: none;
-    cursor: pointer;
 }
 
 .nav-menu {
-    /* background-color: rgb(44, 45, 135); */
-    background-color: #fff;
-    width: 450px;
+    background-color: rgb(44, 45, 135);
+    width: 400px;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 8%;
-    /* left: -100%; */
-    right: -100%;
+    top: 0;
+    left: -100%;
     transform: 850ms;
-    z-index: 1;
-    cursor: default;
 }
 
 .nav-menu.active {
-    /* left: 0;  */
-    right: 0;
+    left: 0;
     transition: 350ms;
 }
 
@@ -55,7 +38,17 @@
     height: 60px;
 }
 
-
+.nav-text a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 10px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+}
 
 .nav-text a:hover {
     background-color: #1a83ff;
