@@ -58,6 +58,7 @@
     "styled-normalize": "^8.0.7",
     "styled-reset": "^4.3.0",
     "text-encoding": "^0.7.0",
+    "to-regex": "^3.0.2",
     "websocket": "^1.0.32"
   },
   "scripts": {
