@@ -45,9 +45,7 @@ const St = {
   `
 };
 
-const clickBlock = () => {
-  document.location.href='/'
-};
+
 
 const BlockNumber = () => {
   const [ blockNumberData, setBlockNumberData ] = useState([]);
@@ -56,10 +54,18 @@ const BlockNumber = () => {
   console.log(params);
 
   useEffect(()=>{
-    Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
-    .then((response) => {setBlockNumberData(response.data); console.log(response)})
+    Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
+    .then((response) => {setBlockNumberData(response.data[0]); console.log(response.data[0])})
     .catch(err=>console.log(err))
   }, []);
+
+  const clickBlock = () => {
+    document.location.href=`${Number(params.height) -1}`
+  };
+  
+  const clickBlock1 = () => {
+    document.location.href=`${Number(params.height) +1}`
+  };
 
   return(
     <>
@@ -68,23 +74,23 @@ const BlockNumber = () => {
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
       <St.BlockNumInfoDiv>
         <St.BlockNumInfo>Previos</St.BlockNumInfo>
-        <>DB -1 </>
+        <>{blockNumberData.height - 1}</>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
-    <St.BlockNumberContainer onClick={clickBlock}>
+    <St.BlockNumberContainer>
       <St.BlockCurIcon><SiHackthebox className="BlockBox" size="34"/></St.BlockCurIcon>
       <St.BlockNumInfoDiv>
         <St.BlockNumInfo>Current</St.BlockNumInfo>
-        {blockNumberData.map(element =>
-        <St.BlockCurNum>{element.blocknumber}</St.BlockCurNum>
-        )}
+        {/* {blockNumberData.map(element => */}
+        <St.BlockCurNum>{blockNumberData.height}</St.BlockCurNum>
+        {/* )} */}
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
-    <St.BlockNumberContainer onClick={clickBlock}>
+    <St.BlockNumberContainer onClick={clickBlock1}>
       <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
       <St.BlockNumInfoDiv>
       <St.BlockNumInfo>next</St.BlockNumInfo>
-        <>DB + 1 </>
+        <>{blockNumberData.height + 1}</>
       </St.BlockNumInfoDiv>
     </St.BlockNumberContainer>
     

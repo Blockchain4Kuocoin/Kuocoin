@@ -41,16 +41,18 @@ const BlockHash = () => {
   console.log(params);
 
   const CopyHash = () => {
+    const url = window.location.href; // url 복사
+  
     console.log(blockHashData);
   
-    navigator.clipboard.writeText(blockHashData).then(() => {
+    navigator.clipboard.writeText(blockHashData.hash).then(() => {
       alert("복사성공!");
     });
   };
 
   useEffect(()=>{
-    Axios.get(`http://localhost:3001/explorer/blockname/${params.blocknumber}`)
-    .then((response) => {setBlockHashData(response.data[0].testcolumn); console.log(response.data[0].testcolumn)})
+    Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
+    .then((response) => {setBlockHashData(response.data[0]); console.log(response.data)})
     .catch(err=>console.log(err))
   }, []);
 
@@ -60,7 +62,7 @@ const BlockHash = () => {
     <St.BlockHashInfoContainer>
       <>Hash</>
       {/* {blockHashData.map(element => */}
-        <St.BlockHashDiv>{blockHashData}</St.BlockHashDiv>
+        <St.BlockHashDiv>{blockHashData.hash}</St.BlockHashDiv>
       {/* )} */}
     </St.BlockHashInfoContainer>
     <RiCheckboxMultipleBlankLine onClick={CopyHash} size="20"/>

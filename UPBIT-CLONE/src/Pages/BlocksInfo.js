@@ -19,7 +19,6 @@ const St = {
     width: 100%;
     height: 100%;
     @media ${({ theme }) => theme.tablet} {
-      margin: 5vh auto;
       /* margin-top: 5vh; */
       /* margin-bottom: 0; */
     }
@@ -39,8 +38,6 @@ const Explorer = ({ match, widthSize, heightSize }) => {
     <>
       <Header isExplorerURL={isExplorerURL} />
       <St.BodyContainer>
-        11
-        <BlockHeadAd />
         <St.BlockInfoContainer>
           <BlockInfoHeader/>
         </St.BlockInfoContainer>

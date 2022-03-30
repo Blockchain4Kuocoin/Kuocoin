@@ -5,7 +5,7 @@ import { viewSize } from "../styles/theme";
 
 import Header from "../Components/Global/Header";
 import Footer from "../Components/Global/Footer";
-import BlockNumInfoHeader from "../Components/Explorer/BlockNumInfoHeader"
+// import BlockNumInfoHeader from "../Components/Explorer/BlockNumInfoHeader"s
 import BlockHeadAd from "../Components/Explorer/BlockHeadAd";
 import BlockNumber from "../Components/Explorer/BlockNumber";
 import BlockHash from "../Components/Explorer/BlockHash";
@@ -15,6 +15,11 @@ import SearchBar from "../Components/Explorer/SearchBar";
 import ExplorerContainer from "../styles/ExplorerContainer";
 import BlockGenralInfo1 from "../Components/Explorer/BlockGenralInfo1";
 
+import BlockInfoHeader from "../Components/Explorer/BlockInfoHeader";
+import BlockInfoIcons from "../Components/Explorer/BlockInfoIcons";
+// import BlockInfoData1 from "../Components/Explorer/BlockInfoData1";
+// import BlockInfoData2 from "../Components/Explorer/BlockInfoData2";
+
 const St = {
   ExplorerContentContainer: styled.div`
     max-width: 1400px;
@@ -22,8 +27,9 @@ const St = {
     width: 100%;
     height: 100%;
     @media ${({ theme }) => theme.tablet} {
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 5vh 20px;
+      /* margin-top: 0; */
+      /* margin-bottom: 0; */
     }
   `,
   BlockHeadContainer: styled.header`
@@ -107,7 +113,11 @@ const St = {
         `${heightSize + 80}px`}; // 모바일 풀 화면을 위해 다시 80px 더해줌
     } */
   `,
-
+  BlockInfoContainer2: styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh;
+  `,
 };
 
 const Explorer = ({ match, widthSize, heightSize }) => {
@@ -117,10 +127,25 @@ const Explorer = ({ match, widthSize, heightSize }) => {
       <Header/>
       <St.ExplorerContentContainer>
         <SearchBar />
-        <St.BlockHeadContainer>
+        <BlockHeadAd />
+        
+        <St.BlockInfoContainer2>
+          <BlockInfoHeader/>
+        </St.BlockInfoContainer2>
+        <St.BlockInfoContainer2>
+          <BlockInfoIcons/>
+        </St.BlockInfoContainer2>
+        {/* <St.BlockInfoContainer2>
+          <ExplorerContainer width="50%"><BlockInfoData1/></ExplorerContainer>
+          <ExplorerContainer width="50%"><BlockInfoData2/></ExplorerContainer>
+        </St.BlockInfoContainer2> */}
+        
+        {/* <St.BlockHeadContainer>
           <BlockNumInfoHeader />
-          <BlockHeadAd />
-        </St.BlockHeadContainer>
+        </St.BlockHeadContainer> */}
+
+        
+
         <St.BlockContainer>
           <St.BlockInfoContainer>
             <St.BlockNumberContainer>
@@ -129,12 +154,15 @@ const Explorer = ({ match, widthSize, heightSize }) => {
             <St.BlockHashContainer>
               <BlockHash />
             </St.BlockHashContainer>
-            <St.BlockGeneralInfoContainer width="100%">
+            {/* <St.BlockGeneralInfoContainer width="100%">
               <BlockGenralInfo />
-            </St.BlockGeneralInfoContainer>
+            </St.BlockGeneralInfoContainer> */}
             <ExplorerContainer width="100%">
               <BlockGenralInfo1/>
             </ExplorerContainer>
+
+
+
           </St.BlockInfoContainer>
           {/* <St.BlockMarketPriceContainer>
             block market price container

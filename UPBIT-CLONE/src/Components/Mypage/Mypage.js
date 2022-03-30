@@ -71,7 +71,7 @@ export default function Profile() {
                 });
             })
         })
-    }, [details.id]); 
+    }, []); 
 
     const onClick = () => {
         setCheck(false)

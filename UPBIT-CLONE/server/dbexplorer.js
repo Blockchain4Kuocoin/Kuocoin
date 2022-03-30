@@ -1,6 +1,6 @@
 const request = require("request");
-const con = require("../utils/mysqlcon");
-const dbconfig = require("../utils/mydbsql.json");
+const con = require("./utils/mysqlcon");
+const dbconfig = require("./utils/mydbsql.json");
 
 const srequset = require("sync-request");
 
@@ -14,7 +14,7 @@ var connection = new mysql({
 })
 
 const dotenv = require('dotenv');
-const { default: Getblockcount } = require("../../src/Components/API/getblockcount");
+const { default: Getblockcount } = require("../src/Components/API/getblockcount");
 dotenv.config();
 
 const USER = process.env.RPC_USER;
@@ -70,7 +70,6 @@ for (let i = 0 ; i < 1000; i++) {
 }
 
 const arr = [...Array(2000).keys()];
-//arr = [1~3000]
 arr.map((val) => {
     var fdataString = `{
         "jsonrpc":"1.0", 

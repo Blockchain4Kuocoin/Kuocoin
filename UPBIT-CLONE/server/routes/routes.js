@@ -44,7 +44,7 @@ module.exports = router;
 
 
 //Explorer
-router.get('/explorer/blockname/:blocknumberer', controllers.explorer_Controllers);
+router.get('/explorer/kuoscoin/:height', controllers.explorer_Controllers);
 // router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
 // router.get('/blockname', controllers.blockname_Controllers);
 // router.put('/explorer', controllers.explorer_ProfilePut_Controllers);

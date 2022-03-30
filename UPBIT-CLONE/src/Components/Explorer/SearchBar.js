@@ -6,8 +6,8 @@ import { FaSearch } from "react-icons/fa";
 const Input = styled.input`
   width: 90%;
   height: 50px;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
 `;
 
 const SearchBar = () => {
@@ -22,7 +22,7 @@ const SearchBar = () => {
     // event.preventDefault();
     // alert(`The name you entered was: ${searchValue || ''}`)
     Axios.post(`http://localhost:3001/explorer`, searchValue)
-    .then(document.location.href=`/explorer/blockname/${searchValue}`)
+    .then(document.location.href=`/explorer/kuoscoin/${searchValue}`)
   }
 
   return(

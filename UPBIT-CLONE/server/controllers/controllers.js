@@ -101,7 +101,7 @@ exports.api_Getblock_Controllers = (req, res) => {
 //Explorer
 
 exports.explorer_Controllers = (req, res) => {
-    exports.mid = req.query.testcolumn;
+    exports.height = req.params.height;
     models.explorer.explorer_Models().then((result) => {
         res.send(result);
     });
