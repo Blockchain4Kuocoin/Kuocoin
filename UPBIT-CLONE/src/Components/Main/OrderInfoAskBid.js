@@ -178,6 +178,8 @@ const OrderInfoAskBid = ({
     coinSymbol: 0,
   });
 
+  const [price, setPrice] = useState("")
+
   useEffect(() => {
     let wallet;
     axios.get("http://localhost:3001/mypage", {
@@ -195,7 +197,25 @@ const OrderInfoAskBid = ({
           }
         }).then((res) => {
           res.data.forEach(ele => {
-            if (ele.wal_id === wallet) setWallet(ele)
+            if (ele.wal_id === wallet) {
+              setWallet(ele);
+              let result = "";
+              let tmp = ele.balance;
+              let start = tmp.length % 3 === 0 ? 0 : tmp.length % 3 === 1 ? 1 : 2;
+              if (tmp.length < 3) {
+                  setPrice(tmp)
+                  return;
+              }
+              for (let i = 0; i < parseInt(tmp.length / 3)+1; i++) {
+                  if (i === 0) result += tmp.slice(0, start)
+                  else result += tmp.slice(3*(i-1)+start, 3*i+start)
+                  if (i !== parseInt(tmp.length / 3)) result += ',';
+              }
+              console.log("result: " + result)
+              if (result.startsWith(',')) result = result.slice(1,result.length+1)
+              setPrice(result);
+              return;
+            }
           })
         })
       }
@@ -264,7 +284,7 @@ const OrderInfoAskBid = ({
           <St.OrderInfoDetailContainer>
             <St.OrderInfoDetailTitle>주문가능</St.OrderInfoDetailTitle>
             <St.PossibleAmount>
-              {selectedAskBidOrder === "bid" ? wallet.balance : wallet[`${coinSymbol}`] ? wallet[`${coinSymbol}`] : 0}
+              {selectedAskBidOrder === "bid" ? price : wallet[`${coinSymbol}`] ? wallet[`${coinSymbol}`] : 0}
               <St.Unit>
                 {selectedAskBidOrder === "bid" ? "KRW" : coinSymbol}
               </St.Unit>

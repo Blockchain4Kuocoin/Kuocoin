@@ -13,16 +13,11 @@ const St = {
         height: 225px;
         background-image: url(https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg);
         background-size: cover;
-        /* margin-left: 5px; */
   `,
 }
 
 export default function Walletmain(props) {
     const { data, setData, state, setState, info, setInfo } = props;
-    // console.log("state: " + state);
-    // console.log("data: ");
-    // console.log(info);
-    // if (data.length > 0) sessionStorage.setItem("wallet", JSON.stringify(data[0]));
     
     const [mainWallet, setMainWallet] = useState("");
     const [price, setPrice] = useState("");
@@ -41,21 +36,19 @@ export default function Walletmain(props) {
                 setMainWallet(ele);
                 let result = "";
                 let tmp = ele.balance;
-                let start = tmp.length % 3 === 0 ? 3 : tmp.length % 3 === 1 ? 2 : 1;
+                let start = tmp.length % 3 === 0 ? 0 : tmp.length % 3 === 1 ? 1 : 2;
                 if (tmp.length < 3) {
                     setPrice(tmp)
                     return;
                 }
-                for (let i = 0; i < parseInt(tmp.length / 3); i++) {
+                for (let i = 0; i < parseInt(tmp.length / 3) + 1; i++) {
                     if (i === 0) result += tmp.slice(0, start)
                     else result += tmp.slice(3*(i-1)+start, 3*i+start)
-                    if (i !== parseInt(tmp.length / 3) -1) result += ',';
+                    if (i !== parseInt(tmp.length / 3)) result += ',';
                 }
-                // console.log('result: ');
-                // console.log(result);
+                if (result.startsWith(',')) result = result.slice(1,result.length+1)
                 setPrice(result);
                 return;
-                // sessionStorage.setItem("wallet", JSON.stringify(ele));
             }
         })
     }
@@ -75,19 +68,22 @@ export default function Walletmain(props) {
     useEffect(() => {
         data.forEach(ele => {
             if (ele.wal_id === info.wallet) {
+                console.log(ele)
                 setMainWallet(ele);
                 let result = "";
                 let tmp = ele.balance;
-                let start = tmp.length % 3 === 0 ? 3 : tmp.length % 3 === 1 ? 2 : 1;
+                let start = tmp.length % 3 === 0 ? 0 : tmp.length % 3 === 1 ? 1 : 2;
                 if (tmp.length < 3) {
                     setPrice(tmp)
                     return;
                 }
-                for (let i = 0; i < parseInt(tmp.length / 3); i++) {
+                for (let i = 0; i < parseInt(tmp.length / 3)+1; i++) {
                     if (i === 0) result += tmp.slice(0, start)
                     else result += tmp.slice(3*(i-1)+start, 3*i+start)
-                    if (i !== parseInt(tmp.length / 3) -1) result += ',';
+                    if (i !== parseInt(tmp.length / 3)) result += ',';
                 }
+                console.log("result: " + result)
+                if (result.startsWith(',')) result = result.slice(1,result.length+1)
                 setPrice(result);
                 return;
             }
@@ -104,7 +100,7 @@ export default function Walletmain(props) {
                 <div>
                     {data.length !==0
                     ? 
-                    <select id="my_wallet" onChange={onChange}>
+                    <select className="wal_select" id="my_wallet" onChange={onChange}>
                         <option value={info.wallet}>{info.wallet}</option>
                         {data.map(ele => {
                             if (ele.wal_id !== info.wallet) {

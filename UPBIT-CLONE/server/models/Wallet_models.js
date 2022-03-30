@@ -140,9 +140,9 @@ modelExports.balance_put_Models = () => {
                     balance += Number(result[0].balance);
                     connection.query(sql1, [balance, wal_id, owner], (err, result) => {
                         if (err) throw err;
-                        connection.query(sql2, [owner], (err, result) => {
+                        connection.query(sql2, [owner], (err, result2) => {
                             if (err) throw err;
-                            resolve(result);
+                            resolve(result2);
                             connection.release();
                         })
                     })
