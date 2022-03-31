@@ -30,6 +30,22 @@
 
   }
 
+  .mydiv1 {
+    position:absolute;
+    width:450px;
+    height:800px;
+    text-align:center;
+    top:60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    /* background-image: none; */
+    color: #392f31;
+    cursor: default; 
+    font-family: 'Poor Story';
+
+  }
+
   .mytitle {
     text-align: center;
     margin: 30px;
@@ -37,7 +53,8 @@
   
 .mytext {
     margin: 20px;
-    font-size: 23px;
+    font-size: 30px;
+    margin-bottom: 30px;
     
     text-align: center;
     /* align-items: center; */
@@ -48,7 +65,7 @@
     /* border-bottom: 2cm; */
     /* width: 150px; */
     margin: 20px;
-    font-size: 23px;
+    font-size: 30px;
     margin-bottom: 30px;
     
     /* text-align: center; */
@@ -87,6 +104,7 @@
     cursor:pointer;
     transition: 0.4s;
     display:inline;
+    margin-top: 40px;
   }
 
   .walbtn {

@@ -29,7 +29,6 @@ const St = {
     background-image: url(${kuosLogo});
     vertical-align: middle;
     background-repeat: no-repeat;
-    
     z-index: 99 ;
   `,
   BlockLogoInfo: styled.div`
@@ -54,12 +53,12 @@ const St = {
     line-height: 25px;
     font-size: 16px;
   `,
-  
 };
-
+  
 const BlockInfoHeader = () => {
   const [ blockHeights, setBlockHeights ] = useState([]);
   const [ blockTxData, setBlockTxData ] = useState([]);
+  const [ countAddresses, setCountAddresses ] = useState([]);
   
   const params = useParams();
   console.log(params);
@@ -72,16 +71,20 @@ const BlockInfoHeader = () => {
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
-    .then((response) => {setBlockTxData(response.data[0]); console.log(response.data)})
+    .then((response) => {setBlockTxData(response.data.txcount); console.log(response.data.txcount);})
+    .catch(err=>console.log(err))
+  }, []);
+
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/explorer/countaddresses`)
+    .then((response) => {setCountAddresses(response.data.countAddresses); console.log(response.data)})
     .catch(err=>console.log(err))
   }, []);
 
   return(
     <St.BlockInfoHeaderContainer>
       <St.BlockInfoLogoDiv>
-          <St.BlockLogo>
-            {/* <img src={kuosLogo}/> */}
-          </St.BlockLogo>
+        <St.BlockLogo />
         <St.BlockLogoInfo>
           <>Explorer</>
           <St.BlcokLogoName>Kuoscoin</St.BlcokLogoName>
@@ -90,13 +93,13 @@ const BlockInfoHeader = () => {
       </St.BlockInfoLogoDiv>
       <St.BlcokInfoPriceDiv>
         <div style={{fontSize: "24px", fontWeight: "700"}}>DB USD</div>
-        <div>1 satoshi per byte</div>
+        <div>1 minwook per byte</div>
         <div style={{color: "gray"}}>recommmended transaction fee</div>
       </St.BlcokInfoPriceDiv>
       <St.BlcokInfoPriceDiv>
-        <div><FaCubes className="IconBox" size="30" color="#ff5478"/> Blocks {blockHeights}</div>
-        <div><RiArrowUpDownLine className="IconBox" size="30" color="#549aff"/> Transactions {blockTxData.tx ? blockTxData.tx.slice(0,5) + "..." : ""}</div>
-        <div><RiBookMarkLine className="IconBox" size="30" color="#ff5478"/> Addresses 30</div>
+        <div><FaCubes className="IconBox" size="30" color="pink"/> Blocks {blockHeights}</div>
+        <div><RiArrowUpDownLine className="IconBox" size="30" color="blue"/> Transactions {blockTxData}</div>
+        <div><RiBookMarkLine className="IconBox" size="30" color="pink"/> Addresses {countAddresses}</div>
       </St.BlcokInfoPriceDiv>
     </St.BlockInfoHeaderContainer>
   )

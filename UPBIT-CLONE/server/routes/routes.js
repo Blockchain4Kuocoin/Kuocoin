@@ -47,7 +47,7 @@ module.exports = router;
 router.get('/explorer/kuoscoin/:height', controllers.explorer_Controllers);
 router.get('/explorer/kuoscoinblocks', controllers.blockHeight_Controllers);
 router.get('/explorer/latestblocks', controllers.latestblocks_Controllers);
-// router.get('/explorer/latestblocks', controllers.latestblocks_Controllers);
+router.get('/explorer/countaddresses', controllers.countAddresses_Controllers);
 
 //Wallet
 router.post('/wallet', controllers.wallet_Post_Controllers);

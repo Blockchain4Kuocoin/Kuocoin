@@ -20,15 +20,11 @@ const St = {
   `,
 };
 
-export default function Profile() {
-  const [walState, setWalState] = useState({
-    modalOpen: false,
-  });
-  const [data, setData] = useState("");
-  const [auth, setAuth] = useState(false);
-  const [info, setInfo] = useState({});
+export default function Profile(props) {
 
-  const [state, setState] = useState("main");
+  const {check, setCheck, walState, setWalState, auth, setAuth, state, setState} = props;
+  const [data, setData] = useState("");
+  const [info, setInfo] = useState({});
 
   const openModal = () => {
     setWalState({ modalOpen: true });
@@ -44,8 +40,6 @@ export default function Profile() {
     name: "",
     pw: "",
   });
-
-  const [check, setCheck] = useState(true);
 
   const [inputs, setInputs] = useState({
     id: sessionStorage.user_id,
@@ -99,11 +93,11 @@ export default function Profile() {
     if (pw === "") inputs.pw = details.pw;
     // console.log(inputs);
 
-    let reg_pw = /(?=.*\d)(?=.*[a-zA-ZS]).{4,}/; // 문자, 숫자 1개이상 포함, 4자리 이상
-    //조건문
-    if (!reg_pw.test(inputs.pw))
-      alert("password: 문자, 숫자 1개이상 포함하여 4자리 이상으로 입력하세요");
-    else {
+    // let reg_pw = /(?=.*\d)(?=.*[a-zA-ZS]).{4,}/; // 문자, 숫자 1개이상 포함, 4자리 이상
+    // //조건문
+    // if (!reg_pw.test(inputs.pw))
+    //   alert("password: 문자, 숫자 1개이상 포함하여 4자리 이상으로 입력하세요");
+    // else {
       axios
         .put("http://localhost:3001/mypage", inputs)
         .then((res) => {
@@ -119,7 +113,7 @@ export default function Profile() {
           });
           setCheck(true);
         });
-    }
+    // }
   };
 
   const onKeyDown = (e) => {
@@ -130,10 +124,9 @@ export default function Profile() {
     return (
       <div className="mydiv">
         {/* <h2 className="mytitle">asdf</h2> */}
-        <br />
         <St.Imgcontainer/>
         <p className="mytext">ID : {details.id}</p>
-        <p className="mytext">PASSWORD : {details.pw}</p>
+        <p className="mytext">PASSWORD : {"*".repeat(details.pw.length)}</p>
         <p className="mytext">NAME : {details.name}</p>
         <button className="mybtn" type="button" onClick={onClick}>
           수정하기
@@ -162,9 +155,7 @@ export default function Profile() {
   } else {
     return (
       <>
-        <div className="mydiv">
-          <h2 className="mytitle"></h2>
-          <br />
+        <div className="mydiv1">
           <p className="mytext1">
             ID
             <input
@@ -183,7 +174,7 @@ export default function Profile() {
               name="pw"
               value={pw}
               type="text"
-              placeholder={details.pw}
+              placeholder={"*".repeat(details.pw.length)}
               onChange={handler}
               onKeyDown={onKeyDown}
             />

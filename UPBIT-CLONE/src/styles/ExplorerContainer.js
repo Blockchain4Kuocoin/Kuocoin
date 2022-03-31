@@ -8,10 +8,9 @@ const ExplorerContainer = styled.div`
   border: 1px solid white;
   border-radius: 10px;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
+  background-color: ${(props) => props.bColor};
+  margin-bottom: 6vh;
   font-family: 'Poor Story';
-  font-size: 20px ;
-  /* background-color: ${(props) => props.bColor}; */
-  /* margin-bottom: 6vh; */
 `;
 
 export default ExplorerContainer;

@@ -63,7 +63,7 @@ export default function Modal(props) {
 
             {!auth ? (
               <>
-                <h5 className="waltxt"></h5>
+                <h5 className="waltxt">KUOS가 잠긴 상태입니다</h5>
                 <input
                   className="walinput"
                   placeholder="아이디"

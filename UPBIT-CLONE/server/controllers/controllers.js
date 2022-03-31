@@ -101,23 +101,29 @@ exports.api_Getblock_Controllers = (req, res) => {
 //Explorer
 
 exports.explorer_Controllers = (req, res) => {
-    exports.height = req.params.height;
-    models.explorer.explorer_Models().then((result) => {
-        res.send(result);
-    });
+  exports.height = req.params.height;
+  models.explorer.explorer_Models().then((result) => {
+      res.send(result);
+  });
 };
 
 exports.blockHeight_Controllers = (req, res) => {
-    exports.blocks = req.query.height;
-    models.explorer.blockHeight_Models().then((result) => {
-        res.send(result);
-    });
+  // exports.blocks = req.query.height;
+  models.explorer.blockHeight_Models().then((result) => {
+      res.send(result);
+  });
 };
 
 exports.latestblocks_Controllers = (req, res) => {
-    models.explorer.latestBlocks_Models().then((result) => {
-        res.send(result);
-    });
+  models.explorer.latestBlocks_Models().then((result) => {
+      res.send(result);
+  });
+};
+
+exports.countAddresses_Controllers = (req, res) => {
+  models.explorer.countAddresses_Models().then((result) => {
+      res.send(result);
+  });
 };
 
 //Wallet
