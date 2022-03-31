@@ -14,6 +14,7 @@ const St = {
   `,
   BlockHashInfoContainer: styled.div`
     display: block;
+    font-family: 'Poor Story';
   `,
   BlockHashDiv: styled.div`
     color: blue;
@@ -25,6 +26,8 @@ const St = {
     justify-content: space-between;
   `
 };
+    /* font-family: 'Courier New', Courier, monospace; */
+
 
 const ToastsPop = () => {
   ToastsStore.success("Copied!");

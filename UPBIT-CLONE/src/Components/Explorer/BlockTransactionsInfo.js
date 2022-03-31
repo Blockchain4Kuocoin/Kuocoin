@@ -6,6 +6,13 @@ import ExplorerContainer from "../../styles/ExplorerContainer";
 import BlockWhiteDiv from "../../styles/BlockWhiteDiv";
 
 const St = {
+  ThisBlockTransactions: styled.div`
+    margin-top: 10vh;
+    width: 100%;
+    font-size: larger;
+    font-weight: 500;
+    font-family: 'Poor Story';
+  `,
   TransactionCate: styled.div`
     width: 100%;
     display: flex;

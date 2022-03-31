@@ -13,6 +13,12 @@ const St = {
     height: 50px;
     color: blue;
     background-color: pink;
+  `,
+
+  Input : styled.input`
+  width: 90%;
+  height: 50px;
+  font-family: 'Poor Story' ;
   `
 };
 

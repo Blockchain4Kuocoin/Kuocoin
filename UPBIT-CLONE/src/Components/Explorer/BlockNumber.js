@@ -13,16 +13,27 @@ const St = {
     margin-bottom: 5vh;
   `,
   BlockNumberContainer: styled.div`
-    display: flex;
-    align-items: center;
-    width: auto;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 18%;
+  cursor: pointer;
+  font-family: 'Poor Story';
   `,
   BlockCurIcon: styled.div`
-    border-radius: 50%;
-    padding: 16px;
-    margin-right: 10px;
-    background-color: blue;
+  border-radius: 50%;
+  padding: 16px;
+  margin-right: 10px;
+  background-color: #ff5478;
+  color: white;
+  `,
+  BlockIcons: styled.div`
+  border-radius: 50%;
+  padding: 12px;
+  margin-right: 10px;
+  background-color: white;
+  color: #ff5478;
+  &:hover {
+    background-color: #549aff;
     color: white;
   `,
   BlockIcons: styled.div`
