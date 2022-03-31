@@ -141,7 +141,7 @@ export default function Profile() {
         <React.Fragment>
           <button className="walbtn" onClick={openModal}>
             {" "}
-            지갑생성하기
+            내 지갑
           </button>
           <Modal
             open={walState.modalOpen}
