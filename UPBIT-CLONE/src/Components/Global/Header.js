@@ -32,7 +32,7 @@ function Header() {
           </Navbar.Brand>
           <Nav className="ml-auto">
             <Nav.Link href='/trade'><St.Container>거래소</St.Container></Nav.Link>
-            <Nav.Link href='/explorer'><St.Container>Kuo Explorer</St.Container></Nav.Link>
+            <Nav.Link href='/explorer'><St.Container>Kuos Explorer</St.Container></Nav.Link>
             <Nav.Link href='https://www.blockmedia.co.kr/'  target="_blank" rel="noopener noreferrer"><St.Container>Topic</St.Container></Nav.Link>
             {sessionStorage === null || sessionStorage.length === 0
             ? <>

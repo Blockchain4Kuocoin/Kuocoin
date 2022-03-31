@@ -7,6 +7,7 @@ const St = {
     justify-content: end;
     width: ${(props) => props.width};
     font-family: 'Poor Story';
+    align-items: center;
     /* float: right */
   `,
   BlockHeadAd: styled.div`
@@ -24,8 +25,8 @@ const St = {
 const BlockHeadAd = () => {
   return(
     <St.BlockHeadAdContainer width="100%">
-      <St.BlockHeadAd BColor='#ff5478'>KUOS NFT 무료로 받기</St.BlockHeadAd>
-      <St.BlockHeadAd BColor='#549aff' marginL='2%'>Block Adv Test</St.BlockHeadAd>
+      <St.BlockHeadAd BColor='#ff5478'> 🐷KUOS NFT 무료로 받기🐽 </St.BlockHeadAd>
+      <St.BlockHeadAd BColor='#549aff' marginL='2%'> Ad 1BTC per month💸  </St.BlockHeadAd>
     </St.BlockHeadAdContainer>
     //react-tooltip사용해서 말풍선 추가 가능
   )

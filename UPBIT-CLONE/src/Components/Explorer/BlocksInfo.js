@@ -10,20 +10,21 @@ import BlocksGenralInfo from "./BlocksGenralInfo";
 const St = {
   contsContainer: styled.div`
     width: 100%;
+    margin: 10vh 0;
   `,
 }
 
 const BlocksInfo = () => {
   return(
-    <>
-    <BlockNumber/>
-    <ExplorerContainer width="100%" bColor="white">
-      <BlockHash/>
-    </ExplorerContainer>
-    <ExplorerContainer width="100%">
-      <BlocksGenralInfo/>
-    </ExplorerContainer>
-    </>
+    <St.contsContainer>
+      <BlockNumber/>
+      <ExplorerContainer width="100%" bColor="white">
+        <BlockHash/>
+      </ExplorerContainer>
+      <ExplorerContainer width="100%">
+        <BlocksGenralInfo/>
+      </ExplorerContainer>
+    </St.contsContainer>
   )
 }
 
