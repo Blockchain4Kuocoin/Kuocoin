@@ -34,7 +34,9 @@ const St = {
     width: 35px;
     height: 35px;
     background-image: ${({ coinSymbol }) =>
-      `url(https://static.upbit.com/logos/${coinSymbol}.png)`};
+      coinSymbol === 'BTG' 
+      ? `url(https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg)`
+      : `url(https://static.upbit.com/logos/${coinSymbol}.png)`};
     background-size: cover;
     margin-left: 5px;
   `,
@@ -149,14 +151,15 @@ const CoinInfoHeader = ({
   price,
 }) => {
   const priceColor = changeRate24Hour > 0 ? theme.priceUp : theme.priceDown;
+  // console.log(coinSymbol);
   return (
     <St.CoinInfoContainer>
       <St.HiddenH3>코인 가격 및 기타 정보</St.HiddenH3>
       <St.CoinInfoMain>
         <St.CoinLogo coinSymbol={coinSymbol} title={`${coinNameKor} 로고`} />
         <St.CoinNameContainer>
-          <St.CoinName>{coinNameKor}</St.CoinName>
-          <St.CoinMarketName>{coinNameAndMarketEng}</St.CoinMarketName>
+          <St.CoinName>{(coinNameKor=="비트코인골드")?"쿠오코인":coinNameKor}</St.CoinName>
+          <St.CoinMarketName>{coinNameAndMarketEng.startsWith("BTG") ? 'KUOS/KRW' : coinNameAndMarketEng}</St.CoinMarketName>
         </St.CoinNameContainer>
         <St.PriceInfo>
           <St.Price priceColor={priceColor}>
@@ -192,7 +195,7 @@ const CoinInfoHeader = ({
         <St.InfoContainer mobileMNone={true}>
           <St.TradeInfo minWidth={"220px"} borderColor={theme.lightGray2}>
             <St.TradeDT>거래량(24h)</St.TradeDT>
-            <St.TradeDD>{`${volume24Hour.toLocaleString()} ${coinSymbol}`}</St.TradeDD>
+            <St.TradeDD>{coinSymbol!=='BTG' ? `${volume24Hour.toLocaleString()} ${coinSymbol}` : `${volume24Hour.toLocaleString()} KUOS`}</St.TradeDD>
           </St.TradeInfo>
           <St.TradeInfo minWidth={"220px"}>
             <St.TradeDT borderColor={theme.lightGray2}>

@@ -1,0 +1,1 @@
+.\kuoscoind.exe -conf=C:\workspace\kuoscoin\kigacoin.conf -datadir=C:\workspace\kuoscoin\data

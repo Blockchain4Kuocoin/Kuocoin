@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { searchCoin } from "../../Reducer/coinReducer";
-import { useDispatch } from "react-redux";
+// import { searchCoin } from "../../Reducer/coinReducer";
+// import { useDispatch } from "react-redux";
 
 import CoinListItem from "./CoinListItem";
 import Loading from "../Global/Loading";
@@ -133,12 +133,14 @@ const CoinList = ({
   heightSize,
   isRootURL,
 }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+
+  const kuoList = ["KRW-BTC", "KRW-ETC", "KRW-SAND", "KRW-WAVES", "KRW-QTUM", "KRW-XRP", "KRW-SOL", "KRW-DOGE", "KRW-NEO", "KRW-ATOM", "KRW-BTG", "KRW-ENJ", "KRW-LINK", "KRW-SSX", "KRW-HIVE", "KRW-QKC", "KRW-STEEM", "KRW-TT", "KRW-ZRX"];
 
   return (
     <St.CoinListContainer isRootURL={isRootURL} heightSize={heightSize - 80}>
       <St.HiddenH3>코인 리스트</St.HiddenH3>
-      <St.CoinSearchContainer>
+      {/* <St.CoinSearchContainer>
         <St.CoinSearchInput
           type="search"
           onChange={(e) => dispatch(searchCoin(e.target.value))}
@@ -146,7 +148,7 @@ const CoinList = ({
           placeholder={"코인명/심볼검색"}
         />
         <St.CoinSearchBtn />
-      </St.CoinSearchContainer>
+      </St.CoinSearchContainer> */}
       <St.CoinSortContainer>
         <St.CoinSortList width={"50px"} />
         <St.CoinSortList textAlign={"left"}>한글명</St.CoinSortList>
@@ -172,28 +174,35 @@ const CoinList = ({
             const price = latestCoinData[marketName].price;
             // const isTraded = latestCoinData[marketName].isTraded;
 
+            // console.log(marketName);
+            // console.log(marketNames);
+            // console.log(theme);
+
             const fontColor =
               +changePrice24Hour > 0
                 ? theme.strongRed
                 : +changePrice24Hour < 0
                 ? theme.strongBlue
                 : "black";
-            return (
-              <CoinListItem
-                theme={theme}
-                marketName={marketName}
-                selectedMarket={selectedMarket}
-                coinName={marketNames[marketName].korean}
-                enCoinName={enCoinName}
-                fontColor={fontColor}
-                price={price}
-                changeRate24Hour={changeRate24Hour + "%"}
-                changePrice24Hour={changePrice24Hour}
-                tradePrice24Hour={tradePrice24Hour}
-                // isTraded={isTraded}
-                key={`coinList-${marketName}`}
-              />
-            );
+            
+            if (kuoList.includes(marketName)) {
+              return (
+                <CoinListItem
+                  theme={theme}
+                  marketName={marketName}
+                  selectedMarket={selectedMarket}
+                  coinName={(marketNames[marketName].korean==='비트코인골드')?'쿠오코인':marketNames[marketName].korean}
+                  enCoinName={(marketNames[marketName].korean==='비트코인골드')?'KUOS/KRW':enCoinName}
+                  fontColor={fontColor}
+                  price={price}
+                  changeRate24Hour={changeRate24Hour + "%"}
+                  changePrice24Hour={changePrice24Hour}
+                  tradePrice24Hour={tradePrice24Hour}
+                  // isTraded={isTraded}
+                  key={`coinList-${marketName}`}
+                />
+              );
+            }
           })
         )}
       </St.CoinUl>

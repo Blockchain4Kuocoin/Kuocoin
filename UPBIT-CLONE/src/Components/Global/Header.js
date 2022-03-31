@@ -1,39 +1,55 @@
 import React from "react";
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Navbar, Nav, Container } from "react-bootstrap";
+import styled from "styled-components";
+import Navb from '../Nav/Navbar';
+
+const St = {
+  Container: styled.span`
+    display: block;
+    margin-left: ${({ marginLeft }) => marginLeft || "8px"};
+    font-weight: 600;
+    font-size: 1.1rem;
+    height: 20px;
+    color: #ddda76;
+    font-family: 'Poor Story';
+
+  `,
+}
 
 function Header() {
-
   return(
-    <Navbar style={{backgroundColor:'rgb(255, 215, 0)'}}  expand="lg">
-    <Container>
-    <Navbar.Brand href="/">
-            <img
-              src="/3.jpeg"
-              width="50"
-              height="50"
-              className="d-inline-block align-top"
-            />{' '}
-          KuoCoin
+      <Navbar style={{backgroundColor:'#549aff'}}  expand="lg">
+        <Container>
+          <Navbar.Brand href="/home">
+              <img
+                src="/kuoslogo.png"
+                width="120"
+                height="80"
+                className="d-inline-block align-top"
+                alt="kuoslogo"
+              />{' '}
           </Navbar.Brand>
-        <Nav className="ml-auto">
-          <Nav.Link href='/trade'>거래소</Nav.Link>
-          <Nav.Link href='/explorer'>Kuo Explorer</Nav.Link>
-          <Nav.Link href='https://www.blockmedia.co.kr/'>Topic</Nav.Link>
-          {sessionStorage === null || sessionStorage.length === 0
-          ? <>
-          <Nav.Link href='/userlogin'>로그인</Nav.Link>
-          <Nav.Link href='/usersignup'>회원가입</Nav.Link>
-          </>
-          : <>
-          <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}>로그아웃</Nav.Link>
-          <Nav.Link href='/mypage'>마이페이지</Nav.Link>
-          </> 
-          }
-        </Nav>
-    </Container>
-    </Navbar>
-  )
-}
+          <Nav className="ml-auto">
+            <Nav.Link href='/trade'><St.Container>거래소</St.Container></Nav.Link>
+            <Nav.Link href='/explorer'><St.Container>Kuo Explorer</St.Container></Nav.Link>
+            <Nav.Link href='https://www.blockmedia.co.kr/'  target="_blank" rel="noopener noreferrer"><St.Container>Topic</St.Container></Nav.Link>
+            {sessionStorage === null || sessionStorage.length === 0
+            ? <>
+            <Nav.Link href='/login'><St.Container>로그인</St.Container></Nav.Link>
+            <Nav.Link href='/signup'><St.Container>회원가입</St.Container></Nav.Link>
+            </>
+            : <>
+            <Nav.Link href='/' onClick={() => {sessionStorage.clear()}}><St.Container>로그아웃</St.Container></Nav.Link>
+            <div className='menu-bars'>
+              <Navb/>
+            </div>  
+            </> 
+            }
+          </Nav>
+        </Container>
+      </Navbar>
+    )
+  }
 
 export default Header;
