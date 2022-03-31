@@ -26,7 +26,7 @@ export default function Signup() {
     const classes = useStyles();
     const [value, setValue] = useState('');
     const [error, setError] = useState(false);
-    const [helperText, setHelperText] = useState('Choose wisely');
+    const [helperText, setHelperText] = useState('');
 
     const onChange = (event) => {
       // 사용자가 정보를 입력했을 때 그 정보를 실시간으로 반영하는것 (불러온다)
