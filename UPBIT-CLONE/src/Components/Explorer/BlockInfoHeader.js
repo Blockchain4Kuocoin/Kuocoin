@@ -24,14 +24,8 @@ const St = {
     height: 80px;
     margin-right: 20px;
     margin-top:30px ;
-    /* margin-left:10px ; */
-    /* padding-right: 20px; */
-    /* border: 1px solid ; */
     border-radius: 50px;
     object-fit: cover;
-    /* background-color: red; */
-    /* background-image: url("../../../public/kuoslogo.png"); */
-    /* background: url("./kuoslogo.png") ; */
     background-image: url(${kuosLogo});
     vertical-align: middle;
     background-repeat: no-repeat;

@@ -6,11 +6,12 @@
     font-family:sans-serif;     
   }
 
-.titleimg {
+/* .titleimg {
   margin-top: 50px;
   width: 200px;
   height: 200px;
-}
+
+} */
 
 
 .mydiv {
@@ -39,19 +40,24 @@
     font-size: 23px;
     
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
   }
   .mytext1 {
     border-bottom: 2px solid #392f31;
+    /* border-bottom: 2cm; */
+    /* width: 150px; */
     margin: 20px;
     font-size: 23px;
+    margin-bottom: 30px;
     
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+    /* text-align: center; */
+    /* align-items: center; */
+    /* justify-content: center; */
   }
   .myinput {
+    
+    margin-top: 20px;
     display: flex;
     width: 100%;
     border:none;
@@ -60,6 +66,8 @@
     font-size:28px;
     height:30px;
     background: none;
+    text-align: center;
+    /* margin-bottom: 10px; */
   }
   
 .mybtn {

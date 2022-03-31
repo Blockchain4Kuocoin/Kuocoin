@@ -34,7 +34,7 @@ const St = {
     background-color: white;
     margin: 10px;
     border: 1px solid black;
-    /* overflow: hidden; */
+       /* overflow: hidden; */
     /* @media ${({ theme }) => theme.desktop} {
       display: block;
       max-width: 400px;
