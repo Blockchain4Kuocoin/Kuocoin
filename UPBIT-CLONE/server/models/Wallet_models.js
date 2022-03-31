@@ -208,7 +208,7 @@ modelExports.order_Buy_Models = () => {
                     if (err) throw err; 
                     // Amount += Number(result[0][`${coinSymbol}`]);
                     balance = Number(result[0].balance) - orderinfo.orderPrice;
-                    connection.query(sql1, [String(Amount), String(balance), wal_id, owner], (err, result1) => {
+                    connection.query(sql1, [String(Number(result[0][`${coinSymbol}`]) + Number(Amount)), String(balance), wal_id, owner], (err, result1) => {
                         if (err) throw err;
                         connection.query(sql3,[owner, wal_id, coinSymbol, String(orderinfo.orderAmount), String(orderinfo.orderPrice), 'B'], (err, result3) => {
                             if (err) throw err;
@@ -237,8 +237,10 @@ modelExports.order_Sell_Models = () => {
     let Amount;
     const wal_addr = orderinfo.wal_addr;
 
-    console.log("orderinfo:");
-    console.log(orderinfo);
+    // console.log("orderinfo:");
+    // console.log(orderinfo);
+    console.log("sell coin: ");
+    console.log(coinSymbol);
 
     if (coinSymbol === 'KUOS') {
         console.log('KUOS');
@@ -260,9 +262,11 @@ modelExports.order_Sell_Models = () => {
         callback = (error, response, body) => {
             if (!error && response.statusCode == 200) {
                 const data = JSON.parse(body);
-                // console.log('kuos1')
+                console.log('kuos1')
                 console.log(data);
             }
+            console.log('error')
+            console.error(response.body);
         }
         request(options, callback)
 

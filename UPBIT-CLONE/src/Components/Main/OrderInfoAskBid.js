@@ -178,7 +178,7 @@ const OrderInfoAskBid = ({
     coinSymbol: 0,
   });
 
-  const [price, setPrice] = useState("")
+  const [price, setPrice] = useState("0")
 
   useEffect(() => {
     let wallet;

@@ -40,7 +40,7 @@ function Payment(props) {
 
   /* 3. 콜백 함수 정의하기 */
   function callback(response) {
-    const { success, a, error_msg } = response;
+    const { success, merchant_uid, error_msg } = response;
     if (success) {
       axios.put("http://localhost:3001/wallet", {
         wal_id: document.getElementById("select_wallet").value,
@@ -48,10 +48,10 @@ function Payment(props) {
         balance: pay,
       })
       .then((res) => {
-        alert("결제가 완료되었습니다.");
+        alert("결제가 완료되었습니다!");
         setData(res.data);
-        setState("main");
-      });
+        document.location.href = window.location.href;
+      })
     } else {
       alert(`결제 실패: ${error_msg}`);
       setState("main");

@@ -59,6 +59,7 @@ const BlockInfoHeader = () => {
   const [ blockHeights, setBlockHeights ] = useState([]);
   const [ blockTxData, setBlockTxData ] = useState([]);
   const [ countAddresses, setCountAddresses ] = useState([]);
+  const [ price, setPrice ] = useState(52123);
   
   const params = useParams();
   console.log(params);
@@ -67,7 +68,12 @@ const BlockInfoHeader = () => {
     Axios.get(`http://localhost:3001/explorer/kuoscoinblocks`)
     .then((response) => {setBlockHeights(response.data.countheights); console.log(response.data)})
     .catch(err=>console.log(err))
-  }, []);
+
+    setInterval(() => {
+      setPrice( price + Math.floor(Math.random()*1000/10)*10)
+      }, 3000)
+    }
+  , []);
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
@@ -92,7 +98,7 @@ const BlockInfoHeader = () => {
         <St.BlockLogoApi>API</St.BlockLogoApi>
       </St.BlockInfoLogoDiv>
       <St.BlcokInfoPriceDiv>
-        <div style={{fontSize: "24px", fontWeight: "700"}}>DB USD</div>
+        <div style={{fontSize: "24px", fontWeight: "700"}}> {price} KRW</div>
         <div>1 minwook per byte</div>
         <div style={{color: "gray"}}>recommmended transaction fee</div>
       </St.BlcokInfoPriceDiv>
