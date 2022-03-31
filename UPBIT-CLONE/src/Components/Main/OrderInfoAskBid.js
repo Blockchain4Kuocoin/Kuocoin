@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import {
@@ -6,13 +6,16 @@ import {
   changePriceAndTotalPrice,
   changeTotalPriceAndAmount,
 } from "../../Reducer/coinReducer";
+import OrderInfo from "./OrderInfo";
 import OrderInfoTradeList from "./OrderInfoTradeList";
+import axios from "axios";
 
 const St = {
   Container: styled.section`
     width: 100%;
     height: 50%;
     background-color: white;
+    font-family: 'Poor Story';
   `,
   OrderTypeContainer: styled.div`
     display: flex;
@@ -91,6 +94,7 @@ const St = {
     min-width: ${({ minWidth }) => minWidth};
     height: ${({ height }) => height || "38px"};
     margin-right: ${({ marginRight }) => marginRight};
+    margin: ${({ margin }) => margin};
     background-color: ${({ bgColor }) => bgColor || "tranceparent"};
     border: none;
     border-top: 1px solid ${({ borderColor }) => borderColor || "tranceparent"};
@@ -102,6 +106,7 @@ const St = {
     color: ${({ fontColor }) => fontColor || "black"};
     font-size: ${({ fontSize }) => fontSize};
     font-weight: 900;
+    font-family: 'Poor Story' ;
   `,
   PossibleAmount: styled.span`
     display: block;
@@ -166,6 +171,112 @@ const OrderInfoAskBid = ({
     [dispatch]
   );
 
+  if (coinSymbol === 'BTG') coinSymbol = 'KUOS'; 
+
+  const [wallet, setWallet] = useState({
+    balance: 0,
+    coinSymbol: 0,
+  });
+
+  const [price, setPrice] = useState("")
+
+  useEffect(() => {
+    let wallet;
+    axios.get("http://localhost:3001/mypage", {
+      params: {
+        id: sessionStorage.user_id,
+      }
+    })
+    .then((res) => {
+      console.log(res.data);
+      wallet = res.data.wallet;
+      if (res.data.wallet !== null) {
+        axios.get("http://localhost:3001/wallet", {
+          params: {
+            owner: sessionStorage.user_id,
+          }
+        }).then((res) => {
+          res.data.forEach(ele => {
+            if (ele.wal_id === wallet) {
+              setWallet(ele);
+              let result = "";
+              let tmp = ele.balance;
+              let start = tmp.length % 3 === 0 ? 0 : tmp.length % 3 === 1 ? 1 : 2;
+              if (tmp.length < 3) {
+                  setPrice(tmp)
+                  return;
+              }
+              for (let i = 0; i < parseInt(tmp.length / 3)+1; i++) {
+                  if (i === 0) result += tmp.slice(0, start)
+                  else result += tmp.slice(3*(i-1)+start, 3*i+start)
+                  if (i !== parseInt(tmp.length / 3)) result += ',';
+              }
+              console.log("result: " + result)
+              if (result.startsWith(',')) result = result.slice(1,result.length+1)
+              setPrice(result);
+              return;
+            }
+          })
+        })
+      }
+   })
+  }, []);
+
+  const onClick = () => {
+    console.log(orderTotalPrice);
+    console.log(coinSymbol);
+    console.log(orderAmount);
+    console.log(orderPrice);
+    if (!sessionStorage.user_id) alert("로그인 후 이용 가능합니다.");
+    else if (!wallet.wal_id) alert("지갑 생성 후 이용해주세요");
+    else {
+      if (selectedAskBidOrder === "bid"){
+        if (orderPrice===0) alert("상품을 선택해주세요.");
+        else if (orderTotalPrice < 10000) alert("10000원 이상 체결해주세요!");
+        else if (wallet.balance < orderTotalPrice) alert("보유금액을 초과했습니다.");
+        else {
+          axios.put("http://localhost:3001/order/buy", {
+            userid: sessionStorage.user_id,
+            wal: wallet.wal_id,
+            orderPrice: orderTotalPrice,
+            coinSymbol: coinSymbol,
+            orderAmount: orderAmount,
+            wal_addr: wallet.wal_addr,
+          })
+          .then((res) => {
+            console.log(res.data);
+            // setWallet(res.data);
+            document.location.reload();
+            alert("체결되었습니다!");
+          })
+        }
+      }
+      else {
+        // console.log(orderAmount);
+        // console.log(Number(wallet[`${coinSymbol}`]) < orderAmount);
+        if (orderPrice===0) alert("상품을 선택해주세요.");
+        else if (orderTotalPrice < 10000) alert("10000원 이상 체결해주세요!");
+        else if (Number(wallet[`${coinSymbol}`]) < orderAmount) alert("보유금액을 초과했습니다.");
+        else {
+          axios.put("http://localhost:3001/order/sell", {
+            userid: sessionStorage.user_id,
+            wal: wallet.wal_id,
+            orderPrice: orderTotalPrice,
+            coinSymbol: coinSymbol,
+            orderAmount: orderAmount,
+            wal_addr: wallet.wal_addr,
+          })
+          .then((res) => {
+            console.log(res.data);
+            // setWallet(res.data);
+            document.location.reload();
+            alert("체결되었습니다!");
+          })
+        }
+      }
+    }
+  }
+
   return (
     <St.OrderInfoContainer theme={theme}>
       {selectedAskBidOrder !== "tradeList" ? (
@@ -173,7 +284,7 @@ const OrderInfoAskBid = ({
           <St.OrderInfoDetailContainer>
             <St.OrderInfoDetailTitle>주문가능</St.OrderInfoDetailTitle>
             <St.PossibleAmount>
-              0
+              {selectedAskBidOrder === "bid" ? price : wallet[`${coinSymbol}`] ? wallet[`${coinSymbol}`] : 0}
               <St.Unit>
                 {selectedAskBidOrder === "bid" ? "KRW" : coinSymbol}
               </St.Unit>
@@ -190,22 +301,6 @@ const OrderInfoAskBid = ({
                 fontWeight={800}
                 placeholder={0}
               />
-              <St.Button
-                bgColor={theme.lightGray}
-                borderColor={theme.lightGray2}
-                fontColor={"#666"}
-                fontSize={"1.1rem"}
-              >
-                +
-              </St.Button>
-              <St.Button
-                bgColor={theme.lightGray}
-                borderColor={theme.lightGray2}
-                fontColor={"#666"}
-                fontSize={"1.1rem"}
-              >
-                -
-              </St.Button>
             </St.OrderInfoInputContainer>
           </St.OrderInfoDetailContainer>
           <St.OrderInfoDetailContainer>
@@ -224,30 +319,25 @@ const OrderInfoAskBid = ({
               placeholder={0}
             />
           </St.OrderInfoDetailContainer>
+          {
+            <St.OrderBtnContainer>
+              <St.Button
+                
+                width={"60%"}
+                bgColor={theme.test}
+                fontSize={"1.1rem"}
+                fontColor={"white"}
+                margin={"auto"}
+                onClick={onClick}
+              >
+                채결하기
+              </St.Button>
+            </St.OrderBtnContainer>
+          }
         </>
       ) : (
-        <OrderInfoTradeList theme={theme} />
+        <OrderInfoTradeList theme={theme} coinSymbol={coinSymbol}/>
       )}
-      <St.OrderBtnContainer>
-        <St.Button
-          width={"30%"}
-          minWidth={"70px"}
-          marginRight={"5px"}
-          bgColor={theme.test}
-          fontSize={"0.9rem"}
-          fontColor={"white"}
-        >
-          회원가입
-        </St.Button>
-        <St.Button
-          width={"65%"}
-          bgColor={theme.test}
-          fontSize={"0.9rem"}
-          fontColor={"white"}
-        >
-          로그인
-        </St.Button>
-      </St.OrderBtnContainer>
     </St.OrderInfoContainer>
   );
 };

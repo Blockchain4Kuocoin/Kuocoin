@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Main from "../Pages/Main";
 import Home from "../Pages/Home";
@@ -13,7 +13,6 @@ import Getblockhash from "../Components/API/getblockhash";
 import Getblock from "../Components/API/getblock";
 import Explorer from "../Pages/Explorer";
 import ExplorerMain from "../Pages/ExplorerMain";
-import BlocksInfo from "../Pages/BlocksInfo";
 import Userlogin from "../Pages/userlogin";
 import UserSignup from "../Pages/usersignup";
 import Payment from "../Pages/Payment";
@@ -27,7 +26,6 @@ const MainRouter = () => {
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/mypage" component={Mypage} />
-      <Route exact path="/payment" component={Payment} />
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
       <Route exact path="/api" component={Api} />
@@ -37,14 +35,10 @@ const MainRouter = () => {
       <Route exact path="/listaccounts" component={Listaccounts} />
       <Route exact path="/getblockhash" component={Getblockhash} />
       <Route exact path="/getblock" component={Getblock} />
-      <Route exact path="/blockname" component={BlocksInfo} />
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
-      <Route exact path="/explorer/blockname/:height" component={Explorer} />
-      <Route exact path="/explorer" component={ExplorerMain} /> 
-      <Route exact path="/search" component={ExplorerSearch} /> 
-      {/* 메인홈 작업후 위에 줄은 지움  */}
-      {/* <Route exact path="/explorer/:blockname/block/:blocknumber" component={Explorer} /> :뒤 db컬럼명에 따라 달라짐 */}
+      <Route exact path="/explorer" component={ExplorerMain} />
+      <Route exact path="/explorer/kuoscoin/:height" component={Explorer} />
     </Switch>
   );
 };

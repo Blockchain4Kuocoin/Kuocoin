@@ -17,10 +17,10 @@ const St = {
     margin: 15vh auto;
     width: 100%;
     height: 100%;
+    font-family: 'Poor Story';
     @media ${({ theme }) => theme.tablet} {
       margin: 5vh auto;
-      /* margin-top: 5vh; */
-      /* margin-bottom: 0; */
+      font-family: 'Poor Story';
     }
   `,
   ContentDiv: styled.div`

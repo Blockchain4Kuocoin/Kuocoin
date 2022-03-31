@@ -1,22 +1,55 @@
-.loginregister {
+.Ldiv {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    color: #392f31;
+    background-color: white;
 }
-.loginregister__input {
-    width: 300px;
-    height: 50px;
+.Linput {
+    font-family: 'Poor Story';
     padding-left: 10px;
     margin: 10px;
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #392f31;
+    font-size:20px;
+    height:25px;
+    background: none;
 }
-.loginregister__button {
-    background-color: rgb(255, 215, 0);
-    /* color: rgb(255, 255, 255); */
-    color: black;
+
+.Ltext {
+    font-family: 'Poor Story';
+    border-bottom: 2px solid #392f31;
+}
+
+.Lbtn{
+    font-family: 'Poor Story';
     font-weight: 700;
     width: 100%;
     border-radius: 40px;
     height: 48px;
     margin-top: 10px;
+    background: linear-gradient(125deg,#ff5478,#ffb0b9,#ffe5e7);
+    background-position: left;
+    background-size: 200%;
+    color:#392f31;
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+}
+
+.Lbtn:hover {
+    background-position: right;
+  }
+
+.Ltitle {
+    text-align: center;
+    color: #ff5478;
+    margin-bottom: 50px;
+    font-size: 80px;
+    font-family: 'Poor Story';
 }

@@ -114,11 +114,11 @@ const getAdditionalCoinCandlesSaga = createRequestSaga(
 );
 
 // 캔들 웹소켓 연결 Thunk
-const connectCandleSocketThunk = createConnectSocketThunk(
-  CONNECT_CANDLE_SOCKET,
-  "ticker",
-  candleDataUtils.update
-);
+// const connectCandleSocketThunk = createConnectSocketThunk(
+//   CONNECT_CANDLE_SOCKET,
+//   "ticker",
+//   candleDataUtils.update
+// );
 
 // const connectCandleSocketThunk = createConnectSocketThrottleThunk(
 //   CONNECT_CANDLE_SOCKET,

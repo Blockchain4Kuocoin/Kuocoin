@@ -17,6 +17,8 @@ const upload = multer({
     })
 });
 
+//OderList
+router.get('/trade', controllers.orderlist_Controllers);
 
 //Mypage
 router.get('/mypage', controllers.mypage_ProfileGet_Controllers);
@@ -42,12 +44,18 @@ module.exports = router;
 
 
 //Explorer
-router.get('/explorer/blockname/:height', controllers.explorer_Controllers);
-// router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
-// router.get('/blockname', controllers.blockname_Controllers);
-// router.put('/explorer', controllers.explorer_ProfilePut_Controllers);
+router.get('/explorer/kuoscoin/:height', controllers.explorer_Controllers);
+router.get('/explorer/kuoscoinblocks', controllers.blockHeight_Controllers);
+router.get('/explorer/latestblocks', controllers.latestblocks_Controllers);
+// router.get('/explorer/latestblocks', controllers.latestblocks_Controllers);
 
 //Wallet
 router.post('/wallet', controllers.wallet_Post_Controllers);
 router.get('/wallet', controllers.wallet_Get_Controllers);
 router.put('/wallet', controllers.wallet_Put_Controllers);
+router.put('/userinfo/wallet', controllers.wallet_UserinfoWallet_Controllers);
+router.put('/sendkuos', controllers.wallet_Sendkuos_Controllers);
+
+//Order
+router.put('/order/buy', controllers.order_Buy_Controllers);
+router.put('/order/sell', controllers.order_Sell_Controllers);
