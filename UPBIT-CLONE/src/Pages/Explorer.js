@@ -5,20 +5,11 @@ import { viewSize } from "../styles/theme";
 
 import Header from "../Components/Global/Header";
 import Footer from "../Components/Global/Footer";
-// import BlockNumInfoHeader from "../Components/Explorer/BlockNumInfoHeader"s
 import BlockHeadAd from "../Components/Explorer/BlockHeadAd";
-import BlockNumber from "../Components/Explorer/BlockNumber";
-import BlockHash from "../Components/Explorer/BlockHash";
-import BlockGenralInfo from "../Components/Explorer/BlockGenralInfo";
-import ThisBlockTransactionsInfo from "../Components/Explorer/BlockTransactionsInfo";
 import SearchBar from "../Components/Explorer/SearchBar";
-import ExplorerContainer from "../styles/ExplorerContainer";
-import BlockGenralInfo1 from "../Components/Explorer/BlockGenralInfo1";
-
 import BlockInfoHeader from "../Components/Explorer/BlockInfoHeader";
-import BlockInfoIcons from "../Components/Explorer/BlockInfoIcons";
-// import BlockInfoData1 from "../Components/Explorer/BlockInfoData1";
-// import BlockInfoData2 from "../Components/Explorer/BlockInfoData2";
+import BlocksInfo from "../Components/Explorer/BlocksInfo";
+import ThisBlockTransactionsInfo from "../Components/Explorer/BlockTransactionsInfo";
 
 const St = {
   ExplorerContentContainer: styled.div`
@@ -28,64 +19,13 @@ const St = {
     height: 100%;
     @media ${({ theme }) => theme.tablet} {
       margin: 5vh 20px;
-      /* margin-top: 0; */
-      /* margin-bottom: 0; */
     }
   `,
-  BlockHeadContainer: styled.header`
+  DispFlex: styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 2% 0 1% 0;
-  `,
-  BlockContainer: styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto 50px auto;
-    width: 100%;
-    height: 100%;
-    /* @media ${({ theme }) => theme.tablet} { */
-      /* margin-top: 0; */
-      /* margin-bottom: 0; */
-      /* align-items: center; */
-    /* } */
-  `,
-  BlockInfoContainer: styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1500px;
-    margin: 10px 0;
-    @media ${(props) => (props.isRootURL ? props.theme.tablet : true)} {
-      display: none;
-    }
-  `,
-  BlockNumberContainer: styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    /* padding: 10px; */
-    margin: 10px 0;
-  `,
-  BlockHashContainer: styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: white;
-    padding: 4%;
-    margin: 4% 0;
-    color: gray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
-  `,
-  BlockGeneralInfoContainer: styled(ExplorerContainer)`
-    font-size: larger;
-    font-weight: 500;
-    line-height: 30px;
+    margin: 5vh 0;
   `,
   BlockMarketPriceContainer: styled.article`
     /* position: -webkit-sticky; 사파리  */
@@ -94,7 +34,6 @@ const St = {
     background-color: white;
     margin: 10px;
     border: 1px solid black;
-    
     /* overflow: hidden; */
     /* @media ${({ theme }) => theme.desktop} {
       display: block;
@@ -113,11 +52,6 @@ const St = {
         `${heightSize + 80}px`}; // 모바일 풀 화면을 위해 다시 80px 더해줌
     } */
   `,
-  BlockInfoContainer2: styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 5vh;
-  `,
 };
 
 const Explorer = ({ match, widthSize, heightSize }) => {
@@ -126,49 +60,13 @@ const Explorer = ({ match, widthSize, heightSize }) => {
     <>
       <Header/>
       <St.ExplorerContentContainer>
-        <SearchBar />
-        <BlockHeadAd />
-        
-        <St.BlockInfoContainer2>
-          <BlockInfoHeader/>
-        </St.BlockInfoContainer2>
-        <St.BlockInfoContainer2>
-          <BlockInfoIcons/>
-        </St.BlockInfoContainer2>
-        {/* <St.BlockInfoContainer2>
-          <ExplorerContainer width="50%"><BlockInfoData1/></ExplorerContainer>
-          <ExplorerContainer width="50%"><BlockInfoData2/></ExplorerContainer>
-        </St.BlockInfoContainer2> */}
-        
-        {/* <St.BlockHeadContainer>
-          <BlockNumInfoHeader />
-        </St.BlockHeadContainer> */}
-
-        
-
-        <St.BlockContainer>
-          <St.BlockInfoContainer>
-            <St.BlockNumberContainer>
-              <BlockNumber />
-            </St.BlockNumberContainer>
-            <St.BlockHashContainer>
-              <BlockHash />
-            </St.BlockHashContainer>
-            {/* <St.BlockGeneralInfoContainer width="100%">
-              <BlockGenralInfo />
-            </St.BlockGeneralInfoContainer> */}
-            <ExplorerContainer width="100%">
-              <BlockGenralInfo1/>
-            </ExplorerContainer>
-
-
-
-          </St.BlockInfoContainer>
-          {/* <St.BlockMarketPriceContainer>
-            block market price container
-          </St.BlockMarketPriceContainer> */}
-        </St.BlockContainer>
-        <ThisBlockTransactionsInfo />
+        <St.DispFlex>
+          <SearchBar />
+          <BlockHeadAd />
+        </St.DispFlex>
+        <BlockInfoHeader/>
+        <BlocksInfo />
+        <ThisBlockTransactionsInfo/>
       </St.ExplorerContentContainer>
       <Footer />
     </>

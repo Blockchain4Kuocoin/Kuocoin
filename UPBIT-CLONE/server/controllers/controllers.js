@@ -107,11 +107,18 @@ exports.explorer_Controllers = (req, res) => {
     });
 };
 
-// exports.blockname_Controllers = (req, res) => {
-//     models.explorer.blockname_Models().then((result) => {
-//         res.send(result);
-//     });
-// };
+exports.blockHeight_Controllers = (req, res) => {
+    exports.blocks = req.query.height;
+    models.explorer.blockHeight_Models().then((result) => {
+        res.send(result);
+    });
+};
+
+exports.latestblocks_Controllers = (req, res) => {
+    models.explorer.latestBlocks_Models().then((result) => {
+        res.send(result);
+    });
+};
 
 //Wallet
 exports.wallet_Post_Controllers = (req, res) => {
