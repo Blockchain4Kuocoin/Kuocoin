@@ -57,7 +57,7 @@ const BlockHash = () => {
       <>Hash</>
         <St.BlockHashDiv>{blockHashData.hash}</St.BlockHashDiv>
     </St.BlockHashInfoContainer>
-    <RiCheckboxMultipleBlankLine onClick={CopyHash} size="20"/>
+    <RiCheckboxMultipleBlankLine style={{cursor: "pointer"}} onClick={CopyHash} size="20"/>
       <div className="url_copy">
         <style jsx="true">{`
           .toast {

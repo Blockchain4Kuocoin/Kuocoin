@@ -93,7 +93,7 @@ const BlockInfoHeader = () => {
       </St.BlockInfoLogoDiv>
       <St.BlcokInfoPriceDiv>
         <div style={{fontSize: "24px", fontWeight: "700"}}>DB USD</div>
-        <div>1 satoshi per byte</div>
+        <div>1 minwook per byte</div>
         <div style={{color: "gray"}}>recommmended transaction fee</div>
       </St.BlcokInfoPriceDiv>
       <St.BlcokInfoPriceDiv>

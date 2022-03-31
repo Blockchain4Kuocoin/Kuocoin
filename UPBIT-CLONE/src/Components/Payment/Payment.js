@@ -40,7 +40,7 @@ function Payment(props) {
 
   /* 3. 콜백 함수 정의하기 */
   function callback(response) {
-    const { success, error_msg } = response;
+    const { success, a, error_msg } = response;
     if (success) {
       axios.put("http://localhost:3001/wallet", {
         wal_id: document.getElementById("select_wallet").value,

@@ -88,7 +88,7 @@ const BlockNumber = () => {
       <St.BlockNumberContainer onClick={clickBlock}>
         <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
         <St.BlockNumInfoDiv>
-          <div style={{color : "gray"}}>Previos</div>
+          <div style={{color : "gray"}}>Previous</div>
           <>{blockNumberData.height - 1 < 0  ? "NaN" : blockNumberData.height -1}</>
         </St.BlockNumInfoDiv>
       </St.BlockNumberContainer>
@@ -102,7 +102,7 @@ const BlockNumber = () => {
       <St.BlockNumberContainer onClick={clickBlock1}>
         <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
         <St.BlockNumInfoDiv>
-          <div style={{color : "gray"}}>next</div>
+          <div style={{color : "gray"}}>Next</div>
           <>{blockNumberData.height + 1}</>
         </St.BlockNumInfoDiv>
       </St.BlockNumberContainer>

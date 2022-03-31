@@ -96,12 +96,12 @@ export default function Walletmain(props) {
             ?
             <>
             <div className="wal_container">
-                내 지갑
-                <div>
+                {data.length !==0 ? "내 지갑" : "지갑 생성 쿠오쿠오~~"}
+                <div style={{marginTop: "20px"}}>
                     {data.length !==0
                     ? 
                     <select className="wal_select" id="my_wallet" onChange={onChange}>
-                        <option value={info.wallet}>{info.wallet}</option>
+                        <option value={info.wallet} style={{width: "20px"}}>{info.wallet}</option>
                         {data.map(ele => {
                             if (ele.wal_id !== info.wallet) {
                                 return (<option key={ele.wal_id} value={ele.wal_id}>{ele.wal_id}</option>)
@@ -113,17 +113,16 @@ export default function Walletmain(props) {
                 </div>
             </div> 
             <St.CoinLogo />
-            {data.length !==0 ? <div>{mainWallet.KUOS} KUOS</div> : null}
+            {data.length !==0 ? <><div>{mainWallet.KUOS} KUOS</div> <div style={{marginTop: "10px", fontSize: "25px"}}>{price} KRW</div></> : null}
 
             <div className="walmake">
                 <button onClick={onKuoSend} className="walmakebtn">전송</button>
                 <button onClick={onWallet} className="walmakebtn">지갑 생성하기</button>
                 <button onClick={onPayment} className="walmakebtn">충전하기</button>
             </div>
-            {data.length !==0 ? <div>{price} KRW</div> : null}
             </>
             : state === "wallet"
-            ?<Createwallet setData={setData} setState={setState} setInfo={setInfo}/>
+            ?<Createwallet data={data} setData={setData} setState={setState} setInfo={setInfo}/>
             : state === "payment" 
             ? <Payment data={data} setData={setData} setState={setState}/>
             : <KuoSend mainWallet={mainWallet} setMainWallet={setMainWallet} setState={setState}/>

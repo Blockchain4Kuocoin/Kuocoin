@@ -71,15 +71,15 @@ const BlocksGenralInfo = () => {
   
   return(
     <>
-    <div style={{fontSize: "x-larger", fontWeight: "bolder"}}>General info</div>
+    <div style={{fontSize: "30px", fontWeight: "bolder"}}>General Infos</div>
     <St.GeneralInfoContainer>
       <St.GeneralInformationCate>
         <div>Size</div><div>Stripped size</div><div>Version</div><div>Transactions</div><div>Merkle root</div><div>Nonce</div><div>Chainwork</div>
       </St.GeneralInformationCate>
       <St.GeneralInformation>
-        <div>{blockGeneralInfo.size}</div><div>{blockGeneralInfo.strippedsize}</div><div>{blockGeneralInfo.version}</div><div>{txData.length}</div><div>{blockGeneralInfo.merkleroot ? blockGeneralInfo.merkleroot.slice(0,10) + "..." + blockGeneralInfo.merkleroot.slice(-10): ""} <RiCheckboxMultipleBlankLine onClick={CopyMerkleRoot} size="18"/></div>
+        <div>{blockGeneralInfo.size}</div><div>{blockGeneralInfo.strippedsize}</div><div>{blockGeneralInfo.version}</div><div>{txData.length}</div><div>{blockGeneralInfo.merkleroot ? blockGeneralInfo.merkleroot.slice(0,10) + "..." + blockGeneralInfo.merkleroot.slice(-10): ""} <RiCheckboxMultipleBlankLine style={{cursor: "pointer"}} onClick={CopyMerkleRoot} size="18"/></div>
         <div>{blockGeneralInfo.nonce}</div><div>
-        {blockGeneralInfo.chainwork ? blockGeneralInfo.chainwork.slice(0,10) + "..." + blockGeneralInfo.chainwork.slice(-10): ""} <RiCheckboxMultipleBlankLine onClick={CopyChainwork} size="18"/></div>
+        {blockGeneralInfo.chainwork ? blockGeneralInfo.chainwork.slice(0,10) + "..." + blockGeneralInfo.chainwork.slice(-10): ""} <RiCheckboxMultipleBlankLine style={{cursor: "pointer"}} onClick={CopyChainwork} size="18"/></div>
       </St.GeneralInformation>
       <St.GeneralInformationCate>
         <div>Weight</div><div>Median time</div><div>Version [bits]</div><div>Difficulty</div><div>Bits</div><div>Confirmations</div>

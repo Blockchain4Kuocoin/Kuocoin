@@ -47,7 +47,7 @@ const ThisBlockTransactionsInfo = () => {
 
   return(
     <ExplorerContainer>
-      <div style={{fontSize: "larger", fontWeight: "bolder", marginBottom: "30px"}}>Kuoscoin Latest blocks</div>
+      <div style={{fontSize: "30px", fontWeight: "bolder", marginBottom: "30px"}}>Kuoscoin Latest Blocks</div>
       <St.TransactionCate><div>Hash</div><div>Mined on</div></St.TransactionCate>
       <BlockWhiteDiv><div>{latestBlocks.length>0 ? latestBlocks[0].hash : null}</div><div>{timestamp.length>0 ? timestamp[0] : null}</div></BlockWhiteDiv>
       <BlockWhiteDiv><div>{latestBlocks.length>0 ? latestBlocks[1].hash : null}</div><div>{timestamp.length>0 ? timestamp[1] : null}</div></BlockWhiteDiv>
