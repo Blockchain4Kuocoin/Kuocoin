@@ -113,7 +113,7 @@ return (
     <div className="mydiv">
         <h2 className="mytitle"><img className="titleimg" src="./modal.png"></img></h2><br/>
         <p className="mytext">ID : {details.id}</p>
-        <p className="mytext">PASSWORD : {details.pw}</p>
+        <p className="mytext" >PASSWORD : {details.pw}</p>
         <p className="mytext">NAME : {details.name}</p>
         <button className="mybtn" type = "button" onClick = {onClick} >수정하기</button>
         {/* <button className="walbtn" type = "button">지갑생성하기</button> */}
@@ -150,7 +150,7 @@ else{
             placeholder={details.id} readOnly
             />
         </p>
-        <p className="mytext">PASSWORD 
+        <p className="mytext1">PASSWORD 
             <input 
             className="myinput" 
             name="pw" 
@@ -161,7 +161,7 @@ else{
             onKeyDown={onKeyDown}
             />
         </p>
-        <p className="mytext">NAME 
+        <p className="mytext1">NAME 
             <input 
             className="myinput" 
             name="name" 

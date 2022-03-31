@@ -28,7 +28,7 @@
 .modal > section > header {
     position: relative;
     padding: 16px 64px 16px 16px;
-    background-color: #f1f1f1;
+    background-color: #fff;
     font-weight: 700;
 }
 .modal > section > header button {
@@ -39,7 +39,7 @@
     font-size: 21px;
     font-weight: 700;
     text-align: center;
-    color: #999;
+    color: #ff5478;
     background-color: transparent;
 }
 .modal > section > main {
@@ -51,11 +51,12 @@
 .modal > section > footer {
     padding: 12px 16px;
     text-align: right;
+    /* background-color: #549aff; */
 }
 .modal > section > footer button {
     padding: 6px 12px;
     color: #fff;
-    background-color: #6c757d;
+    background-color: #ff5478;
     border-radius: 5px;
     font-size: 13px;
 }
@@ -82,7 +83,7 @@
     border: none;
     outline: none;
     color: #392f31;
-    border-bottom: 2px solid #ff5478;
+    border-bottom: 2px solid #392f31;
 }
 
 .modal > section > main > .walmakebtn {
@@ -114,17 +115,14 @@
 .wal_info {
     display: flex;
     flex-direction: row;
-    /* background-color: red; */
 }
 
 .wal_id {
-    /* background-color: blue; */
     width: 50%;
     border: solid 1px;
 }
 
 .wal_balance {
-    /* background-color: yellow; */
     width: 50%;
     border: solid 1px;
 }

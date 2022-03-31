@@ -49,6 +49,7 @@ export default function Login() {
         <>
         <div className="Ldiv">
             <form>
+                <p className="Ltitle">로그인</p>
                 <p className="Ltext">
                 <input 
                 className="Linput"

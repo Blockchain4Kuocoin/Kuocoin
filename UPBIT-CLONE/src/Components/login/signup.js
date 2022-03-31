@@ -38,10 +38,6 @@ export default function Signup() {
     }
 
     const onSubmit = () => {
-        // console.log(`id : ${info.id}`)
-        // console.log(`pw : ${info.pw}`)
-        // console.log(`confirmPassword : ${info.pw}`)
-        // console.log(`name : ${info.name}`)
 
         if (info.id === "") alert("아이디를 입력하세요");
         else if (info.pw === "" || info.confirmPassword === "") alert("비밀번호를 입력하세요");
@@ -78,10 +74,9 @@ export default function Signup() {
   };
 
   return (
-    // <form onSubmit={handleSubmit}>
       <div className="Ldiv">
         <FormControl component="fieldset" error={error} className={classes.formControl}>
-          <FormLabel component="legend">Signup</FormLabel>
+          <FormLabel component="legend"><p className='Ltitle'>회원가입</p></FormLabel>
             <p className="Ltext">
               <input
                 className="Linput"
@@ -93,7 +88,7 @@ export default function Signup() {
                 onKeyDown={onKeyDown}
               />
             </p>
-            <br />
+            <br/>
             <p className="Ltext">
               <input
                 className="Linput"
@@ -106,18 +101,18 @@ export default function Signup() {
               />
             </p>
             <FormHelperText>{helperText}</FormHelperText>
-            <br />
+            <br/>
             <p className="Ltext">
               <input 
               className="Linput"
               name="confirmPassword" 
-              type="password" placeholder="비밀번호 확인" 
+              type="password" 
+              placeholder="비밀번호 확인" 
               value={ info.confirmPassword || "" }  
               onChange={ onChange } 
               onKeyDown={onKeyDown}/>
             </p>  
             <br/>
-
             <p className="Ltext">
               <input
                 className="Linput"
@@ -129,71 +124,11 @@ export default function Signup() {
                 onKeyDown={onKeyDown}
               />
             </p>
-            <br />
-          {/* <Button type="submit" variant="outlined" color="primary" className={classes.button}>
-            Check Answer
-          </Button> */}
+            <br/><br/>
           <button type="button" onClick={onSubmit} className="Lbtn">
             계정 생성하기
           </button>
         </FormControl>
       </div>
   );
-
-  // return (
-  //     <>
-  //   <div className="Ldiv">
-  //     <form>
-        // <p className="Ltext">
-        //   <input
-        //     className="Linput"
-        //     name="id"
-        //     type="id"
-        //     placeholder="아이디"
-        //     value={info.id || ""}
-        //     onChange={onChange}
-        //     onKeyDown={onKeyDown}
-        //   />
-        // </p>
-        // <br />
-        // <p className="Ltext">
-        //   <input
-        //     className="Linput"
-        //     name="pw"
-        //     type="password"
-        //     placeholder="비밀번호"
-        //     value={info.pw || ""}
-        //     onChange={onChange}
-        //     onKeyDown={onKeyDown}
-        //   />
-        // </p>
-        // <br />
-        // <p className="Ltext"></p>
-        //   <input 
-        //   className="Linput"
-        //   name="confirmPassword" 
-        //   type="password" placeholder="비밀번호 확인" 
-        //   value={ info.confirmPassword || "" }  
-        //   onChange={ onChange } 
-        //   onKeyDown={onKeyDown}/><br/>
-
-        // <p className="Ltext">
-        //   <input
-        //     className="Linput"
-        //     name="name"
-        //     type="text"
-        //     placeholder="이름"
-        //     value={info.name || ""}
-        //     onChange={onChange}
-        //     onKeyDown={onKeyDown}
-        //   />
-        // </p>
-        // <br />
-        // <button type="button" onClick={onSubmit} className="Lbtn">
-        //   계정 생성하기
-        // </button>
-  //     </form>
-  //   </div>
-  //   </>
-  // );
 }

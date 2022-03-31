@@ -40,6 +40,7 @@
     margin-bottom: 40px;
     width: 80%;
     height: 40px;
+    border-radius: 40px;
     background: linear-gradient(125deg, #8d192b, #ffd700, #ff3399);
     background-position: left;
     background-size: 200%;
