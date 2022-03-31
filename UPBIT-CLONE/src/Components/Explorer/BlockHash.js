@@ -17,7 +17,7 @@ const St = {
     font-family: 'Poor Story';
   `,
   BlockHashDiv: styled.div`
-    color: blue;
+    color: #549aff;
     margin-top: 10px;
     font-size: x-large;
     font-weight: 900;

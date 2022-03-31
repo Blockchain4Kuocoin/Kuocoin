@@ -25,7 +25,7 @@ const St = {
 const BlockHeadAd = () => {
   return(
     <St.BlockHeadAdContainer width="100%">
-      <St.BlockHeadAd BColor='#ff5478'>해적단 NFT 무료로 받기</St.BlockHeadAd>
+      <St.BlockHeadAd BColor='#ff5478'>KUOS NFT 무료로 받기</St.BlockHeadAd>
       <St.BlockHeadAd BColor='#549aff' marginL='2%'>Block Adv Test</St.BlockHeadAd>
     </St.BlockHeadAdContainer>
     //react-tooltip사용해서 말풍선 추가 가능

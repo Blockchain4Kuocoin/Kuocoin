@@ -48,8 +48,8 @@ const St = {
     font-weight: 700;
   `,
   BlockLogoApi: styled.div`
-    background-color: rgba(999,999,999,0.5);
-    border: 1px solid gray;
+    background-color: #e9ecef;
+    /* border: 1px solid gray; */
   `,
   BlcokInfoPriceDiv: styled.div`
     display: block;
@@ -94,9 +94,9 @@ const BlockInfoHeader = () => {
         <div style={{color: "gray"}}>recommmended transaction fee</div>
       </St.BlcokInfoPriceDiv>
       <St.BlcokInfoPriceDiv>
-        <div><FaCubes className="IconBox" size="30" color="pink"/> Blocks {blockHeights}</div>
-        <div><RiArrowUpDownLine className="IconBox" size="30" color="blue"/> Transactions {blockTxData.tx ? blockTxData.tx.slice(0,5) + "..." : ""}</div>
-        <div><RiBookMarkLine className="IconBox" size="30" color="pink"/> Addresses 30</div>
+        <div><FaCubes className="IconBox" size="30" color="#ff5478"/> Blocks {blockHeights}</div>
+        <div><RiArrowUpDownLine className="IconBox" size="30" color="#549aff"/> Transactions {blockTxData.tx ? blockTxData.tx.slice(0,5) + "..." : ""}</div>
+        <div><RiBookMarkLine className="IconBox" size="30" color="#ff5478"/> Addresses 30</div>
       </St.BlcokInfoPriceDiv>
     </St.BlockInfoHeaderContainer>
   )

@@ -35,15 +35,15 @@ const St = {
   &:hover {
     background-color: #549aff;
     color: white;
-  `,
+  }`,
   BlockIcons: styled.div`
     border-radius: 50%;
     padding: 12px;
     margin-right: 10px;
     background-color: white;
-    color: blue;
+    color: #ff5478;
     &:hover {
-      background-color: blue;
+      background-color: #549aff;
       color: white;
     }
     .BlockBox:hover {
