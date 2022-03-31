@@ -57,12 +57,15 @@ const BlockNumber = () => {
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
-    .then((response) => {setBlockNumberData(response.data[0]); console.log(response.data[0])})
+    .then((response) => {
+      setBlockNumberData(response.data.data[0]);
+      console.log(response.data.data[0])
+    })
     .catch(err=>console.log(err))
   }, []);
 
-  const clickBlock = () => {
-    document.location.href=`${Number(params.height) -1}`
+  const clickBlock = (e) => {
+    params.height - 1 < 0 ? e.preventDefault() : document.location.href=`${Number(params.height) -1}`
   };
   
   const clickBlock1 = () => {
@@ -75,7 +78,7 @@ const BlockNumber = () => {
         <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
         <St.BlockNumInfoDiv>
           <div style={{color : "gray"}}>Previos</div>
-          <>{blockNumberData.height - 1}</>
+          <>{blockNumberData.height - 1 < 0  ? "NaN" : blockNumberData.height -1}</>
         </St.BlockNumInfoDiv>
       </St.BlockNumberContainer>
       <St.BlockNumberContainer>

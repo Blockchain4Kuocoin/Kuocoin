@@ -53,6 +53,7 @@ const St = {
 const BlockInfoHeader = () => {
   const [ blockHeights, setBlockHeights ] = useState([]);
   const [ blockTxData, setBlockTxData ] = useState([]);
+  const [ countAddresses, setCountAddresses ] = useState([]);
   
   const params = useParams();
   console.log(params);
@@ -65,7 +66,13 @@ const BlockInfoHeader = () => {
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
-    .then((response) => {setBlockTxData(response.data[0]); console.log(response.data)})
+    .then((response) => {setBlockTxData(response.data.txcount); console.log(response.data.txcount);})
+    .catch(err=>console.log(err))
+  }, []);
+
+  useEffect(()=>{
+    Axios.get(`http://localhost:3001/explorer/countaddresses`)
+    .then((response) => {setCountAddresses(response.data.countAddresses); console.log(response.data)})
     .catch(err=>console.log(err))
   }, []);
 
@@ -86,8 +93,8 @@ const BlockInfoHeader = () => {
       </St.BlcokInfoPriceDiv>
       <St.BlcokInfoPriceDiv>
         <div><FaCubes className="IconBox" size="30" color="pink"/> Blocks {blockHeights}</div>
-        <div><RiArrowUpDownLine className="IconBox" size="30" color="blue"/> Transactions {blockTxData.tx ? blockTxData.tx.slice(0,5) + "..." : ""}</div>
-        <div><RiBookMarkLine className="IconBox" size="30" color="pink"/> Addresses 30</div>
+        <div><RiArrowUpDownLine className="IconBox" size="30" color="blue"/> Transactions {blockTxData}</div>
+        <div><RiBookMarkLine className="IconBox" size="30" color="pink"/> Addresses {countAddresses}</div>
       </St.BlcokInfoPriceDiv>
     </St.BlockInfoHeaderContainer>
   )
