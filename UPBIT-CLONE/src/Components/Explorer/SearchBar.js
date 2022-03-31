@@ -4,15 +4,21 @@ import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
 const St = {
-  Input : styled.input`
-    width: 70%;
-    height: 50px;
-  `,
-  Button : styled.button`
+  Button: styled.button`
     width: 3%;
     height: 50px;
-    color: blue;
-    background-color: pink;
+    color: #ff5478;
+    border: none;
+    background-color: #e9ecef;
+    margin-left: 10px;
+  `,
+  Input: styled.input`
+    width: 90%;
+    height: 50px;
+    font-family: 'Poor Story';
+    border: none;
+    border-color: none ;
+    border-radius: 10px;
   `
 };
 

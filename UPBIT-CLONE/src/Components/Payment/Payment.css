@@ -40,7 +40,8 @@
     margin-bottom: 40px;
     width: 80%;
     height: 40px;
-    background: linear-gradient(125deg, #8d192b, #ffd700, #ff3399);
+    border-radius: 40px;
+    background: linear-gradient(125deg,#ff5478,#ffb0b9,#ffe5e7);
     background-position: left;
     background-size: 200%;
     color: #392f31;
@@ -49,4 +50,5 @@
     cursor: pointer;
     transition: 0.4s;
     display: inline;
+    margin-top: 40px;
   }

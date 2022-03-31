@@ -15,14 +15,15 @@ const St = {
   BlockNumberContainer: styled.div`
     display: flex;
     align-items: center;
-    width: auto;
+    width: 18%;
     cursor: pointer;
+    font-family: 'Poor Story';
   `,
   BlockCurIcon: styled.div`
     border-radius: 50%;
     padding: 16px;
     margin-right: 10px;
-    background-color: blue;
+    background-color: #ff5478;
     color: white;
   `,
   BlockIcons: styled.div`
@@ -30,9 +31,19 @@ const St = {
     padding: 12px;
     margin-right: 10px;
     background-color: white;
-    color: blue;
+    color: #ff5478;
     &:hover {
-      background-color: blue;
+      background-color: #549aff;
+      color: white;
+  }`,
+  BlockIcons: styled.div`
+    border-radius: 50%;
+    padding: 12px;
+    margin-right: 10px;
+    background-color: white;
+    color: #ff5478;
+    &:hover {
+      background-color: #549aff;
       color: white;
     }
     .BlockBox:hover {

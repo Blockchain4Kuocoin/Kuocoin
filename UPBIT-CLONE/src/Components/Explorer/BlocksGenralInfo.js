@@ -20,7 +20,6 @@ const St = {
     /* color: ${(props) => props.color}; */
     font-weight: 400;
     font-size: initial;
-
   `
 };
 
@@ -70,12 +69,6 @@ const BlocksGenralInfo = () => {
     });
   };
   
-  
-  // console.log(blockGenralInfo.mediantime);
-  // // const timestamp = blockGenralInfo.mediantime*1000;
-  // console.log(timestamp);
-  // const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp)
-
   return(
     <>
     <div style={{fontSize: "x-larger", fontWeight: "bolder"}}>General info</div>
@@ -97,8 +90,6 @@ const BlocksGenralInfo = () => {
     </St.GeneralInfoContainer>
     </>
   )
-
-
 };
 
 export default BlocksGenralInfo;

@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
 import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
-
 const St = {
   container: styled.div`
     display: flex;
@@ -14,9 +13,10 @@ const St = {
   `,
   BlockHashInfoContainer: styled.div`
     display: block;
+    font-family: 'Poor Story';
   `,
   BlockHashDiv: styled.div`
-    color: blue;
+    color: #549aff;
     margin-top: 10px;
     font-size: x-large;
     font-weight: 900;
@@ -25,6 +25,7 @@ const St = {
     justify-content: space-between;
   `
 };
+    /* font-family: 'Courier New', Courier, monospace; */
 
 const ToastsPop = () => {
   ToastsStore.success("Copied!");
@@ -78,5 +79,5 @@ const BlockHash = () => {
     </St.container>
   )
 };
-
+    
 export default BlockHash;

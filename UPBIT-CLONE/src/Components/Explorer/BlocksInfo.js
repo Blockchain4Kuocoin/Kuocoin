@@ -1,6 +1,4 @@
 import React from "react";
-// import { useParams } from "react-router-dom";
-// import Axios from "axios";
 import styled from "styled-components";
 import withSize from "../../Container/withSize";
 

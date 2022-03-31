@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Modal from '../../../commons/components/Modals/Modal';
-import "./Modal1.css";
+import "./Modal.css";
 import axios from "axios";
 import Walletmain from "../Payment/Walletmain";
 
@@ -63,10 +63,10 @@ export default function Modal(props) {
 
             {!auth ? (
               <>
-                <h5 className="waltxt">아이디</h5>
+                <h5 className="waltxt"></h5>
                 <input
                   className="walinput"
-                  placeholder="id"
+                  placeholder="아이디"
                   name="id"
                   value={inputs.id}
                   onChange={onChange}
@@ -74,10 +74,10 @@ export default function Modal(props) {
                     if (e.key === "Enter") onClick();
                   }}
                 />
-                <h5 className="waltxt">비밀번호</h5>
+                <h5 className="waltxt"></h5>
                 <input
                   className="walinput"
-                  placeholder="pw"
+                  placeholder="비밀번호"
                   name="pw"
                   value={inputs.pw}
                   onChange={onChange}

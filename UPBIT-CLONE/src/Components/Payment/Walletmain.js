@@ -113,16 +113,14 @@ export default function Walletmain(props) {
                 </div>
             </div> 
             <St.CoinLogo />
-            <div>{mainWallet.KUOS} KUOS</div>
+            {data.length !==0 ? <div>{mainWallet.KUOS} KUOS</div> : null}
 
             <div className="walmake">
                 <button onClick={onKuoSend} className="walmakebtn">전송</button>
                 <button onClick={onWallet} className="walmakebtn">지갑 생성하기</button>
                 <button onClick={onPayment} className="walmakebtn">충전하기</button>
             </div>
-            <div>{
-            price
-            } KRW</div>
+            {data.length !==0 ? <div>{price} KRW</div> : null}
             </>
             : state === "wallet"
             ?<Createwallet setData={setData} setState={setState} setInfo={setInfo}/>

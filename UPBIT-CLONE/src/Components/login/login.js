@@ -2,7 +2,7 @@ import { useState } from "react"
 import React from "react"
 import axios from "axios"   //server와 통신하는 모듈
 import "./LoginRegister.css"
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 export default function Login() {
     const [ info, setInfo ] = useState({id: "", pw: ""})
@@ -49,6 +49,7 @@ export default function Login() {
         <>
         <div className="Ldiv">
             <form>
+                <p className="Ltitle">로그인</p>
                 <p className="Ltext">
                 <input 
                 className="Linput"

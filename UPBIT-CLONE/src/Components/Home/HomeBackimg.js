@@ -3,8 +3,8 @@ import React from 'react';
 // import Roadmap from './4.webp'
 import Roadmap from './2.jpeg'
 import styled from 'styled-components';
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const RoadmapStyle = styled.div`

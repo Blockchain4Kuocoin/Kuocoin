@@ -37,7 +37,7 @@ export default function Createwallet(props) {
         <h1 className='walmaintxt'>지갑 생성하기</h1>
         <h4>아래 무료 지갑을 생성하세요.</h4>
         <h5>지갑 아이디</h5>
-        <input 
+        <input className="wal_id"
         placeholder='지갑 아이디' 
         name='account' 
         value={inputs.account} 

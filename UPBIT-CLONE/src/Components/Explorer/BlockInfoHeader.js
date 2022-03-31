@@ -5,14 +5,15 @@ import styled from "styled-components";
 import { FaCubes } from "react-icons/fa";
 import { RiArrowUpDownLine } from "react-icons/ri";
 import { RiBookMarkLine } from "react-icons/ri";
+import  kuosLogo  from "./test4.png"
 
 const St = {
   BlockInfoHeaderContainer: styled.header`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    margin: 10vh 0;
+    width: 90%;
+    font-family: 'Poor Story';
   `,
   BlockInfoLogoDiv: styled.div`
     display: flex;
@@ -22,16 +23,21 @@ const St = {
     width: 80px;
     height: 80px;
     margin-right: 20px;
-    border: 1px solid black;
+    margin-top:30px ;
     border-radius: 50px;
     object-fit: cover;
-    /* background-image: url("../../../public/kuoslogo.png"); */
+    background-image: url(${kuosLogo});
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    z-index: 99 ;
   `,
   BlockLogoInfo: styled.div`
     height: 70px;
     margin-right: 10px;
     line-height: 35px; //이 방법 대신 다른 방법 찾기
-    color: gray;
+    /* color: gray; */
+    background: url("./kuoslogo.png") ;
+    background-image: url("./kuoslogo.png") ;
   `,
   BlcokLogoName: styled.div`
     color: black;
@@ -39,17 +45,16 @@ const St = {
     font-weight: 700;
   `,
   BlockLogoApi: styled.div`
-    background-color: rgba(999,999,999,0.5);
-    border: 1px solid gray;
+    background-color: #e9ecef;
+    /* border: 1px solid gray; */
   `,
   BlcokInfoPriceDiv: styled.div`
     display: block;
     line-height: 25px;
     font-size: 16px;
   `,
-  
 };
-
+  
 const BlockInfoHeader = () => {
   const [ blockHeights, setBlockHeights ] = useState([]);
   const [ blockTxData, setBlockTxData ] = useState([]);
