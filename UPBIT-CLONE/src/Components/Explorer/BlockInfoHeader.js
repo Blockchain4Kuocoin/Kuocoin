@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { FaCubes } from "react-icons/fa";
 import { RiArrowUpDownLine } from "react-icons/ri";
 import { RiBookMarkLine } from "react-icons/ri";
+import  kuosLogo  from "./test4.png"
 
 const St = {
   BlockInfoHeaderContainer: styled.header`
@@ -13,8 +14,6 @@ const St = {
     align-items: center;
     width: 90%;
     font-family: 'Poor Story';
-    /* padding: 10px; */
-    /* cursor: pointer; */
   `,
   BlockInfoLogoDiv: styled.div`
     display: flex;
@@ -24,14 +23,19 @@ const St = {
     width: 80px;
     height: 80px;
     margin-right: 20px;
-    border: 1px solid black;
+    margin-top:30px ;
+    /* margin-left:10px ; */
+    /* padding-right: 20px; */
+    /* border: 1px solid ; */
     border-radius: 50px;
-    /* object-fit: cover; */
+    object-fit: cover;
     /* background-color: red; */
     /* background-image: url("../../../public/kuoslogo.png"); */
     /* background: url("./kuoslogo.png") ; */
-    background-image: url("https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg");
-    background-repeat: cover;
+    background-image: url(${kuosLogo});
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    
     z-index: 99 ;
   `,
   BlockLogoInfo: styled.div`
@@ -81,7 +85,9 @@ const BlockInfoHeader = () => {
   return(
     <St.BlockInfoHeaderContainer>
       <St.BlockInfoLogoDiv>
-        <St.BlockLogo />
+          <St.BlockLogo>
+            {/* <img src={kuosLogo}/> */}
+          </St.BlockLogo>
         <St.BlockLogoInfo>
           <>Explorer</>
           <St.BlcokLogoName>Kuoscoin</St.BlcokLogoName>
