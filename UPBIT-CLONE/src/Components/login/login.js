@@ -2,7 +2,7 @@ import { useState } from "react"
 import React from "react"
 import axios from "axios"   //server와 통신하는 모듈
 import "./LoginRegister.css"
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 export default function Login() {
     const [ info, setInfo ] = useState({id: "", pw: ""})
