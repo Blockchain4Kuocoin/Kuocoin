@@ -13,28 +13,28 @@ const St = {
     margin-bottom: 5vh;
   `,
   BlockNumberContainer: styled.div`
-  display: flex;
-  align-items: center;
-  width: 18%;
-  cursor: pointer;
-  font-family: 'Poor Story';
+    display: flex;
+    align-items: center;
+    width: 18%;
+    cursor: pointer;
+    font-family: 'Poor Story';
   `,
   BlockCurIcon: styled.div`
-  border-radius: 50%;
-  padding: 16px;
-  margin-right: 10px;
-  background-color: #ff5478;
-  color: white;
+    border-radius: 50%;
+    padding: 16px;
+    margin-right: 10px;
+    background-color: #ff5478;
+    color: white;
   `,
   BlockIcons: styled.div`
-  border-radius: 50%;
-  padding: 12px;
-  margin-right: 10px;
-  background-color: white;
-  color: #ff5478;
-  &:hover {
-    background-color: #549aff;
-    color: white;
+    border-radius: 50%;
+    padding: 12px;
+    margin-right: 10px;
+    background-color: white;
+    color: #ff5478;
+    &:hover {
+      background-color: #549aff;
+      color: white;
   }`,
   BlockIcons: styled.div`
     border-radius: 50%;
@@ -68,12 +68,15 @@ const BlockNumber = () => {
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
-    .then((response) => {setBlockNumberData(response.data[0]); console.log(response.data[0])})
+    .then((response) => {
+      setBlockNumberData(response.data.data[0]);
+      console.log(response.data.data[0])
+    })
     .catch(err=>console.log(err))
   }, []);
 
-  const clickBlock = () => {
-    document.location.href=`${Number(params.height) -1}`
+  const clickBlock = (e) => {
+    params.height - 1 < 0 ? e.preventDefault() : document.location.href=`${Number(params.height) -1}`
   };
   
   const clickBlock1 = () => {
@@ -85,8 +88,8 @@ const BlockNumber = () => {
       <St.BlockNumberContainer onClick={clickBlock}>
         <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
         <St.BlockNumInfoDiv>
-          <div style={{color : "gray"}}>Previos</div>
-          <>{blockNumberData.height - 1}</>
+          <div style={{color : "gray"}}>Previous</div>
+          <>{blockNumberData.height - 1 < 0  ? "NaN" : blockNumberData.height -1}</>
         </St.BlockNumInfoDiv>
       </St.BlockNumberContainer>
       <St.BlockNumberContainer>
@@ -99,7 +102,7 @@ const BlockNumber = () => {
       <St.BlockNumberContainer onClick={clickBlock1}>
         <St.BlockIcons><SiHackthebox className="BlockBox" size="26"/></St.BlockIcons>
         <St.BlockNumInfoDiv>
-          <div style={{color : "gray"}}>next</div>
+          <div style={{color : "gray"}}>Next</div>
           <>{blockNumberData.height + 1}</>
         </St.BlockNumInfoDiv>
       </St.BlockNumberContainer>

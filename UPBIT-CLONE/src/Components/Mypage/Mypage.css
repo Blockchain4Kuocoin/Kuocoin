@@ -6,11 +6,12 @@
     font-family:sans-serif;     
   }
 
-.titleimg {
+/* .titleimg {
   margin-top: 50px;
   width: 200px;
   height: 200px;
-}
+
+} */
 
 
 .mydiv {
@@ -18,15 +19,30 @@
     width:450px;
     height:800px;
     text-align:center;
-    top:50%;
+    top:45%;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
-    background-image: none;
+    /* background-image: none; */
     color: #392f31;
-    cursor: default;
+    cursor: default; 
     font-family: 'Poor Story';
-    
+
+  }
+
+  .mydiv1 {
+    position:absolute;
+    width:450px;
+    height:800px;
+    text-align:center;
+    top:60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    /* background-image: none; */
+    color: #392f31;
+    cursor: default; 
+    font-family: 'Poor Story';
 
   }
 
@@ -36,16 +52,29 @@
   }
   
 .mytext {
-    border-bottom: 2px solid #ff5478;
-    /* width: 70%; */
     margin: 20px;
-    font-size: 23px;
-  }
-
-  .myinput {
+    font-size: 30px;
+    margin-bottom: 30px;
+    
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+  .mytext1 {
+    border-bottom: 2px solid #392f31;
+    /* border-bottom: 2cm; */
+    /* width: 150px; */
+    margin: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    
+    /* text-align: center; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+  .myinput {
+    
+    margin-top: 20px;
     display: flex;
     width: 100%;
     border:none;
@@ -54,6 +83,8 @@
     font-size:28px;
     height:30px;
     background: none;
+    text-align: center;
+    /* margin-bottom: 10px; */
   }
   
 .mybtn {
@@ -63,6 +94,7 @@
     margin-bottom: 40px;
     width:80%;
     height:40px;
+    border-radius: 40px;
     background: linear-gradient(125deg,#ff5478,#ffb0b9,#ffe5e7);
     background-position: left;
     background-size: 200%;
@@ -72,6 +104,7 @@
     cursor:pointer;
     transition: 0.4s;
     display:inline;
+    margin-top: 40px;
   }
 
   .walbtn {
@@ -81,6 +114,7 @@
     margin-bottom: 40px;
     width:80%;
     height:40px;
+    border-radius: 40px;
     background: linear-gradient(125deg,#ff5478,#ffb0b9,#ffe5e7);
     background-position: left;
     background-size: 200%;

@@ -14,14 +14,14 @@
     border:none;
     outline:none;
     color: #392f31;
-    font-size:16px;
+    font-size:20px;
     height:25px;
     background: none;
 }
 
 .Ltext {
     font-family: 'Poor Story';
-    border-bottom: 2px solid #ff5478;
+    border-bottom: 2px solid #392f31;
 }
 
 .Lbtn{
@@ -45,3 +45,11 @@
 .Lbtn:hover {
     background-position: right;
   }
+
+.Ltitle {
+    text-align: center;
+    color: #ff5478;
+    margin-bottom: 50px;
+    font-size: 80px;
+    font-family: 'Poor Story';
+}

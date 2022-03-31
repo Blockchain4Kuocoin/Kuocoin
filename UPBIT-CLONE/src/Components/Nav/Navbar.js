@@ -8,8 +8,14 @@ import MyPage from "../Mypage/Mypage";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const [check, setCheck] = useState(true);
+  const [walState, setWalState] = useState({
+    modalOpen: false,
+  });
+  const [auth, setAuth] = useState(false);
+  const [state, setState] = useState("main");
 
-  const showSidebar = () => setSidebar(!sidebar);
+  const showSidebar = () => {setSidebar(!sidebar); setCheck(true); setWalState({modalOpen : false}); setAuth(false); setState("main")}
   return (
     <>
       {/* <IconContext.Provider value={{ color: "#fff" }}> */}
@@ -20,7 +26,7 @@ function Navbar() {
               <Link to="#" className="menu-bars">
                 {/* <AiIcons.AiOutlineClose onClick={showSidebar} /> */}
               </Link>
-              <MyPage />
+              <MyPage check={check} setCheck={setCheck} walState={walState} setWalState={setWalState} auth={auth} setAuth={setAuth} state={state} setState={setState}/>
             </li>
           </ul>
         </nav>

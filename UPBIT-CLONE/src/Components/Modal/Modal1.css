@@ -1,5 +1,4 @@
 .modal {
-    /* display: none; */
     position: fixed;
     top: -50%;
     right: 0;
@@ -8,8 +7,7 @@
     z-index: 99;
     background: rgba(0, 0, 0, 0.6);
     height: 800px;
-    /* width: 450px; */
-    /* background-color: rgb(255, 215, 0); */
+
 }
 .modal button {
     outline: none;
@@ -88,6 +86,7 @@
     transform: translateX(-50%);
     width:80%;
     height:40px;
+    border-radius: 40px;
     background: linear-gradient(125deg,#8d192b,#ffd700,#ff3399);
     background-position: left;
     background-size: 200%;
@@ -100,6 +99,7 @@
     margin-top: 50px;
 }
 
+
 .modal > section > main > .walmake >.walmakebtn:hover {
     background-position: right;
 }
@@ -107,17 +107,14 @@
 .wal_info {
     display: flex;
     flex-direction: row;
-    /* background-color: red; */
 }
 
 .wal_id {
-    /* background-color: blue; */
     width: 50%;
     border: solid 1px;
 }
 
 .wal_balance {
-    /* background-color: yellow; */
     width: 50%;
     border: solid 1px;
 }

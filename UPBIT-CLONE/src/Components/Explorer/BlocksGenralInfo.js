@@ -20,13 +20,13 @@ const St = {
     /* color: ${(props) => props.color}; */
     font-weight: 400;
     font-size: initial;
-
   `
 };
 
 const BlocksGenralInfo = () => {
   const [ blockGeneralInfo, setBlockGeneralInfo ] = useState([]);
   const [ timestamp, setTimestamp ] = useState('');
+  const [ txData, setTxData ] = useState([]);
   console.log(blockGeneralInfo);
   
   const params = useParams();
@@ -35,13 +35,21 @@ const BlocksGenralInfo = () => {
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
     .then((response) => {
+      setBlockGeneralInfo(response.data.data[0]); 
+      console.log(response.data[0]);
 
-      setBlockGeneralInfo(response.data[0]); 
-      console.log(response.data[0])
-      const time = Number(response.data[0].mediantime)*1000;
+      const time = Number(response.data.data[0].mediantime)*1000;
       console.log(time);
       const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(time);
       setTimestamp(date);
+      
+      let arr=[];
+      response.data.data[0].tx.split('/').map((ele) => {
+        const txDatas = ele;
+        console.log(txDatas);
+        arr.push(txDatas);
+      })
+      setTxData(arr);
     })
     .catch(err=>console.log(err))
   }, []);
@@ -61,23 +69,17 @@ const BlocksGenralInfo = () => {
     });
   };
   
-  
-  // console.log(blockGenralInfo.mediantime);
-  // // const timestamp = blockGenralInfo.mediantime*1000;
-  // console.log(timestamp);
-  // const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp)
-
   return(
     <>
-    <div style={{fontSize: "x-larger", fontWeight: "bolder"}}>General info</div>
+    <div style={{fontSize: "30px", fontWeight: "bolder"}}>General Infos</div>
     <St.GeneralInfoContainer>
       <St.GeneralInformationCate>
-        <div>Size</div><div>Stripped size</div><div>Version</div><div>Merkle root</div><div>Nonce</div><div>Chainwork</div>
+        <div>Size</div><div>Stripped size</div><div>Version</div><div>Transactions</div><div>Merkle root</div><div>Nonce</div><div>Chainwork</div>
       </St.GeneralInformationCate>
       <St.GeneralInformation>
-        <div>{blockGeneralInfo.size}</div><div>{blockGeneralInfo.strippedsize}</div><div>{blockGeneralInfo.version}</div><div>{blockGeneralInfo.merkleroot ? blockGeneralInfo.merkleroot.slice(0,10) + "..." + blockGeneralInfo.merkleroot.slice(-10): ""} <RiCheckboxMultipleBlankLine onClick={CopyMerkleRoot} size="18"/></div>
+        <div>{blockGeneralInfo.size}</div><div>{blockGeneralInfo.strippedsize}</div><div>{blockGeneralInfo.version}</div><div>{txData.length}</div><div>{blockGeneralInfo.merkleroot ? blockGeneralInfo.merkleroot.slice(0,10) + "..." + blockGeneralInfo.merkleroot.slice(-10): ""} <RiCheckboxMultipleBlankLine style={{cursor: "pointer"}} onClick={CopyMerkleRoot} size="18"/></div>
         <div>{blockGeneralInfo.nonce}</div><div>
-        {blockGeneralInfo.chainwork ? blockGeneralInfo.chainwork.slice(0,10) + "..." + blockGeneralInfo.chainwork.slice(-10): ""} <RiCheckboxMultipleBlankLine onClick={CopyChainwork} size="18"/></div>
+        {blockGeneralInfo.chainwork ? blockGeneralInfo.chainwork.slice(0,10) + "..." + blockGeneralInfo.chainwork.slice(-10): ""} <RiCheckboxMultipleBlankLine style={{cursor: "pointer"}} onClick={CopyChainwork} size="18"/></div>
       </St.GeneralInformation>
       <St.GeneralInformationCate>
         <div>Weight</div><div>Median time</div><div>Version [bits]</div><div>Difficulty</div><div>Bits</div><div>Confirmations</div>
@@ -88,8 +90,6 @@ const BlocksGenralInfo = () => {
     </St.GeneralInfoContainer>
     </>
   )
-
-
 };
 
 export default BlocksGenralInfo;

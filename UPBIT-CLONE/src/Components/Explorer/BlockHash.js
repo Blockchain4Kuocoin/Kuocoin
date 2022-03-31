@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { RiCheckboxMultipleBlankLine } from "react-icons/ri"
 import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
 
-
 const St = {
   container: styled.div`
     display: flex;
@@ -28,7 +27,6 @@ const St = {
 };
     /* font-family: 'Courier New', Courier, monospace; */
 
-
 const ToastsPop = () => {
   ToastsStore.success("Copied!");
 };
@@ -41,7 +39,7 @@ const BlockHash = () => {
 
   useEffect(()=>{
     Axios.get(`http://localhost:3001/explorer/kuoscoin/${params.height}`)
-    .then((response) => {setBlockHashData(response.data[0]); console.log(response.data)})
+    .then((response) => {setBlockHashData(response.data.data[0]); console.log(response.data.data)})
     .catch(err=>console.log(err))
   }, []);
 
@@ -59,7 +57,7 @@ const BlockHash = () => {
       <>Hash</>
         <St.BlockHashDiv>{blockHashData.hash}</St.BlockHashDiv>
     </St.BlockHashInfoContainer>
-    <RiCheckboxMultipleBlankLine onClick={CopyHash} size="20"/>
+    <RiCheckboxMultipleBlankLine style={{cursor: "pointer"}} onClick={CopyHash} size="20"/>
       <div className="url_copy">
         <style jsx="true">{`
           .toast {
@@ -81,5 +79,5 @@ const BlockHash = () => {
     </St.container>
   )
 };
-
+    
 export default BlockHash;

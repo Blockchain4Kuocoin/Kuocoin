@@ -22,7 +22,7 @@ const MainRouter = () => {
       <Route exact path="/" component={Home} />
       <Route exact path="/trade" component={Main} />
       <Route exact path="/home" component={Home} />
-      <Route exact path="/mypage" component={Mypage} />
+      {/* <Route exact path="/mypage" component={Mypage} /> */}
       <Route exact path="/login" component={Userlogin} />
       <Route exact path="/signup" component={UserSignup} />
       <Route exact path="/api" component={Api} />
