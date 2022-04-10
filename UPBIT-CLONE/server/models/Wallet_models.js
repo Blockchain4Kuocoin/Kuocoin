@@ -242,35 +242,35 @@ modelExports.order_Sell_Models = () => {
     console.log("sell coin: ");
     console.log(coinSymbol);
 
-    if (coinSymbol === 'KUOS') {
-        console.log('KUOS');
-        console.log(wal_addr);
-        var dataString = `{
-            "jsonrpc":"1.0", 
-            "id":"${ID_STRING}", 
-            "method":"sendmany",
-            "params":["${wal_id}", {"KBoxq2jS7eZRDrsLBJ2B9iDKMwQpyKztz1": ${orderinfo.orderAmount}}]
-        }`;
+    // if (coinSymbol === 'KUOS') {
+    //     console.log('KUOS');
+    //     console.log(wal_addr);
+    //     var dataString = `{
+    //         "jsonrpc":"1.0", 
+    //         "id":"${ID_STRING}", 
+    //         "method":"sendmany",
+    //         "params":["${wal_id}", {"KBoxq2jS7eZRDrsLBJ2B9iDKMwQpyKztz1": ${orderinfo.orderAmount}}]
+    //     }`;
     
-        var options = {
-            url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
-            method: "POST",
-            headers: headers,
-            body: dataString,
-        };
+    //     var options = {
+    //         url: `http://${USER}:${PASS}@127.0.0.1:${PORT}`,
+    //         method: "POST",
+    //         headers: headers,
+    //         body: dataString,
+    //     };
 
-        callback = (error, response, body) => {
-            if (!error && response.statusCode == 200) {
-                const data = JSON.parse(body);
-                console.log('kuos1')
-                console.log(data);
-            }
-            console.log('error')
-            console.error(response.body);
-        }
-        request(options, callback)
+    //     callback = (error, response, body) => {
+    //         if (!error && response.statusCode == 200) {
+    //             const data = JSON.parse(body);
+    //             console.log('kuos1')
+    //             console.log(data);
+    //         }
+    //         console.log('error')
+    //         console.error(response.body);
+    //     }
+    //     request(options, callback)
 
-    }
+    // }
 
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM walletinfo WHERE wal_id = ? AND owner = ?;";
