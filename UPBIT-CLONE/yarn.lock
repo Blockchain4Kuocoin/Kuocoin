@@ -7387,6 +7387,16 @@
 <<<<<<< HEAD
 "isarray@^1.0.0", "isarray@~1.0.0", "isarray@1.0.0":
 =======
+<<<<<<< HEAD
+=======
+=======
+"is-yarn-global@^0.3.0":
+  "integrity" "sha512-VjSeb/lHmkoyd8ryPVIKvOCn4D1koMqY+vqyjjUfc3xyKtP4dYOxM44sZrnqQSzSds3xyOrUTLTC9LVCVgLngw=="
+  "resolved" "https://registry.npmjs.org/is-yarn-global/-/is-yarn-global-0.3.0.tgz"
+  "version" "0.3.0"
+
+>>>>>>> 5bf46cddaecde6470dfad71ea417aa6e63bbee50
+>>>>>>> c4bf8f6ebcc745304e3807c44d597bb7badc316b
 "isarray@^1.0.0":
   "integrity" "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
   "resolved" "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
@@ -8929,7 +8939,23 @@
   "version" "0.0.8"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+<<<<<<< HEAD
+=======
+"mysql@^2.18.1":
+  "integrity" "sha512-Bca+gk2YWmqp2Uf6k5NFEurwY/0td0cpebAucFpY/3jhrwrVGuxU2uQFCHjU19SJfje0yQvi+rVWdq78hR5lig=="
+  "resolved" "https://registry.npmjs.org/mysql/-/mysql-2.18.1.tgz"
+  "version" "2.18.1"
+  dependencies:
+    "bignumber.js" "9.0.0"
+    "readable-stream" "2.3.7"
+    "safe-buffer" "5.1.2"
+    "sqlstring" "2.3.1"
+
+>>>>>>> 5bf46cddaecde6470dfad71ea417aa6e63bbee50
+>>>>>>> c4bf8f6ebcc745304e3807c44d597bb7badc316b
 "nan@^2.12.1":
   "integrity" "sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ=="
   "resolved" "https://registry.npmjs.org/nan/-/nan-2.14.2.tgz"
