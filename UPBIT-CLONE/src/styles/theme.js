@@ -6,6 +6,7 @@ const viewSize = {
 };
 
 const theme = {
+  test: "#ff5478",
   deepBlue: "#093687",
   skyBlue1: "rgba(0,98,223,.03)",
   skyBlue2: "rgba(0,98,223,.09)",

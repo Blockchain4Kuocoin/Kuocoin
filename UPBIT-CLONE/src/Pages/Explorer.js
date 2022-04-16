@@ -4,48 +4,70 @@ import withSize from "../Container/withSize";
 import { viewSize } from "../styles/theme";
 
 import Header from "../Components/Global/Header";
-import CoinInfoHeader from "../Components/Main/CoinInfoHeader";
 import Footer from "../Components/Global/Footer";
+import BlockHeadAd from "../Components/Explorer/BlockHeadAd";
+import SearchBar from "../Components/Explorer/SearchBar";
+import BlockInfoHeader from "../Components/Explorer/BlockInfoHeader";
+import BlocksInfo from "../Components/Explorer/BlocksInfo";
+import ThisBlockTransactionsInfo from "../Components/Explorer/BlockTransactionsInfo";
 
-const ExplorerSt = {
+const St = {
   ExplorerContentContainer: styled.div`
-  display: flex;
-    justify-content: center;
-    max-width: 1500px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 50px;
+    max-width: 1400px;
+    margin: 5vh auto;
     width: 100%;
     height: 100%;
-
     @media ${({ theme }) => theme.tablet} {
+      margin: 5vh 20px;
+    }
+  `,
+  DispFlex: styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh 0;
+  `,
+  BlockMarketPriceContainer: styled.article`
+    /* position: -webkit-sticky; 사파리  */
+    height: 40%;
+    width: 22%;
+    background-color: white;
+    margin: 10px;
+    border: 1px solid black;
+       /* overflow: hidden; */
+    /* @media ${({ theme }) => theme.desktop} {
+      display: block;
+      max-width: 400px;
+      height: ${({ heightSize }) => `${heightSize}px`};
+      margin-left: 10px;
+    }
+    @media ${({ theme, isRootURL }) => (!isRootURL ? theme.mobileM : true)} {
+      display: none;
+    }
+    @media ${({ theme, isRootURL }) => (isRootURL ? theme.tablet : true)} {
+      display: block;
       margin-top: 0;
       margin-bottom: 0;
-    }
-  `
-  // ,
-  // ChartAndTradeContainer: styled.section`
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   width: 95%;
-  //   max-width: 950px;
-
-  //   @media ${(props) => (props.isRootURL ? props.theme.tablet : true)} {
-  //     display: none;
-  //   }
-  // `
+      height: ${({ heightSize }) =>
+        `${heightSize + 80}px`}; // 모바일 풀 화면을 위해 다시 80px 더해줌
+    } */
+  `,
 };
 
 const Explorer = ({ match, widthSize, heightSize }) => {
-  const isExplorerURL = match.path === "/explorer";
 
   return (
     <>
-      <Header isExplorerURL={isExplorerURL} />
-      <ExplorerSt.ExplorerContentContainer>
-        ㅎㅇㄹ
-      </ExplorerSt.ExplorerContentContainer>
+      <Header/>
+      <St.ExplorerContentContainer>
+        <St.DispFlex>
+          <SearchBar />
+          <BlockHeadAd />
+        </St.DispFlex>
+        <BlockInfoHeader/>
+        <BlocksInfo />
+        <ThisBlockTransactionsInfo/>
+      </St.ExplorerContentContainer>
       <Footer />
     </>
   );

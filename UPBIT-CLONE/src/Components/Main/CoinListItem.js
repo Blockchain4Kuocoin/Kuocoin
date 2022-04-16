@@ -6,6 +6,12 @@ import { startChangeMarketAndData } from "../../Reducer/coinReducer";
 
 import isEqual from "react-fast-compare";
 
+import {
+  changeAmountAndTotalPrice,
+  changePriceAndTotalPrice,
+  changeTotalPriceAndAmount,
+} from "../../Reducer/coinReducer";
+
 const St = {
   CoinLi: styled.li`
     width: 100%;
@@ -35,7 +41,7 @@ const St = {
     height: 20px;
     background-image: ${({ coinNameEn }) =>
       coinNameEn !== "ADX"
-        ? `url(https://static.upbit.com/logos/${coinNameEn}.png)`
+        ? coinNameEn === "KUOS" ? `url(https://gateway.pinata.cloud/ipfs/Qmcr19WTLWVQSnVxL17zzvnBC3QAvNQASZQvcfGuNBGQqg)` : `url(https://static.upbit.com/logos/${coinNameEn}.png)`
         : "../styles/img/ADX.png"};
     background-size: cover;
     margin-left: 5px;
@@ -167,6 +173,9 @@ const CoinListItem = ({
 
   const changeMarket = useCallback(() => {
     dispatch(startChangeMarketAndData(marketName));
+    dispatch(changePriceAndTotalPrice(""));
+    dispatch(changeAmountAndTotalPrice(""));
+    dispatch(changeTotalPriceAndAmount(""));
     history.push("/trade");
   }, [dispatch, marketName, history]);
 
